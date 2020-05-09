@@ -1,2 +1,0 @@
-# TCC
-Tcc COTUCA 
