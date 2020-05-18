@@ -1,7 +1,7 @@
 
 exports.up = function(knex) {
     return knex.schema.createTable('ongs', function (table){
-        table.decimal('id').primary();
+        table.increments('id').primary();
         table.string('company_name').notNullable();
         table.string('name').notNullable();
         table.string('email').notNullable();
@@ -10,6 +10,9 @@ exports.up = function(knex) {
         table.decimal('cep').notNullable();
         table.decimal('number').notNullable();
         table.string('cnpj').notNullable();
+        table.string('born_date').notNullable();
+        table.string('register_date').notNullable();
+
         
           
       });
