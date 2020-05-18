@@ -9,9 +9,11 @@ exports.up = function(knex) {
         table.string('race').notNullable();
         table.string('color').notNullable();
         table.string('description').notNullable();
-        table.char('avaible').notNullable();
-        table.foreign('type_id').references('id').inTable('animals_types');
-        table.foreign('ong_id').references('id').inTable('ongs');
+        table.string('avaible').notNullable();  
+        table.integer('type_id').unsigned();
+        table.foreign('type_id').references('animals_types.id');
+        table.integer('ong_id').unsigned();
+        table.foreign('ong_id').references('ongs.id');
 
     })
 };

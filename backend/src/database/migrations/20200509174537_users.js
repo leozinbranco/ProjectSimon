@@ -9,6 +9,8 @@ exports.up = function(knex) {
         table.decimal('cep').notNullable();
         table.string('born_date').notNullable();
         table.string('register_date').notNullable();
+        table.string('bio');
+
 
           
       });
