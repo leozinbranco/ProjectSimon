@@ -7,7 +7,9 @@ exports.up = function(knex) {
         table.string('password').notNullable();
         table.string('whatsapp').notNullable();
         table.decimal('cep').notNullable();
-        
+        table.string('born_date').notNullable();
+        table.string('register_date').notNullable();
+
           
       });
 };
