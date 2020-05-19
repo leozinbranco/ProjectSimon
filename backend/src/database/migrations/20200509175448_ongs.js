@@ -7,15 +7,14 @@ exports.up = function(knex) {
         table.string('email').notNullable();
         table.string('password').notNullable();
         table.string('whatsapp').notNullable();
-        table.decimal('cep').notNullable();
+        table.string('cep').notNullable();
         table.decimal('number').notNullable();
         table.string('cnpj').notNullable();
         table.string('born_date').notNullable();
         table.string('register_date').notNullable();
 
         
-          
-      });
+    });
 };
 
 exports.down = function(knex) {

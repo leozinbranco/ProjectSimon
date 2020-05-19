@@ -6,10 +6,10 @@ exports.up = function(knex) {
         table.string('name').notNullable();
         table.string('born_date').notNullable();
         table.string('register_date').notNullable();
-        table.string('race').notNullable();
+        table.string('breed').notNullable();
         table.string('color').notNullable();
         table.string('description').notNullable();
-        table.string('avaible').notNullable();  
+        table.string('avaible', 1).notNullable();  
         table.integer('type_id').unsigned();
         table.foreign('type_id').references('animals_types.id');
         table.integer('ong_id').unsigned();

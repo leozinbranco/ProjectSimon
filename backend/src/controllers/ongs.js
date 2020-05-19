@@ -23,7 +23,7 @@ module.exports = {
                     //const register_date 
 
             
-                    const  {
+                    const params = {
                         company_name, 
                         name, 
                         email, 
@@ -33,26 +33,17 @@ module.exports = {
                         number,
                         cnpj,
                         born_date,
-                        register_date = moment().format().toString()
                     } = request.body;  //dados do corpo 
                     //console.log(data);
             
                    // const id = crypto.randomBytes(4).toString('HEX');
                     //id random criado
-            
+                    params.register_date =  moment().format().toString()
+
                     const ret = await knex('ongs')
                     .returning(['id',' company_name'])
-                    .insert({company_name, 
-                        name, 
-                        email, 
-                        password, 
-                        whatsapp,
-                        cep,
-                        number,
-                        cnpj,
-                        born_date,
-                        register_date})
-                    return response.json(ret);   
+                    .insert(params)
+                    return response.json({ret});   
 
                 }catch(error)
                 {

@@ -10,9 +10,9 @@ delete: deletar alguma inf no backend
 
 module.exports = {
     async index (request, response){
-        const users = await knex('users').select('*');
+        const animals = await knex('animals').select('*');
     
-        return response.json(users);  //obj criado da select feita 
+        return response.json(animals);  //obj criado da select feita 
     },
 
 
@@ -25,11 +25,13 @@ module.exports = {
 
             const params = {
                 name, 
+                born_date, 
                 email, 
-                password, 
-                whatsapp,
-                cep,
-                born_date,     
+                color, 
+                description,
+                avaible,
+                type_id,
+                ong_id,    
                 bio,
             } = request.body;  //dados do corpo 
             //console.log(data);
@@ -39,7 +41,7 @@ module.exports = {
             params.register_date =  moment().format().toString()
             //console.log(params);
 
-            const ret = await knex('users')
+            const ret = await knex('animals')
             .returning(['id',' name'])
             .insert(params);
 

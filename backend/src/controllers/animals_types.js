@@ -10,9 +10,9 @@ delete: deletar alguma inf no backend
 
 module.exports = {
     async index (request, response){
-        const users = await knex('users').select('*');
+        const animals_types = await knex('animals_types').select('*');
     
-        return response.json(users);  //obj criado da select feita 
+        return response.json(animals_types);  //obj criado da select feita 
     },
 
 
@@ -24,23 +24,16 @@ module.exports = {
 
 
             const params = {
-                name, 
-                email, 
-                password, 
-                whatsapp,
-                cep,
-                born_date,     
-                bio,
+                type_name
             } = request.body;  //dados do corpo 
             //console.log(data);
             
         // const id = crypto.randomBytes(4).toString('HEX');
             //id random criado
-            params.register_date =  moment().format().toString()
             //console.log(params);
 
-            const ret = await knex('users')
-            .returning(['id',' name'])
+            const ret = await knex('animals_types')
+            .returning(['id',' type_name'])
             .insert(params);
 
             return response.json(ret);   
