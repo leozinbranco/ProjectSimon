@@ -38,11 +38,11 @@ module.exports = {
             //id random criado
             params.register_date =  moment().format().toString()
             //console.log(params);
-
-            const ret = await knex('users')
-            .returning(['id',' name'])
-            .insert(params);
-
+            
+                const ret = await knex('users')
+                .returning(['id',' name'])
+                .insert(params);
+            
             return response.json(ret);   
 
         }catch(error)

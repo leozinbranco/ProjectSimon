@@ -22,30 +22,30 @@ module.exports = {
         try{
 
 
-
-            const params = {
-                name, 
-                born_date, 
-                email, 
-                color, 
-                description,
-                avaible,
-                type_id,
-                ong_id,    
-                bio,
-            } = request.body;  //dados do corpo 
-            //console.log(data);
+              
+                const params = {
+                    name, 
+                    born_date, 
+                    email, 
+                    color, 
+                    description,
+                    avaible,
+                    type_id,
+                    ong_id,    
+                    bio,
+                } = request.body;  //dados do corpo 
+                //console.log(data);
+                
+            // const id = crypto.randomBytes(4).toString('HEX');
+                //id random criado
+                params.register_date =  moment().format().toString()
+                //console.log(params);
             
-        // const id = crypto.randomBytes(4).toString('HEX');
-            //id random criado
-            params.register_date =  moment().format().toString()
-            //console.log(params);
-
-            const ret = await knex('animals')
-            .returning(['id',' name'])
-            .insert(params);
-
-            return response.json(ret);   
+                const ret = await knex('animals')
+                .returning(['id',' name'])
+                .insert(params);
+    
+            return response.json(ret);  
 
         }catch(error)
         {
