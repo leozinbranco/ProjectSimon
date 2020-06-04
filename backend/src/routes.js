@@ -6,6 +6,8 @@ const ongController = require('./controllers/ongs');
 const usersController = require('./controllers/users');
 const animalsController = require('./controllers/animals');
 const animals_typesController = require('./controllers/animals_types');
+const ong_bank_data = require('./controllers/ong_bank_data');
+const reports = require('./controllers/reports');
 //const incidentController = require('./controllers/IncidentController');
 //const profileController = require('./controllers/ProfileController');
 //const sessionController = require('./controllers/SessionController');
@@ -39,6 +41,15 @@ routes.get('/animals', animalsController.index);
 routes.post('/animals_types', animals_typesController.create);
 
 routes.get('/animals_types', animals_typesController.index);
+
+routes.post('/reports', reports.create);
+
+routes.get('/reports', reports.index);
+
+routes.post('/ong_bank_data', ong_bank_data.create);
+
+routes.get('/ong_bank_data', ong_bank_data.index);
+
 
 
 
