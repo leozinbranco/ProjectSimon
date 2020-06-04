@@ -10,10 +10,7 @@ exports.up = function(knex) {
         table.string('born_date').notNullable();
         table.string('register_date').notNullable();
         table.string('bio');
-
-
-          
-      });
+    });
 };
 
 exports.down = function(knex) {
