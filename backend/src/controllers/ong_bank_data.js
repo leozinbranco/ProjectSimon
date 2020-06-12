@@ -9,6 +9,18 @@ module.exports = {
         return response.json(ong_bank_data);
     },
 
+    async show (request, response){
+        const { id_ong } = request.params
+
+        const bank_data = await knex('ong_bank_data').select('*').where('id_ong', id_ong)
+
+        if (!bank_data)
+            return response.status(400).json({message: 'Bank data not found'})
+
+        return response.json(bank_data)
+    },
+
+
     async create (request, response){
 
         try{

@@ -9,6 +9,17 @@ module.exports = {
         return response.json(reports);
     },
 
+    async show (request, response) {
+        const { id } = request.params
+
+        const report = await knex('reports').select('*').where('id', id).first();
+
+        if (!report)
+            return response.status(400).json({message: 'Report not found'})
+
+        return response.json(report)
+    },
+
     async create (request, response){
         try{
             const params = {

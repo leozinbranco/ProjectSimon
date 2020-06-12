@@ -15,14 +15,22 @@ module.exports = {
         return response.json(ongs);  //obj criado da select feita 
     },
 
+    async show (request, response) {
+        const { id } = request.params
+
+        const ong = await knex('ongs').select('*').where('id', id).first();
+
+        if (!ong)
+            return response.status(400).json({message: 'Ong not found'})
+
+        return response.json(ong)
+    },
+
 
     async create(request, response){
                 //requisição e resposta
-
                 try{
-                    //const register_date 
 
-            
                     const params = {
                         company_name, 
                         name, 
@@ -34,10 +42,7 @@ module.exports = {
                         cnpj,
                         born_date,
                     } = request.body;  //dados do corpo 
-                    //console.log(data);
             
-                   // const id = crypto.randomBytes(4).toString('HEX');
-                    //id random criado
                     params.register_date =  moment().format().toString()
 
                     const ret = await knex('ongs')
@@ -48,8 +53,9 @@ module.exports = {
                 }catch(error)
                 {
                     console.log(error);
+                    return response.status(500).json({server_error: JSON.stringify(error)})
+
                 }
-          
 
     }
 }
