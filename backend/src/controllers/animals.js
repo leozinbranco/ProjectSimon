@@ -15,6 +15,16 @@ module.exports = {
         return response.json(animals);  //obj criado da select feita 
     },
 
+    async show (request, response) {
+        const { id } = request.params
+
+        const animal = await knex('animals').select('*').where('id', id).first();
+
+        if (!animal)
+            return response.status(400).json({message: 'Animal not found'})
+
+        return response.json(animal)
+    },
 
     async create(request, response){
                 //requisição e resposta
