@@ -81,5 +81,13 @@ routes.get('/ong_bank_data/:id_ong', ong_bank_data.index);
 
 routes.get('/auth', authController.authenticate);
 
+/*               */
+
+routes.post('/user_bank_data', ong_bank_data.create);
+
+routes.get('/user_bank_data', ong_bank_data.index);
+
+routes.get('/user_bank_data/:id_user', ong_bank_data.index);
+
 
 module.exports = routes;
