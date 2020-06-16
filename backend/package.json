@@ -4,12 +4,15 @@
   "description": "",
   "main": "app.js",
   "dependencies": {
+    "axios": "^0.19.2",
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "knex": "^0.21.1",
     "moment": "^2.25.3",
     "mssql": "^6.2.0",
-    "nodejs": "0.0.0"
+    "nodejs": "0.0.0",
+    "pagseguro": "^0.1.0",
+    "xml-js": "^1.6.11"
   },
   "devDependencies": {},
   "scripts": {
