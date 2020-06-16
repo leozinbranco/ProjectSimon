@@ -1,7 +1,9 @@
+
+
 const express = require('express');
 //const { celebrate, Segments, Joi} = require('celebrate');
 const routes = express.Router();  //modulo de rotas em uma nova variável, no lugar de app.
-
+const pagSeguro = require('./controllers/pagseguro');
 const ongController = require('./controllers/ongs');
 const usersController = require('./controllers/users');
 const animalsController = require('./controllers/animals');
@@ -29,6 +31,10 @@ const authController = require('./controllers/auth')
 // ongController.create);
 
 /*               */
+
+
+
+routes.post('/pagSeg', pagSeguro.connect); 
 
 routes.post('/ongs', ongController.create);
 
