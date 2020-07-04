@@ -1,38 +1,92 @@
 const axios = require('axios');
+const js2xmlparser = require("js2xmlparser");
 //import axios from 'axios';
 
 
 module.exports = {
 
-    //0f3941fc-c8f0-4d10-a1e9-79dc161e84bf0c5f08964c89a69286c9d71e1c31ba56c211-fcce-4256-bd18-b35343c8788d  <- token
+    //be0a09ac-3bc0-438c-99e8-5bb1377943ac6a58173145ddb5e0ef80a892d643bee5117d-f3ae-4eaf-a941-23434d0a9dff  <- token
     async connect(request, response){
         try{
-               /* axios.create({
+                /*axios.create({
                                     baseURL: '',
-                        });*/
+                        });
+                        var obj = {
+                                
+                                "preApproval":{
+                                    "name":"MATHEUS",
+                                    "reference":"TESTEREF",
+                                    "charge": "AUTO",
+                                    "period": "MONTHLY",
+                                        "expiration": {
+                                        "value": 2000,
+                                        "unit": "1 YEAR", 
+                                    },
+                                },
+                            
+                        };
 
-                        const get = await axios.post('https://ws.sandbox.pagseguro.uol.com.br/pre-approvals/request/?', {
-                            email: 'cc19377@g.unicamp.br',
-                            token: '0f3941fc-c8f0-4d10-a1e9-79dc161e84bf0c5f08964c89a69286c9d71e1c31ba56c211-fcce-4256-bd18-b35343c8788d',
-                            data: {
-                                reference:'TESTEREF',
-                                preApproval:{
-                                    name:'MATHEUS',
-                                    charge: 'AUTO',
-                                    period: 'MONTHLY',
+                        var options = {
+                            "declaration":{
+                                "encoding" :"ISO-8859-1",
+                                "standalone" : "yes",
+                            },
+                            
+                            
+                        }*/
+                        /*const response = await  axios({
+                                
+                                
+
+                            
+                            });*/
+                            //const body = js2xmlparser.parse("preApprovalRequest", obj, options);
+                       
+                        const get = await axios.post(`https://ws.sandbox.pagseguro.uol.com.br/pre-approvals/request/`, {
+                            
+                                "reference":"TESTEREF",
+                                "preApproval":{
+                                    "name":"MATHEUS",
+                                    
+                                    "charge": "AUTO",
+                                    "period": "MONTHLY",
+                                    "amountPerPayment": 100.11,
+                                        "expiration": {
+                                        "value": 2,
+                                        "unit": "YEARS", 
+                                    },
                                 },
-                                expiration: {
-                                    value: 2000,
-                                    unit: '1 YEAR', 
-                                },
+                            
+
+                        }, {
+                            params: {
+                                email: "cc19377@g.unicamp.br",
+                                token: "A23C1C87C36648118B73AC99B90D57CB",
+                            },
+                            headers: {
+                                'Content-Type': 'application/json;charset=ISO-8859-1',
+                                'Accept':'application/vnd.pagseguro.com.br.v3+json;charset=ISO-8859-1'
+                                
                             },
                         });
-                                
-                        return response.json(get);
+                        
+                    
+                        console.log({get});
+
+                        const ret = {
+                            status:get.status,
+                            statusText: get.statusText,
+                            code:get.data.code,
+                            date:get.data.date,
+                        }
+                        
+                        
+                        return response.json(ret);
         }
         catch(err)
         {
             console.error(err);
+            //console.error(JSON.stringify(err.response.data.errors));
             
         }
         
