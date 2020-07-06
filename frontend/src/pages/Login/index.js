@@ -1,4 +1,4 @@
-import React ,{useState} from 'react';
+import React, { useState } from 'react';
 import {
     SafeAreaView,
     StyleSheet,
@@ -7,35 +7,47 @@ import {
     Text,
     TextInput,
     TouchableOpacity,
+    Image
 } from 'react-native';
 
 import Style from './style'
 
-export default function Login() {
+export default function Login({navigation}) {
+    const goNextPage = () => navigation.navigate('Register');
 
     return (
 
-        <SafeAreaView style={Style.container}>
+        <SafeAreaView  style={Style.container}>
+            <View  style={Style.formContainer}>
 
-            <TextInput
-                style={Style.input}
-                placeholder="Email"
-            />
-    
-             <TextInput
-                style={Style.input}
-                placeholder="Senha"
-            />
+                <TextInput
+                    style={Style.input}
+                    placeholder="Email"
+                />
 
-            <TouchableOpacity style={Style.button}>
-                <View>
-                    <Text style={Style.whiteText}> OK </Text>
-                </View>
-            </TouchableOpacity>
+                <TextInput
+                    style={Style.input}
+                    placeholder="Senha"
+                />
 
-            <TouchableOpacity style={{paddingTop: 10}}>
+                <TouchableOpacity style={Style.button}>
+                    <View>
+                        <Text style={Style.whiteText}> Entrar </Text>
+                    </View>
+                </TouchableOpacity>
+
+                <TouchableOpacity style={{ paddingTop: 10 }} onPress={goNextPage}>
                     <Text style={Style.whiteText}> Criar conta </Text>
-            </TouchableOpacity>
+                </TouchableOpacity>
+
+            </View>
+
+            <View style={Style.logoImage}>
+                <Image
+                    source={require('../../../assets/logo.png')}
+                />
+            </View>
+
 
         </SafeAreaView>
     );

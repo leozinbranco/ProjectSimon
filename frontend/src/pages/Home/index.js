@@ -6,6 +6,7 @@ import {
     View,
     Text,
     StatusBar,
+    Image
 } from 'react-native';
 import { FlatList } from 'react-native-gesture-handler';
 
@@ -13,9 +14,9 @@ import { FlatList } from 'react-native-gesture-handler';
 import Style from './style'
 
 const fake_data = [
-    { id: 1, name: 'Sabrino' },
-    { id: 2, name: 'Sabrino' },
-    { id: 3, name: 'Sabrino' },
+    { id: 1, name: 'Poliano' },
+    { id: 2, name: 'Poliano' },
+    { id: 3, name: 'Poliano' },
 ]
 
 export default function Home() {
@@ -25,14 +26,7 @@ export default function Home() {
             <ScrollView>
                 <Text style={Style.header}>
                     Home
-                    </Text>
-
-                <View>
-                    <Text>
-                        Talvez alguma campanha
-                        </Text>
-                </View>
-
+                </Text>
 
                 <Text style={Style.title}>
                     Animais disponiveis para apadrinhamento
@@ -44,7 +38,7 @@ export default function Home() {
                     renderItem={({ item }) => (
                         <AnimalCard data={item}
                         />)}
-                    keyExtractor={item => item.id}
+                    keyExtractor={item =>  item.id.toString()}
                 />
 
 
@@ -58,7 +52,7 @@ export default function Home() {
                     renderItem={({ item }) => (
                         <AnimalCard data={item}
                         />)}
-                    keyExtractor={item => item.id}
+                    keyExtractor={item =>  item.id.toString()}
                 />
 
                 <Text style={Style.title}>
@@ -69,23 +63,41 @@ export default function Home() {
                     horizontal={true}
                     data={fake_data}
                     renderItem={({ item }) => (
-                        <AnimalCard data={item}
+                        <OngCard data={item}
                         />)}
-                    keyExtractor={item => item.id}
+                    keyExtractor={item => item.id.toString()}
                 />
 
             </ScrollView>
 
-            <StatusBar/>
+            <StatusBar />
         </SafeAreaView >
     );
 }
 
-function AnimalCard({data}) {
+function AnimalCard({ data }) {
     return (
-        <View style={Style.animalCard}>
-            <View style={Style.petImage}>
-            </View>
+        <View style={Style.card}>
+            
+                <Image style={Style.petImage}
+                    source={require('../../../assets/gato.png')}
+                />
+
+            <Text>
+                {`${data.name}`}
+            </Text>
+        </View>
+    )
+}
+
+function OngCard({ data }) {
+    return (
+        <View style={Style.card}>
+            
+                <Image style={Style.ongImage}
+                    source={require('../../../assets/gato.png')}
+                />
+
             <Text>
                 {`${data.name}`}
             </Text>

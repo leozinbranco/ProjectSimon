@@ -8,15 +8,38 @@ import {
     StatusBar,
 } from 'react-native';
 
-export default function Apadrinhar() {
+import { FlatList } from 'react-native-gesture-handler';
+
+import Card from '../components/Card'
+
+const fake_data = [
+    { id: 1, name: 'Poliano' },
+    { id: 2, name: 'Poliano' },
+    { id: 3, name: 'Poliano' },
+]
+
+
+export default function Reportar() {
 
     return (
         <>
             <SafeAreaView>
                 <Text>
-                    Apadrinhar page
+                    Report page
                 </Text>
+
+                <FlatList
+                    style={{ width: '100%' }}
+                    data={fake_data}
+                    renderItem={({ item }) => (
+                        <Card data={item}
+                        />)}
+                    keyExtractor={item =>  item.id.toString()}
+                />
+
 
             </SafeAreaView>
         </>);
 }
+
+

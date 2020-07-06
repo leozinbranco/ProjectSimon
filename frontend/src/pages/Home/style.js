@@ -41,9 +41,15 @@ export default StyleSheet.create({
         height: 95,
         backgroundColor: 'grey'
     },
-    animalCard: {
-        height: 100, 
+    card: {
+        height: 120, 
         margin: 10,
         alignItems: 'center',
-    }
+    },
+    ongImage: {
+        width: 110,
+        height: 110,
+        backgroundColor: 'grey',
+        borderRadius: 100,
+    },
 });

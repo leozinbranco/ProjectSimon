@@ -17,6 +17,11 @@ export default function Reportar() {
                     Report page
                 </Text>
 
+                
+
+
             </SafeAreaView>
         </>);
 }
+
+
