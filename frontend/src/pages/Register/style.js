@@ -18,14 +18,26 @@ export default StyleSheet.create({
 
     },
     button: {
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 0,
+            height: 4,
+        },
+        shadowOpacity: 0.30,
+        shadowRadius: 4.65,
+
+        elevation: 8,
         borderWidth: 1,
         borderRadius: 20,
-        borderColor: 'white',
+        borderColor: 'transparent',
         width: '70%',
+        height: '30%',
         padding: 10,
+        display: 'flex',
+        justifyContent: 'center',
         alignItems: "center",
         margin: 10,
-        backgroundColor: 'pink'
+        backgroundColor: '#DEDEDE'
     },
     title: {
         color: 'white',

@@ -22,9 +22,27 @@ export default StyleSheet.create({
         width: '70%',
         borderRadius: 100,
         margin: 10,
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 0,
+            height: 4,
+        },
+        shadowOpacity: 0.50,
+        shadowRadius: 4.65,
+
+        elevation: 8,
     },
     button: {
-        borderWidth: 1,
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 0,
+            height: 7,
+        },
+        shadowOpacity: 0.90,
+        shadowRadius: 9.51,
+
+        elevation: 15,
+        borderWidth: 2,
         borderRadius: 100,
         borderColor: 'white',
         width: '70%',
@@ -42,6 +60,18 @@ export default StyleSheet.create({
         position: "absolute",
         left: -20, 
         bottom: -20
-    }
+    },
+    createAccount: {
+        paddingTop: 10,
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 0,
+            height: 9,
+        },
+        shadowOpacity: 1.50,
+        shadowRadius: 12.35,
+
+        elevation: 19,
+    },
     
 });

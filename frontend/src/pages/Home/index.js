@@ -30,7 +30,8 @@ export default function Home() {
 
                 <Text style={Style.title}>
                     Animais disponiveis para apadrinhamento
-                    </Text>
+                </Text>
+                
                 <FlatList
                     style={{ width: '100%' }}
                     horizontal={true}

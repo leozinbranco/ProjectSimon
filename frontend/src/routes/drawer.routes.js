@@ -3,7 +3,7 @@ import {createDrawerNavigator} from 'react-navigation';
 
 import Home from './home.routes';
 
-const Drawer = createDrawerNavigator();
+const Drawer = createDrawerNavigator(); //drawer (puxa p lado)
 
 const DrawerNavigation = () => (
   <Drawer.Navigator initialRouteName="Home">
