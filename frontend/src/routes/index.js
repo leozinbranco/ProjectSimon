@@ -12,8 +12,8 @@ const Stack = createStackNavigator();
 
 const Routes = () => {
 
-  const estaLogado  = true 
-
+  const estaLogado  = false  //fazer esta logado   //estaLogado ? rotasTabsRoute : rotasLogin 
+                                                  //     x     ?      seSim     :   seNão    
   return (
     <NavigationContainer>
       <Stack.Navigator screenOptions={{ headerShown: false }}>

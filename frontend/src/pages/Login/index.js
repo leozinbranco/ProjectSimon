@@ -36,7 +36,7 @@ export default function Login({navigation}) {
                     </View>
                 </TouchableOpacity>
 
-                <TouchableOpacity style={{ paddingTop: 10 }} onPress={goNextPage}>
+                <TouchableOpacity style={Style.createAccount } onPress={goNextPage}>
                     <Text style={Style.whiteText}> Criar conta </Text>
                 </TouchableOpacity>
 
