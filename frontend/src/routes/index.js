@@ -12,7 +12,7 @@ const Stack = createStackNavigator();
 
 const Routes = () => {
 
-  const estaLogado  = false  //fazer esta logado   //estaLogado ? rotasTabsRoute : rotasLogin 
+  const estaLogado  = true;  //fazer esta logado   //estaLogado ? rotasTabsRoute : rotasLogin 
                                                   //     x     ?      seSim     :   seNão    
   return (
     <NavigationContainer>

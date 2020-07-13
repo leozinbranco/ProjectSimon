@@ -6,15 +6,17 @@ import Home from '../pages/Home';
 import Apadrinhar from '../pages/List';
 import Reportar from '../pages/Reportar';
 
+import Style from './tabsStyle';
+
 const TabBottom = createBottomTabNavigator(); //menu inferior
 
 const TabNavigator = () => (
   <TabBottom.Navigator tabBarOptions={{
-    style: {backgroundColor: '#3FB55D', borderTopStartRadius: 20, borderTopEndRadius: 20},
+    style: Style.navigator,
     inactiveTintColor: 'white',
   }}>
     <TabBottom.Screen name="Home" component={Home} />
-    <TabBottom.Screen name="Apadrinhar" children={()=><Apadrinhar sexo={'sexoi'}/>} />
+    <TabBottom.Screen name="Apadrinhar" children={()=><Apadrinhar nome={'Poliano'}/>} />
     <TabBottom.Screen name="Reportar" component={Reportar} />
   </TabBottom.Navigator>
 );
