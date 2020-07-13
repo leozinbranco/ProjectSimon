@@ -6,7 +6,7 @@ import Home from '../pages/Home';
 import Apadrinhar from '../pages/List';
 import Reportar from '../pages/Reportar';
 
-const TabBottom = createBottomTabNavigator();
+const TabBottom = createBottomTabNavigator(); //menu inferior
 
 const TabNavigator = () => (
   <TabBottom.Navigator tabBarOptions={{
