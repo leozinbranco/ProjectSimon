@@ -22,8 +22,8 @@ const fake_data = [
 export default function Home() {
 
     return (
-        <SafeAreaView>
-            <ScrollView>
+        <SafeAreaView >
+            <ScrollView >
                 <Text style={Style.header}>
                     Home
                 </Text>
@@ -31,7 +31,7 @@ export default function Home() {
                 <Text style={Style.title}>
                     Animais disponiveis para apadrinhamento
                 </Text>
-                
+
                 <FlatList
                     style={{ width: '100%' }}
                     horizontal={true}
@@ -56,6 +56,20 @@ export default function Home() {
                     keyExtractor={item =>  item.id.toString()}
                 />
 
+                <Text style={Style.title}>
+                    Ongs perto de você
+                </Text>
+                <FlatList
+                    style={{ width: '100%' }}
+                    horizontal={true}
+                    data={fake_data}
+                    renderItem={({ item }) => (
+                        <OngCard data={item}
+                        />)}
+                    keyExtractor={item => item.id.toString()}
+                />
+
+                
                 <Text style={Style.title}>
                     Ongs perto de você
                 </Text>

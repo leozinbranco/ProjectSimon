@@ -10,12 +10,13 @@ import {
 
 import { FlatList } from 'react-native-gesture-handler';
 
+import Style from './style';
 import Card from '../../components/Card';
 
 const fake_data = [
-    { id: 1, name: 'Poliano' },
-    { id: 2, name: 'Poliano' },
-    { id: 3, name: 'Poliano' },
+    { id: 1, name: 'Poliano', ong: 'COTUCA' },
+    { id: 2, name: 'Poliano', ong: 'COTUCA'  },
+    { id: 3, name: 'Poliano', ong: 'COTUCA'  },
 ]
 
 
@@ -25,7 +26,7 @@ export default function Lista({sexo}) {
         <>
             <SafeAreaView>
                 <Text>
-                 {sexo}
+                {sexo}
                 </Text>
 
                 <FlatList
