@@ -8,6 +8,7 @@ import {
     StatusBar,
     Image
 } from 'react-native';
+import { Feather } from '@expo/vector-icons'; 
 import { FlatList } from 'react-native-gesture-handler';
 
 
