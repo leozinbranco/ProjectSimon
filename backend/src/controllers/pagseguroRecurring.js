@@ -41,24 +41,11 @@ module.exports = {
                             
                             });*/
                             //const body = js2xmlparser.parse("preApprovalRequest", obj, options);
-                       
-                        const get = await axios.post(`https://ws.sandbox.pagseguro.uol.com.br/pre-approvals/request/`, {
-                            
-                                "reference":"TESTEREF",
-                                "preApproval":{
-                                    "name":"MATHEUS",
-                                    
-                                    "charge": "AUTO",
-                                    "period": "MONTHLY",
-                                    "amountPerPayment": 100.11,
-                                        "expiration": {
-                                        "value": 2,
-                                        "unit": "YEARS", 
-                                    },
-                                },
-                            
+                        console.log(request.body);
 
-                        }, {
+                        
+
+                        const post = await axios.post(`https://ws.sandbox.pagseguro.uol.com.br/pre-approvals/request/`,request.body , {
                             params: {
                                 email: "cc19377@g.unicamp.br",
                                 token: "A23C1C87C36648118B73AC99B90D57CB",
@@ -70,14 +57,14 @@ module.exports = {
                             },
                         });
                         
-                    
-                        console.log({get});
+                        
+                        
 
                         const ret = {
-                            status:get.status,
-                            statusText: get.statusText,
-                            code:get.data.code,
-                            date:get.data.date,
+                            status:post.status,
+                            statusText: post.statusText,
+                            code:post.data.code,
+                            date:post.data.date,
                         }
                         
                         
