@@ -3,7 +3,7 @@
 const express = require('express');
 //const { celebrate, Segments, Joi} = require('celebrate');
 const routes = express.Router();  //modulo de rotas em uma nova variável, no lugar de app.
-const pagSeguro = require('./controllers/pagseguro');
+const pagSeguroRecurring = require('./controllers/pagseguroRecurring');
 const ongController = require('./controllers/ongs');
 const usersController = require('./controllers/users');
 const animalsController = require('./controllers/animals');
@@ -11,7 +11,7 @@ const animals_typesController = require('./controllers/animals_types');
 const ong_bank_data = require('./controllers/ong_bank_data');
 const reports = require('./controllers/reports');
 const authController = require('./controllers/auth')
-
+const pagSeguroTransfer = require('./controllers/pagSeguroTransfer');
 //const incidentController = require('./controllers/IncidentController');
 //const profileController = require('./controllers/ProfileController');
 //const sessionController = require('./controllers/SessionController');
@@ -31,10 +31,13 @@ const authController = require('./controllers/auth')
 // ongController.create);
 
 /*               */
+routes.post('/auth', pagSeguroTransfer.authorization);
 
+routes.post('/solicitation', pagSeguroTransfer.solicitationAuthAccount);
 
+routes.get('/balance', pagSeguroTransfer.balance);
 
-routes.post('/pagSeg', pagSeguro.connect); 
+routes.post('/pagSegRec', pagSeguroRecurring.connect); 
 
 routes.post('/ongs', ongController.create);
 
