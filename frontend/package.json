@@ -12,7 +12,7 @@
     "@react-navigation/bottom-tabs": "^5.6.1",
     "@react-navigation/drawer": "^5.8.4",
     "@react-navigation/native": "^5.6.1",
-    "@react-navigation/stack": "^5.6.2",
+    "@react-navigation/stack": "^5.7.0",
     "expo": "^38.0.8",
     "expo-status-bar": "^1.0.2",
     "linear-gradient": "^1.0.6",
@@ -23,7 +23,8 @@
     "react-native-reanimated": "~1.9.0",
     "react-native-safe-area-context": "~3.0.7",
     "react-native-screens": "~2.9.0",
-    "react-native-web": "~0.11.7"
+    "react-native-web": "~0.11.7",
+    "react-navigation-transitions": "^1.0.12"
   },
   "devDependencies": {
     "@babel/core": "^7.8.6",
