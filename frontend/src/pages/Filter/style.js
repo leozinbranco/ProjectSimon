@@ -19,9 +19,21 @@ export default StyleSheet.create({
     headerText:{
         flexDirection: 'row',
         justifyContent: 'center',
-        padding: 15,
-        
-        
-        
+        alignContent: 'center',
+         
+        alignSelf: 'center', 
+        padding: 15,  
     },
+
+    selectFilter:{
+        width: 80,
+        height: 30, 
+        backgroundColor: '#E2E2E2',
+        borderColor: '#B6B6B6',
+        borderWidth: 1,
+        borderRadius: 30, 
+        textAlignVertical:'center',
+        marginHorizontal: 10,
+
+    },  
 });

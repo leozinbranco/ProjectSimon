@@ -44,7 +44,7 @@ export default StyleSheet.create({
         marginHorizontal: 10,
         marginVertical: 5,
         paddingHorizontal: 8, 
-        textAlignVertical:'center',
+        
         
     },  
 
