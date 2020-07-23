@@ -17,12 +17,7 @@ const FilterRoute = () => (
                     )}
                     
             } />
-            <Stack.Screen name="Filter" component={
-                () => {() => (
-                    <Filter navigation= {this.props.navigation}/>
-                        
-                    )}
-            } />
+            
         </Stack.Navigator>
     </NavigationContainer>
 );

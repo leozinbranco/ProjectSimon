@@ -19,6 +19,7 @@ export default StyleSheet.create({
         fontSize: 25,
         textAlign: 'left', 
         textAlignVertical: 'center',
+        justifyContent:'center',
         marginLeft: 10,
     },
 
