@@ -18,11 +18,11 @@ export default function Card({ data }) {
             </Text>
 
             <Image
-                source={require('../../assets/gato.png')}
+                source={require('../../../assets/gato.png')}
             />
 
             <View style={Style.container}>
-                <Image source={require('../../assets/ong.png')} style={Style.image}></Image>
+                <Image source={require('../../../assets/ong.png')} style={Style.image}></Image>
                 <Text style={Style.bottomText}>
                 ONG • {data.ong} 
                 </Text >

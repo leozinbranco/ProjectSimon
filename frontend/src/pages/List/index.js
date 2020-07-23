@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {
     SafeAreaView,
     StyleSheet,
@@ -18,7 +18,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 
 import Style from './style';
 import Card from '../../components/Card';
-import Filter from '../Filter';
+import Filter from '../../components/Filter/index';
 
 const fake_data = [
     { id: 1, name: 'Poliano', ong: 'COTUCA' },
@@ -26,9 +26,13 @@ const fake_data = [
     { id: 3, name: 'Poliano', ong: 'COTUCA'  },
 ]
 
-const Stack = createStackNavigator(); 
+export default function Lista() {
+    const [modalVisible, setModalVisible] = useState(false);
 
- function Lista({navigation}) {
+    function handleClick() {
+        setModalVisible(!modalVisible);
+    }
+
     return (
         <>
             <SafeAreaView >
@@ -36,9 +40,9 @@ const Stack = createStackNavigator();
                         <Text style={{fontSize:48, color:'#5A5A5A', padding:10}}>
                             Animais
                         </Text>
-
+                        
                         <View style={Style.filterContainer}>
-                            <TouchableOpacity style={{flexDirection:'row'}}  onPress={() => navigation.navigate('Filter')}>
+                            <TouchableOpacity style={{flexDirection:'row'}}  onPress={handleClick}>
                                     <View style={Style.slider}> 
                                         <Feather name="sliders" size={24} color="black"/> 
                                     </View>
@@ -51,7 +55,7 @@ const Stack = createStackNavigator();
                             </TouchableOpacity>
                         </View>
                                 
-                        
+                        <Filter visible={modalVisible} handler={handleClick}/>
                         
                         <View> 
 
@@ -109,20 +113,9 @@ const Stack = createStackNavigator();
         </>);
 };
 
-    function App() {
-    return (
-        <NavigationContainer independent={true}>
-            <Stack.Navigator initialRouteName="Lista" screenOptions={{
-                headerShown: false
-            }}>
-                <Stack.Screen name="Filter" component={Filter} screenOptions={{ headerShown: true }}/>
-                <Stack.Screen name="Lista" component={Lista} />
-            </Stack.Navigator>
-        </NavigationContainer>
-    );
-    }
+  
 
-export default App;
+
 
 
 
