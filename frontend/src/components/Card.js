@@ -21,12 +21,13 @@ export default function Card({ data }) {
                 source={require('../../assets/gato.png')}
             />
 
-            
-                <Text style={Style.bottomText}>
+
+            <View style={Style.lineView}>
                 <Image source={require('../../assets/ong.png')} style={Style.image}></Image>
-                ONG • {data.ong} 
+                <Text style={Style.bottomText}>
+                    ONG • {data.ong}
                 </Text >
-           
+            </View>
 
         </TouchableOpacity>
     )
@@ -46,21 +47,26 @@ const Style = StyleSheet.create({
 
     },
     bottomText: {
-        color : '#606060',
+        color: '#606060',
         opacity: 0.8,
-        backgroundColor: 'purple',
+        backgroundColor: 'white',
         textAlign: "left",
-        textAlignVertical: "center"
+        textAlignVertical: "center",
+        padding: 5,
+
 
     },
-    image: { 
+    image: {
         justifyContent: 'center',
         resizeMode: 'contain', 
         width: 21,
         height: 24,
-        
-    },
 
-    
-    
+    },
+    lineView: {
+        flexDirection: 'row',
+    }
+
+
+
 });
