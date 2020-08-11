@@ -31,7 +31,7 @@ const pagSeguroTransfer = require('./controllers/pagSeguroTransfer');
 // ongController.create);
 
 /*               */
-routes.post('/auth', pagSeguroTransfer.authorization);
+routes.post('/pagseguro/auth', pagSeguroTransfer.authorization);
 
 routes.post('/solicitation', pagSeguroTransfer.solicitationAuthAccount);
 
@@ -88,7 +88,7 @@ routes.get('/ong_bank_data/:id_ong', ong_bank_data.index);
 
 /*               */
 
-routes.get('/auth', authController.authenticate);
+routes.post('/auth', authController.authenticate);
 
 /*               */
 

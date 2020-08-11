@@ -8,8 +8,8 @@ import {
     StatusBar,
     Image
 } from 'react-native';
-import { Feather } from '@expo/vector-icons'; 
-import { FlatList } from 'react-native-gesture-handler';
+
+import { FlatList, TouchableOpacity } from 'react-native-gesture-handler';
 
 
 import Style from './style'
@@ -17,10 +17,12 @@ import Style from './style'
 const fake_data = [
     { id: 1, name: 'Poliano' },
     { id: 2, name: 'Poliano' },
-    { id: 3, name: 'Poliano' },
 ]
 
-export default function Home() {
+export default function Home({ navigation }) {
+    const goToPage = (pageName, item) => {
+        navigation.navigate(pageName, { item });
+    }
 
     return (
         <SafeAreaView >
@@ -38,9 +40,12 @@ export default function Home() {
                     horizontal={true}
                     data={fake_data}
                     renderItem={({ item }) => (
-                        <AnimalCard data={item}
-                        />)}
-                    keyExtractor={item =>  item.id.toString()}
+                        <TouchableOpacity onPress={() => navigation.navigate('Apadrinhar', { item })}>
+                            <AnimalCard data={item} />
+                        </TouchableOpacity>
+                    )}
+                    keyExtractor={item => item.id.toString()}
+                    ListFooterComponent={<ButtomCard onPress={() => navigation.navigate('Apadrinhar')} />}
                 />
 
 
@@ -52,35 +57,24 @@ export default function Home() {
                     horizontal={true}
                     data={fake_data}
                     renderItem={({ item }) => (
-                        <AnimalCard data={item}
-                        />)}
-                    keyExtractor={item =>  item.id.toString()}
-                />
-
-                <Text style={Style.title}>
-                    Ongs perto de você
-                </Text>
-                <FlatList
-                    style={{ width: '100%' }}
-                    horizontal={true}
-                    data={fake_data}
-                    renderItem={({ item }) => (
-                        <OngCard data={item}
-                        />)}
+                        <TouchableOpacity onPress={() => navigation.navigate('Apadrinhar', { item })}>
+                            <AnimalCard data={item} />
+                        </TouchableOpacity>
+                    )}
                     keyExtractor={item => item.id.toString()}
+                    ListFooterComponent={<ButtomCard onPress={() => navigation.navigate('Apadrinhar')}/>}
                 />
 
-                
                 <Text style={Style.title}>
-                    Ongs perto de você
+                    Ongs disponiveis
                 </Text>
                 <FlatList
                     style={{ width: '100%' }}
                     horizontal={true}
                     data={fake_data}
                     renderItem={({ item }) => (
-                        <OngCard data={item}
-                        />)}
+                        <OngCard data={item}/>
+                        )}
                     keyExtractor={item => item.id.toString()}
                 />
 
@@ -91,13 +85,12 @@ export default function Home() {
     );
 }
 
-function AnimalCard({ data }) {
+function AnimalCard({ data, onPress }) {
     return (
         <View style={Style.card}>
-            
-                <Image style={Style.petImage}
-                    source={require('../../../assets/gato.png')}
-                />
+            <Image style={Style.petImage}
+                source={require('../../../assets/gato.png')}
+            />
 
             <Text>
                 {`${data.name}`}
@@ -109,14 +102,31 @@ function AnimalCard({ data }) {
 function OngCard({ data }) {
     return (
         <View style={Style.card}>
-            
-                <Image style={Style.ongImage}
-                    source={require('../../../assets/gato.png')}
-                />
+
+            <Image style={Style.ongImage}
+                source={require('../../../assets/gato.png')}
+            />
 
             <Text>
                 {`${data.name}`}
             </Text>
         </View>
+    )
+}
+
+function ButtomCard({ onPress }) {
+    return (
+        <TouchableOpacity onPress={onPress}>
+            <View style={Style.card}>
+                <Image style={Style.petImage}
+
+                />
+
+                <Text>
+                    Ver mais
+                </Text>
+            </View>
+        </TouchableOpacity>
+
     )
 }
