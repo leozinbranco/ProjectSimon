@@ -5,6 +5,9 @@ module.exports = {
     async authenticate(request, response) {
         const { email, password } = request.body;
 
+        if (!email || !password)
+            return response.status(500).json({error: "You must pass email and password on body"})
+
         let auth = await knex('users').select('*').where({
             email,
             password,  //Necessario criptografar 
