@@ -46,13 +46,25 @@ export default StyleSheet.create({
         flex: 0,
         display: 'flex',
         flexDirection: 'row',
-        
+
         borderColor: '#969696',
         borderBottomWidth: 1,
         padding: 5,
         margin: 15,
         width: '70%',
 
+    },
+    photoView: {
+        width: 110,
+        height: 110,
+        backgroundColor: 'grey',
+        borderRadius: 100,
+    },
+    scroll: {
+        width: '100%', 
+        justifyContent: "center",
+        alignItems: "center",
+        marginTop: 20,
     }
 
 

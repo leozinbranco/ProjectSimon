@@ -23,6 +23,7 @@ const fake_data = [
  * @param {React Navigation} navigation atributo de navegação do app
  * @returns {JSX} Homescreen do Aplicativo
  */
+
 export default function Home({ navigation }) {
 
     return (
