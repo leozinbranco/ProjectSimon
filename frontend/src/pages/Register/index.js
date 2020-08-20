@@ -12,7 +12,7 @@ import {
 
 import Style from './style'
 
-export default function Register() {
+export default function Register({ navigation }) {
 
     return (
 
@@ -21,7 +21,7 @@ export default function Register() {
 
             <View style={Style.formContainer}>
 
-                <TouchableOpacity style={Style.button}>
+                <TouchableOpacity style={Style.button} onPress={() => navigation.navigate('UserRegistration')}>
                         <Image
                             source={require('../../../assets/person.png')}
                         />
