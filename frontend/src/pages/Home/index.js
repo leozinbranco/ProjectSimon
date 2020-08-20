@@ -11,7 +11,6 @@ import {
 
 import { FlatList, TouchableOpacity } from 'react-native-gesture-handler';
 
-
 import Style from './style'
 
 const fake_data = [
@@ -19,10 +18,12 @@ const fake_data = [
     { id: 2, name: 'Poliano' },
 ]
 
+/**
+ * Essa é a Home Page do App.
+ * @param {React Navigation} navigation atributo de navegação do app
+ * @returns {JSX} Homescreen do Aplicativo
+ */
 export default function Home({ navigation }) {
-    const goToPage = (pageName, item) => {
-        navigation.navigate(pageName, { item });
-    }
 
     return (
         <SafeAreaView >
@@ -62,7 +63,7 @@ export default function Home({ navigation }) {
                         </TouchableOpacity>
                     )}
                     keyExtractor={item => item.id.toString()}
-                    ListFooterComponent={<ButtomCard onPress={() => navigation.navigate('Apadrinhar')}/>}
+                    ListFooterComponent={<ButtomCard onPress={() => navigation.navigate('Apadrinhar')} />}
                 />
 
                 <Text style={Style.title}>
@@ -73,8 +74,8 @@ export default function Home({ navigation }) {
                     horizontal={true}
                     data={fake_data}
                     renderItem={({ item }) => (
-                        <OngCard data={item}/>
-                        )}
+                        <OngCard data={item} />
+                    )}
                     keyExtractor={item => item.id.toString()}
                 />
 
