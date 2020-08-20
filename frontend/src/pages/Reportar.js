@@ -11,17 +11,16 @@ import {
 export default function Reportar() {
 
     return (
-        <>
-            <SafeAreaView>
-                <Text>
-                    Report page
+        <SafeAreaView>
+            <Text>
+                Report page
                 </Text>
 
-                
 
 
-            </SafeAreaView>
-        </>);
+
+        </SafeAreaView>
+    );
 }
 
 

@@ -5,7 +5,8 @@
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
-    "eject": "expo eject"
+    "eject": "expo eject",
+    "esdoc": "node_modules/.bin/esdoc -c .esdoc.json"
   },
   "dependencies": {
     "@react-native-community/masked-view": "0.1.10",
@@ -14,6 +15,8 @@
     "@react-navigation/native": "^5.6.1",
     "@react-navigation/stack": "^5.7.0",
     "axios": "^0.19.2",
+    "esdoc-ecmascript-proposal-plugin": "^1.0.0",
+    "esdoc-jsx-plugin": "^1.0.0",
     "expo": "^38.0.8",
     "expo-status-bar": "^1.0.2",
     "linear-gradient": "^1.0.6",
@@ -29,7 +32,9 @@
   },
   "devDependencies": {
     "@babel/core": "^7.8.6",
-    "babel-preset-expo": "~8.1.0"
+    "babel-preset-expo": "~8.1.0",
+    "esdoc": "^1.1.0",
+    "esdoc-standard-plugin": "^1.0.0"
   },
   "private": true
 }
