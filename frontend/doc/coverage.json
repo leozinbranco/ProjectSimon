@@ -1,0 +1,116 @@
+{
+  "coverage": "3.84%",
+  "expectCount": 26,
+  "actualCount": 1,
+  "files": {
+    "src/components/Card/index.js": {
+      "expectCount": 2,
+      "actualCount": 0,
+      "undocumentLines": [
+        12,
+        36
+      ]
+    },
+    "src/components/Filter/index.js": {
+      "expectCount": 2,
+      "actualCount": 0,
+      "undocumentLines": [
+        20,
+        28
+      ]
+    },
+    "src/pages/Home/index.js": {
+      "expectCount": 5,
+      "actualCount": 1,
+      "undocumentLines": [
+        16,
+        89,
+        103,
+        118
+      ]
+    },
+    "src/pages/List/index.js": {
+      "expectCount": 2,
+      "actualCount": 0,
+      "undocumentLines": [
+        21,
+        27
+      ]
+    },
+    "src/pages/Login/index.js": {
+      "expectCount": 1,
+      "actualCount": 0,
+      "undocumentLines": [
+        18
+      ]
+    },
+    "src/pages/PetProfile/index.js": {
+      "expectCount": 1,
+      "actualCount": 0,
+      "undocumentLines": [
+        11
+      ]
+    },
+    "src/pages/Register/index.js": {
+      "expectCount": 1,
+      "actualCount": 0,
+      "undocumentLines": [
+        15
+      ]
+    },
+    "src/pages/Reportar.js": {
+      "expectCount": 1,
+      "actualCount": 0,
+      "undocumentLines": [
+        11
+      ]
+    },
+    "src/routes/index.js": {
+      "expectCount": 2,
+      "actualCount": 0,
+      "undocumentLines": [
+        13,
+        15
+      ]
+    },
+    "src/routes/list.routes.js": {
+      "expectCount": 2,
+      "actualCount": 0,
+      "undocumentLines": [
+        7,
+        9
+      ]
+    },
+    "src/routes/login.routes.js": {
+      "expectCount": 2,
+      "actualCount": 0,
+      "undocumentLines": [
+        8,
+        10
+      ]
+    },
+    "src/routes/tabs.routes.js": {
+      "expectCount": 2,
+      "actualCount": 0,
+      "undocumentLines": [
+        17,
+        19
+      ]
+    },
+    "src/services/api.js": {
+      "expectCount": 1,
+      "actualCount": 0,
+      "undocumentLines": [
+        3
+      ]
+    },
+    "src/services/auth.js": {
+      "expectCount": 2,
+      "actualCount": 0,
+      "undocumentLines": [
+        3,
+        10
+      ]
+    }
+  }
+}
