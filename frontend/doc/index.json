@@ -1,0 +1,1503 @@
+[
+  {
+    "__docId__": 1,
+    "kind": "external",
+    "name": "Infinity",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Infinity",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Infinity",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 2,
+    "kind": "external",
+    "name": "NaN",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/NaN",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~NaN",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 3,
+    "kind": "external",
+    "name": "undefined",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/undefined",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~undefined",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 4,
+    "kind": "external",
+    "name": "null",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~null",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 5,
+    "kind": "external",
+    "name": "Object",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Object",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 6,
+    "kind": "external",
+    "name": "object",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~object",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 7,
+    "kind": "external",
+    "name": "Function",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Function",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 8,
+    "kind": "external",
+    "name": "function",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~function",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 9,
+    "kind": "external",
+    "name": "Boolean",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Boolean",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 10,
+    "kind": "external",
+    "name": "boolean",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~boolean",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 11,
+    "kind": "external",
+    "name": "Symbol",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Symbol",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 12,
+    "kind": "external",
+    "name": "Error",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Error",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 13,
+    "kind": "external",
+    "name": "EvalError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/EvalError",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~EvalError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 14,
+    "kind": "external",
+    "name": "InternalError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/InternalError",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~InternalError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 15,
+    "kind": "external",
+    "name": "RangeError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RangeError",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~RangeError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 16,
+    "kind": "external",
+    "name": "ReferenceError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ReferenceError",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~ReferenceError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 17,
+    "kind": "external",
+    "name": "SyntaxError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/SyntaxError",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~SyntaxError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 18,
+    "kind": "external",
+    "name": "TypeError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypeError",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~TypeError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 19,
+    "kind": "external",
+    "name": "URIError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/URIError",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~URIError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 20,
+    "kind": "external",
+    "name": "Number",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Number",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 21,
+    "kind": "external",
+    "name": "number",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~number",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 22,
+    "kind": "external",
+    "name": "Date",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Date",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 23,
+    "kind": "external",
+    "name": "String",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~String",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 24,
+    "kind": "external",
+    "name": "string",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~string",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 25,
+    "kind": "external",
+    "name": "RegExp",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~RegExp",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 26,
+    "kind": "external",
+    "name": "Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 27,
+    "kind": "external",
+    "name": "Int8Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Int8Array",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Int8Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 28,
+    "kind": "external",
+    "name": "Uint8Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Uint8Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 29,
+    "kind": "external",
+    "name": "Uint8ClampedArray",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8ClampedArray",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Uint8ClampedArray",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 30,
+    "kind": "external",
+    "name": "Int16Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Int16Array",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Int16Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 31,
+    "kind": "external",
+    "name": "Uint16Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint16Array",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Uint16Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 32,
+    "kind": "external",
+    "name": "Int32Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Int32Array",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Int32Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 33,
+    "kind": "external",
+    "name": "Uint32Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint32Array",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Uint32Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 34,
+    "kind": "external",
+    "name": "Float32Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Float32Array",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Float32Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 35,
+    "kind": "external",
+    "name": "Float64Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Float64Array",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Float64Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 36,
+    "kind": "external",
+    "name": "Map",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Map",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 37,
+    "kind": "external",
+    "name": "Set",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Set",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 38,
+    "kind": "external",
+    "name": "WeakMap",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakMap",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~WeakMap",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 39,
+    "kind": "external",
+    "name": "WeakSet",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakSet",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~WeakSet",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 40,
+    "kind": "external",
+    "name": "ArrayBuffer",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~ArrayBuffer",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 41,
+    "kind": "external",
+    "name": "DataView",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/DataView",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~DataView",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 42,
+    "kind": "external",
+    "name": "JSON",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~JSON",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 43,
+    "kind": "external",
+    "name": "Promise",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Promise",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 44,
+    "kind": "external",
+    "name": "Generator",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Generator",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Generator",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 45,
+    "kind": "external",
+    "name": "GeneratorFunction",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/GeneratorFunction",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~GeneratorFunction",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 46,
+    "kind": "external",
+    "name": "Reflect",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Reflect",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Reflect",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 47,
+    "kind": "external",
+    "name": "Proxy",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Proxy",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 48,
+    "kind": "file",
+    "name": "src/components/Card/index.js",
+    "content": "import React from 'react';\r\nimport {\r\n    View,\r\n    Text,\r\n    Image,\r\n    StyleSheet,\r\n    TouchableOpacity\r\n} from 'react-native';\r\n\r\n\r\n\r\nexport default function Card({ data, onPress }) {\r\n    return (\r\n        <TouchableOpacity style={Style.card} onPress={onPress}>\r\n\r\n            <Text style={Style.title}>\r\n                {`${data.name}`}\r\n            </Text>\r\n\r\n            <Image style={Style.image}\r\n                //source={require('../../../assets/gato.png')}\r\n            />\r\n\r\n            <View style={Style.container}>\r\n                <Image source={require('../../../assets/ong.png')} style={Style.ongicon}></Image>\r\n                <Text style={Style.bottomText}>\r\n                ONG • {data.ong} \r\n                </Text >\r\n            </View>\r\n\r\n        </TouchableOpacity>\r\n    )\r\n}\r\n\r\n\r\nconst Style = StyleSheet.create({\r\n    card: {\r\n        flex: 1, // <- ocupa o máximo de tamanho possível do elemento pai\r\n        flexDirection: \"column\",\r\n        //backgroundColor: '#3FB55D',\r\n        padding: 20,\r\n        margin: 10,\r\n        borderColor: 'grey',\r\n        borderWidth: 0.5,\r\n    },\r\n    title: {\r\n        fontSize: 30,\r\n        fontWeight: \"bold\",\r\n\r\n    },\r\n    bottomText: {\r\n        color: '#606060',\r\n        opacity: 0.8,\r\n        textAlign: 'left', \r\n        textAlignVertical: 'center',\r\n        padding: 5, \r\n        paddingLeft: 10, \r\n    },\r\n    ongicon: {\r\n        justifyContent: 'center',\r\n        resizeMode: 'contain', \r\n        width: 21,\r\n        height: 24,\r\n        \r\n        \r\n    },\r\n    image: {\r\n        justifyContent: 'center',\r\n        resizeMode: 'contain', \r\n        width: '100%',\r\n        height: 250,\r\n        backgroundColor: 'grey'\r\n    },\r\n    container: {\r\n        flexDirection: 'row',\r\n        marginTop: 5,\r\n    },  \r\n\r\n});\r\n",
+    "static": true,
+    "longname": "C:/Users/shiro/Documents/GitHub/tcc/frontend/src/components/Card/index.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 49,
+    "kind": "function",
+    "name": "Card",
+    "memberof": "src/components/Card/index.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/components/Card/index.js~Card",
+    "access": "public",
+    "export": true,
+    "importPath": "./src/components/Card/index.js",
+    "importStyle": "Card",
+    "description": null,
+    "lineNumber": 12,
+    "undocument": true,
+    "params": [
+      {
+        "name": "objectPattern",
+        "types": [
+          "{\"data\": *, \"onPress\": *}"
+        ],
+        "defaultRaw": {
+          "data": null,
+          "onPress": null
+        },
+        "defaultValue": "{\"data\":null,\"onPress\":null}"
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 50,
+    "kind": "variable",
+    "name": "Style",
+    "memberof": "src/components/Card/index.js",
+    "static": true,
+    "longname": "src/components/Card/index.js~Style",
+    "access": "public",
+    "export": false,
+    "importPath": "./src/components/Card/index.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 36,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 51,
+    "kind": "file",
+    "name": "src/components/Filter/index.js",
+    "content": "import React, { useState, useEffect } from 'react';\r\nimport {\r\n    SafeAreaView,\r\n    StyleSheet,\r\n    ScrollView,\r\n    View,\r\n    Text,\r\n    StatusBar,\r\n    Modal,\r\n    Alert,\r\n    TouchableOpacity,\r\n    Image\r\n} from 'react-native';\r\n/*import { Feather } from '@expo/vector-icons'; \r\nimport { FlatList } from 'react-native-gesture-handler';*/\r\n\r\n\r\nimport Style from './style';\r\n\r\nconst fake_data = [\r\n    { id: 1, name: 'Poliano' },\r\n    { id: 2, name: 'Poliano' },\r\n    { id: 3, name: 'Poliano' },\r\n]\r\n\r\n\r\n\r\nexport default function Filter({ visible, handler }) {\r\n    const [modalVisible, setModalVisible] = useState(false);\r\n\r\n    useEffect(() => {\r\n        // Atualiza o titulo do documento usando a API do browser\r\n        setModalVisible(visible);\r\n    });\r\n\r\n    function handleClick() {\r\n        setModalVisible(false);\r\n    }\r\n\r\n\r\n    return (\r\n        <Modal\r\n            animationType=\"slide\"\r\n            transparent={true}\r\n            visible={modalVisible}\r\n            onRequestClose={() => {\r\n                handler();\r\n            }}\r\n        >\r\n\r\n            <View style={Style.inside_container}>\r\n                <View style={Style.headerText}>\r\n\r\n                    <TouchableOpacity onPress={handler}>\r\n                        <Text style={{ color: '#5A5A5A', fontSize: 18 }}> Cancelar</Text>\r\n                    </TouchableOpacity>\r\n\r\n                    <Text style={{ color: '#5A5A5A', fontSize: 25, marginHorizontal: 40 }}> Filtrar</Text>\r\n\r\n                    <TouchableOpacity >\r\n                        <Text style={{ color: '#5A5A5A', fontSize: 18 }}> Limpar</Text>\r\n                    </TouchableOpacity>\r\n\r\n                </View>\r\n\r\n                <ScrollView>\r\n                    <Text style={{ fontWeight: 'bold', padding: 25, paddingBottom: 10 }}>Idade</Text>\r\n\r\n\r\n                    <View style={{ flex: 1, alignItems: 'center' }} >\r\n                        <View style={{ flexDirection: 'row', marginVertical: 10 }}>\r\n\r\n                            <TouchableOpacity style={Style.selectFilter} >\r\n                                <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', flexDirection: 'row', alignSelf: 'center' }}>\r\n                                    <Text style={{ textAlign: 'center', color: '#484848', opacity: 0.8 }}>\r\n                                        Exemplo\r\n                                </Text>\r\n                                </View>\r\n                            </TouchableOpacity>\r\n\r\n                            <TouchableOpacity style={Style.selectFilter} >\r\n                                <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', flexDirection: 'row', alignSelf: 'center' }}>\r\n                                    <Text style={{ textAlign: 'center', color: '#484848', opacity: 0.8 }}>\r\n                                        Exemplo\r\n                                </Text>\r\n                                </View>\r\n                            </TouchableOpacity>\r\n\r\n                            <TouchableOpacity style={Style.selectFilter} >\r\n                                <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', flexDirection: 'row', alignSelf: 'center' }}>\r\n                                    <Text style={{ textAlign: 'center', color: '#484848', opacity: 0.8 }}>\r\n                                        Exemplo\r\n                                </Text>\r\n                                </View>\r\n                            </TouchableOpacity>\r\n\r\n                        </View>\r\n\r\n                        <View style={{ flexDirection: 'row', marginVertical: 10 }}>\r\n\r\n                            <TouchableOpacity style={Style.selectFilter} >\r\n                                <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', flexDirection: 'row', alignSelf: 'center' }}>\r\n                                    <Text style={{ textAlign: 'center', color: '#484848', opacity: 0.8 }}>\r\n                                        Exemplo\r\n                                </Text>\r\n                                </View>\r\n                            </TouchableOpacity>\r\n\r\n                            <TouchableOpacity style={Style.selectFilter} >\r\n                                <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', flexDirection: 'row', alignSelf: 'center' }}>\r\n                                    <Text style={{ textAlign: 'center', color: '#484848', opacity: 0.8 }}>\r\n                                        Exemplo\r\n                                </Text>\r\n                                </View>\r\n                            </TouchableOpacity>\r\n\r\n                            <TouchableOpacity style={Style.selectFilter} >\r\n                                <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', flexDirection: 'row', alignSelf: 'center' }}>\r\n                                    <Text style={{ textAlign: 'center', color: '#484848', opacity: 0.8 }}>\r\n                                        Exemplo\r\n                                </Text>\r\n                                </View>\r\n                            </TouchableOpacity>\r\n\r\n                        </View>\r\n\r\n                        <View style={{ flexDirection: 'row', marginVertical: 10 }}>\r\n\r\n                            <TouchableOpacity style={Style.selectFilter} >\r\n                                <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', flexDirection: 'row', alignSelf: 'center' }}>\r\n                                    <Text style={{ textAlign: 'center', color: '#484848', opacity: 0.8 }}>\r\n                                        Exemplo\r\n                                </Text>\r\n                                </View>\r\n                            </TouchableOpacity>\r\n\r\n                            <TouchableOpacity style={Style.selectFilter} >\r\n                                <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', flexDirection: 'row', alignSelf: 'center' }}>\r\n                                    <Text style={{ textAlign: 'center', color: '#484848', opacity: 0.8 }}>\r\n                                        Exemplo\r\n                                </Text>\r\n                                </View>\r\n                            </TouchableOpacity>\r\n\r\n                            <TouchableOpacity style={Style.selectFilter} >\r\n                                <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', flexDirection: 'row', alignSelf: 'center' }}>\r\n                                    <Text style={{ textAlign: 'center', color: '#484848', opacity: 0.8 }}>\r\n                                        Exemplo\r\n                                </Text>\r\n                                </View>\r\n                            </TouchableOpacity>\r\n\r\n\r\n                        </View>\r\n\r\n                    </View>\r\n\r\n\r\n                    <Text style={{ fontWeight: 'bold', padding: 25, paddingBottom: 10 }}>Idade</Text>\r\n\r\n\r\n                    <View style={{ flex: 1, alignItems: 'center' }} >\r\n                        <View style={{ flexDirection: 'row', marginVertical: 10 }}>\r\n\r\n                            <TouchableOpacity style={Style.selectFilter} >\r\n                                <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', flexDirection: 'row', alignSelf: 'center' }}>\r\n                                    <Text style={{ textAlign: 'center', color: '#484848', opacity: 0.8 }}>\r\n                                        Exemplo\r\n                                </Text>\r\n                                </View>\r\n                            </TouchableOpacity>\r\n\r\n                            <TouchableOpacity style={Style.selectFilter} >\r\n                                <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', flexDirection: 'row', alignSelf: 'center' }}>\r\n                                    <Text style={{ textAlign: 'center', color: '#484848', opacity: 0.8 }}>\r\n                                        Exemplo\r\n                                </Text>\r\n                                </View>\r\n                            </TouchableOpacity>\r\n\r\n                            <TouchableOpacity style={Style.selectFilter} >\r\n                                <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', flexDirection: 'row', alignSelf: 'center' }}>\r\n                                    <Text style={{ textAlign: 'center', color: '#484848', opacity: 0.8 }}>\r\n                                        Exemplo\r\n                                </Text>\r\n                                </View>\r\n                            </TouchableOpacity>\r\n\r\n                        </View>\r\n\r\n                        <View style={{ flexDirection: 'row', marginVertical: 10 }}>\r\n\r\n                            <TouchableOpacity style={Style.selectFilter} >\r\n                                <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', flexDirection: 'row', alignSelf: 'center' }}>\r\n                                    <Text style={{ textAlign: 'center', color: '#484848', opacity: 0.8 }}>\r\n                                        Exemplo\r\n                                </Text>\r\n                                </View>\r\n                            </TouchableOpacity>\r\n\r\n                            <TouchableOpacity style={Style.selectFilter} >\r\n                                <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', flexDirection: 'row', alignSelf: 'center' }}>\r\n                                    <Text style={{ textAlign: 'center', color: '#484848', opacity: 0.8 }}>\r\n                                        Exemplo\r\n                                </Text>\r\n                                </View>\r\n                            </TouchableOpacity>\r\n\r\n                            <TouchableOpacity style={Style.selectFilter} >\r\n                                <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', flexDirection: 'row', alignSelf: 'center' }}>\r\n                                    <Text style={{ textAlign: 'center', color: '#484848', opacity: 0.8 }}>\r\n                                        Exemplo\r\n                                </Text>\r\n                                </View>\r\n                            </TouchableOpacity>\r\n\r\n                        </View>\r\n\r\n                        <View style={{ flexDirection: 'row', marginVertical: 10 }}>\r\n\r\n                            <TouchableOpacity style={Style.selectFilter} >\r\n                                <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', flexDirection: 'row', alignSelf: 'center' }}>\r\n                                    <Text style={{ textAlign: 'center', color: '#484848', opacity: 0.8 }}>\r\n                                        Exemplo\r\n                                </Text>\r\n                                </View>\r\n                            </TouchableOpacity>\r\n\r\n                            <TouchableOpacity style={Style.selectFilter} >\r\n                                <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', flexDirection: 'row', alignSelf: 'center' }}>\r\n                                    <Text style={{ textAlign: 'center', color: '#484848', opacity: 0.8 }}>\r\n                                        Exemplo\r\n                                </Text>\r\n                                </View>\r\n                            </TouchableOpacity>\r\n\r\n                            <TouchableOpacity style={Style.selectFilter} >\r\n                                <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', flexDirection: 'row', alignSelf: 'center' }}>\r\n                                    <Text style={{ textAlign: 'center', color: '#484848', opacity: 0.8 }}>\r\n                                        Exemplo\r\n                                </Text>\r\n                                </View>\r\n                            </TouchableOpacity>\r\n\r\n\r\n                        </View>\r\n\r\n                    </View>\r\n\r\n\r\n                    <Text style={{ fontWeight: 'bold', padding: 25, paddingBottom: 10 }}>Idade</Text>\r\n\r\n\r\n                    <View style={{ flex: 1, alignItems: 'center' }} >\r\n                        <View style={{ flexDirection: 'row', marginVertical: 10 }}>\r\n\r\n                            <TouchableOpacity style={Style.selectFilter} >\r\n                                <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', flexDirection: 'row', alignSelf: 'center' }}>\r\n                                    <Text style={{ textAlign: 'center', color: '#484848', opacity: 0.8 }}>\r\n                                        Exemplo\r\n                                </Text>\r\n                                </View>\r\n                            </TouchableOpacity>\r\n\r\n                            <TouchableOpacity style={Style.selectFilter} >\r\n                                <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', flexDirection: 'row', alignSelf: 'center' }}>\r\n                                    <Text style={{ textAlign: 'center', color: '#484848', opacity: 0.8 }}>\r\n                                        Exemplo\r\n                                </Text>\r\n                                </View>\r\n                            </TouchableOpacity>\r\n\r\n                            <TouchableOpacity style={Style.selectFilter} >\r\n                                <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', flexDirection: 'row', alignSelf: 'center' }}>\r\n                                    <Text style={{ textAlign: 'center', color: '#484848', opacity: 0.8 }}>\r\n                                        Exemplo\r\n                                </Text>\r\n                                </View>\r\n                            </TouchableOpacity>\r\n\r\n                        </View>\r\n\r\n                        <View style={{ flexDirection: 'row', marginVertical: 10 }}>\r\n\r\n                            <TouchableOpacity style={Style.selectFilter} >\r\n                                <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', flexDirection: 'row', alignSelf: 'center' }}>\r\n                                    <Text style={{ textAlign: 'center', color: '#484848', opacity: 0.8 }}>\r\n                                        Exemplo\r\n                                </Text>\r\n                                </View>\r\n                            </TouchableOpacity>\r\n\r\n                            <TouchableOpacity style={Style.selectFilter} >\r\n                                <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', flexDirection: 'row', alignSelf: 'center' }}>\r\n                                    <Text style={{ textAlign: 'center', color: '#484848', opacity: 0.8 }}>\r\n                                        Exemplo\r\n                                </Text>\r\n                                </View>\r\n                            </TouchableOpacity>\r\n\r\n                            <TouchableOpacity style={Style.selectFilter} >\r\n                                <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', flexDirection: 'row', alignSelf: 'center' }}>\r\n                                    <Text style={{ textAlign: 'center', color: '#484848', opacity: 0.8 }}>\r\n                                        Exemplo\r\n                                </Text>\r\n                                </View>\r\n                            </TouchableOpacity>\r\n\r\n                        </View>\r\n\r\n                        <View style={{ flexDirection: 'row', marginVertical: 10 }}>\r\n\r\n                            <TouchableOpacity style={Style.selectFilter} >\r\n                                <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', flexDirection: 'row', alignSelf: 'center' }}>\r\n                                    <Text style={{ textAlign: 'center', color: '#484848', opacity: 0.8 }}>\r\n                                        Exemplo\r\n                                </Text>\r\n                                </View>\r\n                            </TouchableOpacity>\r\n\r\n                            <TouchableOpacity style={Style.selectFilter} >\r\n                                <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', flexDirection: 'row', alignSelf: 'center' }}>\r\n                                    <Text style={{ textAlign: 'center', color: '#484848', opacity: 0.8 }}>\r\n                                        Exemplo\r\n                                </Text>\r\n                                </View>\r\n                            </TouchableOpacity>\r\n\r\n                            <TouchableOpacity style={Style.selectFilter} >\r\n                                <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', flexDirection: 'row', alignSelf: 'center' }}>\r\n                                    <Text style={{ textAlign: 'center', color: '#484848', opacity: 0.8 }}>\r\n                                        Exemplo\r\n                                </Text>\r\n                                </View>\r\n                            </TouchableOpacity>\r\n\r\n\r\n                        </View>\r\n\r\n                    </View>\r\n                </ScrollView>\r\n\r\n                <TouchableOpacity style={Style.applyBtn}>\r\n                    <Text style={{ color:'#FFFF', fontSize: 20, textAlign: 'center' }}>Aplicar</Text>\r\n                </TouchableOpacity>\r\n\r\n            </View>\r\n\r\n        </Modal>\r\n    );\r\n}",
+    "static": true,
+    "longname": "C:/Users/shiro/Documents/GitHub/tcc/frontend/src/components/Filter/index.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 52,
+    "kind": "variable",
+    "name": "fake_data",
+    "memberof": "src/components/Filter/index.js",
+    "static": true,
+    "longname": "src/components/Filter/index.js~fake_data",
+    "access": "public",
+    "export": false,
+    "importPath": "./src/components/Filter/index.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 20,
+    "undocument": true,
+    "type": {
+      "types": [
+        "undefined[]"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 53,
+    "kind": "function",
+    "name": "Filter",
+    "memberof": "src/components/Filter/index.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/components/Filter/index.js~Filter",
+    "access": "public",
+    "export": true,
+    "importPath": "./src/components/Filter/index.js",
+    "importStyle": "Filter",
+    "description": null,
+    "lineNumber": 28,
+    "undocument": true,
+    "params": [
+      {
+        "name": "objectPattern",
+        "types": [
+          "{\"visible\": *, \"handler\": *}"
+        ],
+        "defaultRaw": {
+          "visible": null,
+          "handler": null
+        },
+        "defaultValue": "{\"visible\":null,\"handler\":null}"
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 54,
+    "kind": "file",
+    "name": "src/components/Filter/style.js",
+    "content": "import { StyleSheet } from 'react-native';\r\n\r\nexport default StyleSheet.create({\r\n    container: {\r\n        flex: 1,\r\n        flexDirection: \"column\",\r\n        backgroundColor: '#3FB55D',\r\n\r\n    },\r\n\r\n    inside_container: {\r\n        flex: 1,\r\n        marginHorizontal: 15,\r\n        marginTop: 30,\r\n        backgroundColor: '#FFFF',\r\n        borderTopLeftRadius: 20,\r\n        borderTopRightRadius: 20,\r\n    },\r\n    headerText: {\r\n        flexDirection: 'row',\r\n        justifyContent: 'center',\r\n        alignContent: 'center',\r\n\r\n        alignSelf: 'center',\r\n        padding: 15,\r\n    },\r\n\r\n    selectFilter: {\r\n        width: 80,\r\n        height: 30,\r\n        backgroundColor: '#E2E2E2',\r\n        borderColor: '#B6B6B6',\r\n        borderWidth: 1,\r\n        borderRadius: 30,\r\n        textAlignVertical: 'center',\r\n        marginHorizontal: 10,\r\n\r\n    },\r\n\r\n    applyBtn: {\r\n        height: 40,\r\n        width: 200,\r\n        backgroundColor: '#3FB55D',\r\n        justifyContent: 'center',\r\n        alignSelf: 'center',\r\n        marginBottom: 20,\r\n        marginTop: 20,\r\n\r\n        shadowColor: \"#000\",\r\n        shadowOffset: {\r\n            width: 0,\r\n            height: 3,\r\n        },\r\n        shadowOpacity: 0.29,\r\n        shadowRadius: 4.65,\r\n\r\n        elevation: 5,\r\n    },\r\n});\r\n",
+    "static": true,
+    "longname": "C:/Users/shiro/Documents/GitHub/tcc/frontend/src/components/Filter/style.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 55,
+    "kind": "file",
+    "name": "src/pages/Home/index.js",
+    "content": "import React from 'react';\r\nimport {\r\n    SafeAreaView,\r\n    StyleSheet,\r\n    ScrollView,\r\n    View,\r\n    Text,\r\n    StatusBar,\r\n    Image\r\n} from 'react-native';\r\n\r\nimport { FlatList, TouchableOpacity } from 'react-native-gesture-handler';\r\n\r\nimport Style from './style'\r\n\r\nconst fake_data = [\r\n    { id: 1, name: 'Poliano' },\r\n    { id: 2, name: 'Poliano' },\r\n]\r\n\r\n/**\r\n * Essa é a Home Page do App.\r\n * @param {React Navigation} navigation atributo de navegação do app\r\n * @returns {JSX} Homescreen do Aplicativo\r\n */\r\nexport default function Home({ navigation }) {\r\n\r\n    return (\r\n        <SafeAreaView >\r\n            <ScrollView >\r\n                <Text style={Style.header}>\r\n                    Home\r\n                </Text>\r\n\r\n                <Text style={Style.title}>\r\n                    Animais disponiveis para apadrinhamento\r\n                </Text>\r\n\r\n                <FlatList\r\n                    style={{ width: '100%' }}\r\n                    horizontal={true}\r\n                    data={fake_data}\r\n                    renderItem={({ item }) => (\r\n                        <TouchableOpacity onPress={() => navigation.navigate('Apadrinhar', { item })}>\r\n                            <AnimalCard data={item} />\r\n                        </TouchableOpacity>\r\n                    )}\r\n                    keyExtractor={item => item.id.toString()}\r\n                    ListFooterComponent={<ButtomCard onPress={() => navigation.navigate('Apadrinhar')} />}\r\n                />\r\n\r\n\r\n                <Text style={Style.title}>\r\n                    Disponiveis para adoção\r\n                </Text>\r\n                <FlatList\r\n                    style={{ width: '100%' }}\r\n                    horizontal={true}\r\n                    data={fake_data}\r\n                    renderItem={({ item }) => (\r\n                        <TouchableOpacity onPress={() => navigation.navigate('Apadrinhar', { item })}>\r\n                            <AnimalCard data={item} />\r\n                        </TouchableOpacity>\r\n                    )}\r\n                    keyExtractor={item => item.id.toString()}\r\n                    ListFooterComponent={<ButtomCard onPress={() => navigation.navigate('Apadrinhar')} />}\r\n                />\r\n\r\n                <Text style={Style.title}>\r\n                    Ongs disponiveis\r\n                </Text>\r\n                <FlatList\r\n                    style={{ width: '100%' }}\r\n                    horizontal={true}\r\n                    data={fake_data}\r\n                    renderItem={({ item }) => (\r\n                        <OngCard data={item} />\r\n                    )}\r\n                    keyExtractor={item => item.id.toString()}\r\n                />\r\n\r\n            </ScrollView>\r\n\r\n            <StatusBar />\r\n        </SafeAreaView >\r\n    );\r\n}\r\n\r\nfunction AnimalCard({ data, onPress }) {\r\n    return (\r\n        <View style={Style.card}>\r\n            <Image style={Style.petImage}\r\n                source={require('../../../assets/gato.png')}\r\n            />\r\n\r\n            <Text>\r\n                {`${data.name}`}\r\n            </Text>\r\n        </View>\r\n    )\r\n}\r\n\r\nfunction OngCard({ data }) {\r\n    return (\r\n        <View style={Style.card}>\r\n\r\n            <Image style={Style.ongImage}\r\n                source={require('../../../assets/gato.png')}\r\n            />\r\n\r\n            <Text>\r\n                {`${data.name}`}\r\n            </Text>\r\n        </View>\r\n    )\r\n}\r\n\r\nfunction ButtomCard({ onPress }) {\r\n    return (\r\n        <TouchableOpacity onPress={onPress}>\r\n            <View style={Style.card}>\r\n                <Image style={Style.petImage}\r\n\r\n                />\r\n\r\n                <Text>\r\n                    Ver mais\r\n                </Text>\r\n            </View>\r\n        </TouchableOpacity>\r\n\r\n    )\r\n}",
+    "static": true,
+    "longname": "C:/Users/shiro/Documents/GitHub/tcc/frontend/src/pages/Home/index.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 56,
+    "kind": "variable",
+    "name": "fake_data",
+    "memberof": "src/pages/Home/index.js",
+    "static": true,
+    "longname": "src/pages/Home/index.js~fake_data",
+    "access": "public",
+    "export": false,
+    "importPath": "./src/pages/Home/index.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 16,
+    "undocument": true,
+    "type": {
+      "types": [
+        "undefined[]"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 57,
+    "kind": "function",
+    "name": "Home",
+    "memberof": "src/pages/Home/index.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/pages/Home/index.js~Home",
+    "access": "public",
+    "export": true,
+    "importPath": "./src/pages/Home/index.js",
+    "importStyle": "Home",
+    "description": "Essa é a Home Page do App.",
+    "lineNumber": 26,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{JSX} Homescreen do Aplicativo"
+      }
+    ],
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "React Navigation"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "navigation",
+        "description": "atributo de navegação do app"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "JSX"
+      ],
+      "spread": false,
+      "description": "Homescreen do Aplicativo"
+    }
+  },
+  {
+    "__docId__": 58,
+    "kind": "function",
+    "name": "AnimalCard",
+    "memberof": "src/pages/Home/index.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/pages/Home/index.js~AnimalCard",
+    "access": "public",
+    "export": false,
+    "importPath": "./src/pages/Home/index.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 89,
+    "undocument": true,
+    "params": [
+      {
+        "name": "objectPattern",
+        "types": [
+          "{\"data\": *, \"onPress\": *}"
+        ],
+        "defaultRaw": {
+          "data": null,
+          "onPress": null
+        },
+        "defaultValue": "{\"data\":null,\"onPress\":null}"
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 59,
+    "kind": "function",
+    "name": "OngCard",
+    "memberof": "src/pages/Home/index.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/pages/Home/index.js~OngCard",
+    "access": "public",
+    "export": false,
+    "importPath": "./src/pages/Home/index.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 103,
+    "undocument": true,
+    "params": [
+      {
+        "name": "objectPattern",
+        "types": [
+          "{\"data\": *}"
+        ],
+        "defaultRaw": {
+          "data": null
+        },
+        "defaultValue": "{\"data\":null}"
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 60,
+    "kind": "function",
+    "name": "ButtomCard",
+    "memberof": "src/pages/Home/index.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/pages/Home/index.js~ButtomCard",
+    "access": "public",
+    "export": false,
+    "importPath": "./src/pages/Home/index.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 118,
+    "undocument": true,
+    "params": [
+      {
+        "name": "objectPattern",
+        "types": [
+          "{\"onPress\": *}"
+        ],
+        "defaultRaw": {
+          "onPress": null
+        },
+        "defaultValue": "{\"onPress\":null}"
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 61,
+    "kind": "file",
+    "name": "src/pages/Home/style.js",
+    "content": "import { StyleSheet } from 'react-native';\r\n\r\nexport default StyleSheet.create({\r\n    container: {\r\n        flex: 1,\r\n        flexDirection: \"column\",\r\n        backgroundColor: '#3FB55D',\r\n        justifyContent: \"center\",\r\n        alignItems: \"center\"\r\n    },\r\n    input: {\r\n        backgroundColor: 'white',\r\n        padding: 10,\r\n        width: '70%',\r\n        borderRadius: 100,\r\n        margin: 10,\r\n    },\r\n    button: {\r\n        borderWidth: 1,\r\n        borderRadius: 100,\r\n        borderColor: 'white',\r\n        width: '70%',\r\n        padding: 10,\r\n        alignItems: \"center\",\r\n        margin: 10,\r\n    },\r\n    whiteText: {\r\n        color: 'white',\r\n    },\r\n    header: {\r\n        fontSize: 48,\r\n        margin: 10,\r\n        fontWeight: 'bold'\r\n    },\r\n    title: {\r\n        fontWeight: 'bold',\r\n        margin: 10,\r\n    },\r\n    petImage: {\r\n        width: 125,\r\n        height: 95,\r\n        backgroundColor: 'grey'\r\n    },\r\n    card: {\r\n        height: 120, \r\n        margin: 10,\r\n        alignItems: 'center',\r\n    },\r\n    ongImage: {\r\n        width: 110,\r\n        height: 110,\r\n        backgroundColor: 'grey',\r\n        borderRadius: 100,\r\n    },\r\n});\r\n",
+    "static": true,
+    "longname": "C:/Users/shiro/Documents/GitHub/tcc/frontend/src/pages/Home/style.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 62,
+    "kind": "file",
+    "name": "src/pages/List/index.js",
+    "content": "import React, { useState } from 'react';\r\nimport {\r\n    SafeAreaView,\r\n    StyleSheet,\r\n    ScrollView,\r\n    View,\r\n    Text,\r\n    StatusBar,\r\n    TouchableOpacity,\r\n} from 'react-native';\r\n\r\nimport { FlatList } from 'react-native-gesture-handler';\r\nimport { Feather } from '@expo/vector-icons';\r\nimport { MaterialCommunityIcons } from '@expo/vector-icons';\r\n\r\n\r\nimport Style from './style';\r\nimport Card from '../../components/Card';\r\nimport Filter from '../../components/Filter/index';\r\n\r\nconst fake_data = [\r\n    { id: 1, name: 'Poliano', ong: 'COTUCA' },\r\n    { id: 2, name: 'Poliano', ong: 'COTUCA' },\r\n    { id: 3, name: 'Poliano', ong: 'COTUCA' },\r\n]\r\n\r\nexport default function Lista({ route, navigation }) {\r\n    const [modalVisible, setModalVisible] = useState(false);\r\n\r\n    function handleClick() {\r\n        setModalVisible(!modalVisible);\r\n    }\r\n\r\n\r\n    return (\r\n        <SafeAreaView >\r\n            <ScrollView >\r\n                <Text style={{ fontSize: 48, color: '#5A5A5A', padding: 10 }}>\r\n                    Animais\r\n                        </Text>\r\n\r\n                <View style={Style.filterContainer}>\r\n                    <TouchableOpacity style={{ flexDirection: 'row' }} onPress={handleClick}>\r\n                        <View style={Style.slider}>\r\n                            <Feather name=\"sliders\" size={24} color=\"black\" />\r\n                        </View>\r\n\r\n                        <Text style={Style.filtreTitle}>\r\n                            Filtros\r\n                                        </Text>\r\n\r\n\r\n                    </TouchableOpacity>\r\n                </View>\r\n\r\n                <Filter visible={modalVisible} handler={handleClick} />\r\n\r\n                <View>\r\n\r\n\r\n\r\n                    <View>\r\n                        <TouchableOpacity style={Style.filtreText}>\r\n                            <View style={{ alignItems: 'center', justifyContent: 'center', flexDirection: 'row' }}>\r\n                                <MaterialCommunityIcons name=\"window-close\" size={17} color=\"black\" />\r\n                                <Text style={{ paddingLeft: 5, fontSize: 15 }}>\r\n                                    Disponíveis para o Apadrinhamento\r\n                                    </Text>\r\n                            </View>\r\n                        </TouchableOpacity>\r\n                    </View>\r\n\r\n\r\n\r\n                </View>\r\n\r\n                <View>\r\n                    <FlatList\r\n                        style={{ width: '100%' }}\r\n                        data={fake_data}\r\n                        renderItem={({ item }) => (\r\n                            <Card data={item} onPress={() => navigation.navigate('PetProfile', { animal: item })} />)}\r\n                        keyExtractor={item => item.id.toString()}\r\n                    />\r\n                </View>\r\n\r\n            </ScrollView>\r\n        </SafeAreaView>\r\n    );\r\n};\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n",
+    "static": true,
+    "longname": "C:/Users/shiro/Documents/GitHub/tcc/frontend/src/pages/List/index.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 63,
+    "kind": "variable",
+    "name": "fake_data",
+    "memberof": "src/pages/List/index.js",
+    "static": true,
+    "longname": "src/pages/List/index.js~fake_data",
+    "access": "public",
+    "export": false,
+    "importPath": "./src/pages/List/index.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 21,
+    "undocument": true,
+    "type": {
+      "types": [
+        "undefined[]"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 64,
+    "kind": "function",
+    "name": "Lista",
+    "memberof": "src/pages/List/index.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/pages/List/index.js~Lista",
+    "access": "public",
+    "export": true,
+    "importPath": "./src/pages/List/index.js",
+    "importStyle": "Lista",
+    "description": null,
+    "lineNumber": 27,
+    "undocument": true,
+    "params": [
+      {
+        "name": "objectPattern",
+        "types": [
+          "{\"route\": *, \"navigation\": *}"
+        ],
+        "defaultRaw": {
+          "route": null,
+          "navigation": null
+        },
+        "defaultValue": "{\"route\":null,\"navigation\":null}"
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 65,
+    "kind": "file",
+    "name": "src/pages/List/style.js",
+    "content": "import { StyleSheet } from 'react-native';\r\n\r\nexport default StyleSheet.create({\r\n    textOng: {\r\n       // fontFamily: 'Sarabun',\r\n        //fontStyle: 'normal',\r\n        //fontWeight: 200,\r\n        display: 'flex',\r\n        alignItems: 'center',\r\n\r\n        color: '#606060',\r\n\r\n        opacity: 0.8,\r\n    },\r\n\r\n    filtreTitle: {\r\n        color:'#606060',\r\n        opacity: 0.8,\r\n        fontSize: 25,\r\n        textAlign: 'left', \r\n        textAlignVertical: 'center',\r\n        justifyContent:'center',\r\n        marginLeft: 10,\r\n    },\r\n\r\n    filterContainer:{\r\n        padding: 10, \r\n    },\r\n    \r\n    \r\n    slider: {\r\n        alignItems: 'center',\r\n        justifyContent: 'center',\r\n        backgroundColor: '#CACACA',\r\n        width: 28,\r\n        height: 28,\r\n        borderRadius: 5,\r\n        \r\n    },\r\n\r\n    filtreText: {\r\n        backgroundColor: '#DFDFDF',\r\n        borderRadius: 30, \r\n        alignSelf: \"flex-start\",\r\n        marginHorizontal: 10,\r\n        marginVertical: 5,\r\n        paddingHorizontal: 8, \r\n        \r\n        \r\n    },  \r\n\r\n   \r\n\r\n\r\n    \r\n});\r\n",
+    "static": true,
+    "longname": "C:/Users/shiro/Documents/GitHub/tcc/frontend/src/pages/List/style.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 66,
+    "kind": "file",
+    "name": "src/pages/Login/index.js",
+    "content": "import React, { useState } from 'react';\r\nimport {\r\n    SafeAreaView,\r\n    View,\r\n    Text,\r\n    TextInput,\r\n    TouchableOpacity,\r\n    Image\r\n} from 'react-native';\r\nimport axios from 'axios'\r\n\r\n\r\nimport Style from './style'\r\n\r\nimport { AuthContext } from '../../services/auth';\r\n\r\n\r\nexport default function Login({navigation}) {\r\n    const goNextPage = () => navigation.navigate('Register');\r\n\r\n    const { toggleLogged, saveUserData, isLogged} = React.useContext(AuthContext);\r\n\r\n    \r\n    const [email, setEmail] = useState('testeusuario@gmail.com');\r\n    const [password, setPasword] = useState('aa112233');\r\n\r\n    const makeLogin = async (email, password) => {\r\n\r\n      await axios.post('http://192.168.0.5:3000/auth', { email, password }).then(result => {\r\n\r\n          if (result.data) {\r\n            toggleLogged() \r\n            //alert(isLogged)\r\n            //saveUserData(ret.data)\r\n           }\r\n\r\n      }).catch(reason => {\r\n          alert(\"Login invalido\")\r\n      })\r\n\r\n      \r\n    }\r\n\r\n    return (\r\n\r\n        <SafeAreaView  style={Style.container}>\r\n            <View  style={Style.formContainer}>\r\n\r\n                <TextInput\r\n                    style={Style.input}\r\n                    placeholder=\"Email\"\r\n                    onChangeText={(text) => setEmail(text)} value={email}\r\n                />\r\n\r\n                <TextInput\r\n                    style={Style.input}\r\n                    placeholder=\"Senha\"\r\n                    onChangeText={(text) => setPasword(text)} value={password}\r\n                />\r\n\r\n                <TouchableOpacity style={Style.button} onPress={ () => makeLogin(email, password)}>\r\n                    <View>\r\n                        <Text style={Style.whiteText}> Entrar </Text>\r\n                    </View>\r\n                </TouchableOpacity>\r\n\r\n                <TouchableOpacity style={Style.createAccount } onPress={goNextPage}>\r\n                    <Text style={Style.whiteText}> Criar conta </Text>\r\n                </TouchableOpacity>\r\n\r\n            </View>\r\n\r\n            <View style={Style.logoImage}>\r\n                <Image\r\n                    source={require('../../../assets/logo.png')}\r\n                />\r\n            </View>\r\n\r\n\r\n        </SafeAreaView>\r\n    );\r\n}",
+    "static": true,
+    "longname": "C:/Users/shiro/Documents/GitHub/tcc/frontend/src/pages/Login/index.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 67,
+    "kind": "function",
+    "name": "Login",
+    "memberof": "src/pages/Login/index.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/pages/Login/index.js~Login",
+    "access": "public",
+    "export": true,
+    "importPath": "./src/pages/Login/index.js",
+    "importStyle": "Login",
+    "description": null,
+    "lineNumber": 18,
+    "undocument": true,
+    "params": [
+      {
+        "name": "objectPattern",
+        "types": [
+          "{\"navigation\": *}"
+        ],
+        "defaultRaw": {
+          "navigation": null
+        },
+        "defaultValue": "{\"navigation\":null}"
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 68,
+    "kind": "file",
+    "name": "src/pages/Login/style.js",
+    "content": "import { StyleSheet } from 'react-native';\r\n\r\nexport default StyleSheet.create({\r\n    container: {\r\n        flex: 1,\r\n        flexDirection: \"column\",\r\n        backgroundColor: '#3FB55D',\r\n        justifyContent: \"center\",\r\n        alignItems: \"center\",\r\n    },\r\n    formContainer: {\r\n        flex: 2,\r\n        flexDirection: \"column\",\r\n        backgroundColor: '#3FB55D',\r\n        justifyContent: \"center\",\r\n        alignItems: \"center\",\r\n        width: \"100%\"\r\n    },\r\n    input: {\r\n        backgroundColor: 'white',\r\n        padding: 10,\r\n        width: '70%',\r\n        borderRadius: 100,\r\n        margin: 10,\r\n        shadowColor: \"#000\",\r\n        shadowOffset: {\r\n            width: 0,\r\n            height: 4,\r\n        },\r\n        shadowOpacity: 0.50,\r\n        shadowRadius: 4.65,\r\n\r\n        elevation: 8,\r\n    },\r\n    button: {\r\n        shadowColor: \"#000\",\r\n        shadowOffset: {\r\n            width: 0,\r\n            height: 7,\r\n        },\r\n        shadowOpacity: 0.90,\r\n        shadowRadius: 9.51,\r\n\r\n        elevation: 15,\r\n        borderWidth: 2,\r\n        borderRadius: 100,\r\n        borderColor: 'white',\r\n        width: '70%',\r\n        padding: 10,\r\n        alignItems: \"center\",\r\n        margin: 10,\r\n    },\r\n    whiteText: {\r\n        color: 'white',\r\n    },\r\n    logoImage: {\r\n        flex: 0,\r\n        opacity: 1,\r\n        //backgroundColor: 'pink',\r\n        position: \"absolute\",\r\n        left: -20, \r\n        bottom: -20\r\n    },\r\n    createAccount: {\r\n        paddingTop: 10,\r\n        shadowColor: \"#000\",\r\n        shadowOffset: {\r\n            width: 0,\r\n            height: 9,\r\n        },\r\n        shadowOpacity: 1.50,\r\n        shadowRadius: 12.35,\r\n\r\n        elevation: 19,\r\n    },\r\n    \r\n});\r\n",
+    "static": true,
+    "longname": "C:/Users/shiro/Documents/GitHub/tcc/frontend/src/pages/Login/style.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 69,
+    "kind": "file",
+    "name": "src/pages/PetProfile/index.js",
+    "content": "import React from 'react';\r\nimport {\r\n    SafeAreaView,\r\n    StyleSheet,\r\n    ScrollView,\r\n    View,\r\n    Text,\r\n    StatusBar,\r\n} from 'react-native';\r\n\r\nexport default function Reportar({ route, navigation }) {\r\n    const { animal } = route.params || {}\r\n\r\n    return (\r\n        <SafeAreaView>\r\n            <Text>\r\n                Perfil do pet {JSON.stringify(animal)}\r\n            </Text>\r\n\r\n        </SafeAreaView>\r\n\r\n    );\r\n}\r\n\r\n\r\n",
+    "static": true,
+    "longname": "C:/Users/shiro/Documents/GitHub/tcc/frontend/src/pages/PetProfile/index.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 70,
+    "kind": "function",
+    "name": "Reportar",
+    "memberof": "src/pages/PetProfile/index.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/pages/PetProfile/index.js~Reportar",
+    "access": "public",
+    "export": true,
+    "importPath": "./src/pages/PetProfile/index.js",
+    "importStyle": "Reportar",
+    "description": null,
+    "lineNumber": 11,
+    "undocument": true,
+    "params": [
+      {
+        "name": "objectPattern",
+        "types": [
+          "{\"route\": *, \"navigation\": *}"
+        ],
+        "defaultRaw": {
+          "route": null,
+          "navigation": null
+        },
+        "defaultValue": "{\"route\":null,\"navigation\":null}"
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 71,
+    "kind": "file",
+    "name": "src/pages/Register/index.js",
+    "content": "import React, { useState } from 'react';\r\nimport {\r\n    SafeAreaView,\r\n    StyleSheet,\r\n    ScrollView,\r\n    View,\r\n    Text,\r\n    TextInput,\r\n    TouchableOpacity,\r\n    Image\r\n} from 'react-native';\r\n\r\nimport Style from './style'\r\n\r\nexport default function Register() {\r\n\r\n    return (\r\n\r\n        <SafeAreaView style={Style.container}>\r\n            <Text style={Style.title}>Qual seu perfil?</Text>\r\n\r\n            <View style={Style.formContainer}>\r\n\r\n                <TouchableOpacity style={Style.button}>\r\n                        <Image\r\n                            source={require('../../../assets/person.png')}\r\n                        />\r\n                        <Text> Pessoa física </Text>\r\n                </TouchableOpacity>\r\n\r\n                <TouchableOpacity style={Style.button}>\r\n                        <Image\r\n                            source={require('../../../assets/ong.png')}\r\n                        />\r\n                        <Text> ONG </Text>\r\n                </TouchableOpacity>\r\n\r\n            </View>\r\n\r\n\r\n\r\n\r\n        </SafeAreaView>\r\n    );\r\n}",
+    "static": true,
+    "longname": "C:/Users/shiro/Documents/GitHub/tcc/frontend/src/pages/Register/index.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 72,
+    "kind": "function",
+    "name": "Register",
+    "memberof": "src/pages/Register/index.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/pages/Register/index.js~Register",
+    "access": "public",
+    "export": true,
+    "importPath": "./src/pages/Register/index.js",
+    "importStyle": "Register",
+    "description": null,
+    "lineNumber": 15,
+    "undocument": true,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 73,
+    "kind": "file",
+    "name": "src/pages/Register/style.js",
+    "content": "import { StyleSheet } from 'react-native';\r\n\r\nexport default StyleSheet.create({\r\n    container: {\r\n        flex: 1,\r\n        flexDirection: \"column\",\r\n        backgroundColor: '#3FB55D',\r\n    },\r\n    formContainer: {\r\n        flex: 2,\r\n        flexDirection: \"column\",\r\n        backgroundColor: 'white',\r\n        justifyContent: \"center\",\r\n        alignItems: \"center\",\r\n        width: \"100%\",\r\n        borderTopRightRadius: 50,\r\n        borderTopLeftRadius: 50,\r\n\r\n    },\r\n    button: {\r\n        shadowColor: \"#000\",\r\n        shadowOffset: {\r\n            width: 0,\r\n            height: 4,\r\n        },\r\n        shadowOpacity: 0.30,\r\n        shadowRadius: 4.65,\r\n\r\n        elevation: 8,\r\n        borderWidth: 1,\r\n        borderRadius: 20,\r\n        borderColor: 'transparent',\r\n        width: '70%',\r\n        height: '30%',\r\n        padding: 10,\r\n        display: 'flex',\r\n        justifyContent: 'center',\r\n        alignItems: \"center\",\r\n        margin: 10,\r\n        backgroundColor: '#DEDEDE'\r\n    },\r\n    title: {\r\n        color: 'white',\r\n        fontSize: 35,\r\n        fontWeight: \"bold\",\r\n        padding: 10,\r\n    },\r\n    logoImage: {\r\n        flex: 0,\r\n        opacity: 1,\r\n        //backgroundColor: 'pink',\r\n        //position: \"absolute\",\r\n        //left: -20, \r\n        //bottom: -20\r\n    }\r\n    \r\n});\r\n",
+    "static": true,
+    "longname": "C:/Users/shiro/Documents/GitHub/tcc/frontend/src/pages/Register/style.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 74,
+    "kind": "file",
+    "name": "src/pages/Reportar.js",
+    "content": "import React from 'react';\r\nimport {\r\n    SafeAreaView,\r\n    StyleSheet,\r\n    ScrollView,\r\n    View,\r\n    Text,\r\n    StatusBar,\r\n} from 'react-native';\r\n\r\nexport default function Reportar() {\r\n\r\n    return (\r\n        <SafeAreaView>\r\n            <Text>\r\n                Report page\r\n                </Text>\r\n\r\n\r\n\r\n\r\n        </SafeAreaView>\r\n    );\r\n}\r\n\r\n\r\n",
+    "static": true,
+    "longname": "C:/Users/shiro/Documents/GitHub/tcc/frontend/src/pages/Reportar.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 75,
+    "kind": "function",
+    "name": "Reportar",
+    "memberof": "src/pages/Reportar.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/pages/Reportar.js~Reportar",
+    "access": "public",
+    "export": true,
+    "importPath": "./src/pages/Reportar.js",
+    "importStyle": "Reportar",
+    "description": null,
+    "lineNumber": 11,
+    "undocument": true,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 76,
+    "kind": "file",
+    "name": "src/routes/index.js",
+    "content": "import React from 'react';\r\nimport { createStackNavigator } from '@react-navigation/stack';\r\nimport { NavigationContainer } from '@react-navigation/native';\r\n\r\n//import {AuthContext} from '../services';  Este sera o contexto de login..\r\n//import Drawer from './drawer.routes';\r\n\r\nimport {AuthContext} from '../services/auth';\r\n\r\nimport Login from './login.routes';\r\nimport Tabs from './tabs.routes';\r\n\r\nconst Stack = createStackNavigator();\r\n\r\nconst Routes = () => {\r\n  const {isLogged} = React.useContext(AuthContext); //fazer esta logado   //estaLogado ? rotasTabsRoute : rotasLogin \r\n  //     x     ?      seSim     :   seNão    \r\n\r\n  return (\r\n    <NavigationContainer>\r\n      <Stack.Navigator screenOptions={{ headerShown: false }}>\r\n        {isLogged ?\r\n          (<Stack.Screen name=\"App\" component={Tabs} />)\r\n          :\r\n          (<Stack.Screen name=\"Login\" component={Login}/>)\r\n        }\r\n      </Stack.Navigator>\r\n    </NavigationContainer>\r\n  );\r\n\r\n\r\n};\r\n\r\n\r\nexport default Routes;\r\n",
+    "static": true,
+    "longname": "C:/Users/shiro/Documents/GitHub/tcc/frontend/src/routes/index.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 77,
+    "kind": "variable",
+    "name": "Stack",
+    "memberof": "src/routes/index.js",
+    "static": true,
+    "longname": "src/routes/index.js~Stack",
+    "access": "public",
+    "export": false,
+    "importPath": "./src/routes/index.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 13,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 78,
+    "kind": "function",
+    "name": "Routes",
+    "memberof": "src/routes/index.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/routes/index.js~Routes",
+    "access": "public",
+    "export": true,
+    "importPath": "./src/routes/index.js",
+    "importStyle": "Routes",
+    "description": null,
+    "lineNumber": 15,
+    "undocument": true,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 79,
+    "kind": "file",
+    "name": "src/routes/list.routes.js",
+    "content": "import React from 'react';\r\nimport { createStackNavigator } from '@react-navigation/stack';\r\n\r\nimport List from '../pages/List';\r\nimport PetProfile from '../pages/PetProfile'\r\n\r\nconst Stack = createStackNavigator();\r\n\r\nexport default function ListRoutes({ navigation }) {\r\n    return (\r\n        <Stack.Navigator initialRouteName=\"List\">\r\n            <Stack.Screen name=\"List\" component={List}/>\r\n            <Stack.Screen name=\"PetProfile\" component={PetProfile}/>\r\n\r\n        </Stack.Navigator>\r\n    );\r\n}\r\n\r\n",
+    "static": true,
+    "longname": "C:/Users/shiro/Documents/GitHub/tcc/frontend/src/routes/list.routes.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 80,
+    "kind": "variable",
+    "name": "Stack",
+    "memberof": "src/routes/list.routes.js",
+    "static": true,
+    "longname": "src/routes/list.routes.js~Stack",
+    "access": "public",
+    "export": false,
+    "importPath": "./src/routes/list.routes.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 7,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 81,
+    "kind": "function",
+    "name": "ListRoutes",
+    "memberof": "src/routes/list.routes.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/routes/list.routes.js~ListRoutes",
+    "access": "public",
+    "export": true,
+    "importPath": "./src/routes/list.routes.js",
+    "importStyle": "ListRoutes",
+    "description": null,
+    "lineNumber": 9,
+    "undocument": true,
+    "params": [
+      {
+        "name": "objectPattern",
+        "types": [
+          "{\"navigation\": *}"
+        ],
+        "defaultRaw": {
+          "navigation": null
+        },
+        "defaultValue": "{\"navigation\":null}"
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 82,
+    "kind": "file",
+    "name": "src/routes/login.routes.js",
+    "content": "import React from 'react';\r\nimport {createStackNavigator} from '@react-navigation/stack';\r\n\r\nimport LoginScreen from '../pages/Login';\r\nimport RegisterScreen from '../pages/Register';\r\n\r\n\r\nconst Stack = createStackNavigator();\r\n\r\nconst Login = () => (\r\n  <Stack.Navigator screenOptions={{ headerShown: false }}>\r\n    <Stack.Screen name=\"Login\" component={LoginScreen} />\r\n    <Stack.Screen name=\"Register\" component={RegisterScreen} />\r\n  </Stack.Navigator>\r\n);\r\n\r\nexport default Login;",
+    "static": true,
+    "longname": "C:/Users/shiro/Documents/GitHub/tcc/frontend/src/routes/login.routes.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 83,
+    "kind": "variable",
+    "name": "Stack",
+    "memberof": "src/routes/login.routes.js",
+    "static": true,
+    "longname": "src/routes/login.routes.js~Stack",
+    "access": "public",
+    "export": false,
+    "importPath": "./src/routes/login.routes.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 8,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 84,
+    "kind": "function",
+    "name": "Login",
+    "memberof": "src/routes/login.routes.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/routes/login.routes.js~Login",
+    "access": "public",
+    "export": true,
+    "importPath": "./src/routes/login.routes.js",
+    "importStyle": "Login",
+    "description": null,
+    "lineNumber": 10,
+    "undocument": true,
+    "params": [],
+    "return": null
+  },
+  {
+    "__docId__": 85,
+    "kind": "file",
+    "name": "src/routes/tabs.routes.js",
+    "content": "import React from 'react';\r\n\r\nimport { createBottomTabNavigator } from '@react-navigation/bottom-tabs';\r\nimport { createStackNavigator } from '@react-navigation/stack';\r\n\r\nimport Home from '../pages/Home';\r\nimport List from '../routes/list.routes';\r\nimport Reportar from '../pages/Reportar';\r\n\r\nimport Style from './tabsStyle';\r\n\r\nimport { Feather } from '@expo/vector-icons';\r\nimport { FontAwesome } from '@expo/vector-icons';\r\nimport { SafeAreaView } from 'react-native-safe-area-context';\r\n\r\n\r\nconst TabBottom = createBottomTabNavigator(); //menu inferior\r\n\r\nconst TabNavigator = () => (\r\n\r\n  <TabBottom.Navigator tabBarOptions={{\r\n    style: Style.navigator,\r\n    inactiveTintColor: 'white',\r\n  }}>\r\n    <TabBottom.Screen name=\"Home\" component={Home}\r\n      options={{\r\n        tabBarLabel: 'Inicio',\r\n        tabBarIcon: () => (\r\n          <Feather name=\"home\" size={24} color=\"white\" />\r\n        ),\r\n      }}\r\n    />\r\n    <TabBottom.Screen name=\"Apadrinhar\" component={List}\r\n      options={{\r\n        tabBarLabel: 'Apadrinhar',\r\n        tabBarIcon: () => (\r\n          <FontAwesome name=\"paw\" size={24} color=\"white\" />\r\n        ),\r\n      }}\r\n    />\r\n    <TabBottom.Screen name=\"Reportar\" component={Reportar}\r\n      options={{\r\n        tabBarLabel: 'Reportar',\r\n        tabBarIcon: () => (\r\n          <Feather name=\"alert-triangle\" size={24} color=\"white\" />\r\n        ),\r\n\r\n\r\n      }}\r\n\r\n    />\r\n  </TabBottom.Navigator>\r\n       \r\n);\r\n\r\n\r\nexport default TabNavigator;",
+    "static": true,
+    "longname": "C:/Users/shiro/Documents/GitHub/tcc/frontend/src/routes/tabs.routes.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 86,
+    "kind": "variable",
+    "name": "TabBottom",
+    "memberof": "src/routes/tabs.routes.js",
+    "static": true,
+    "longname": "src/routes/tabs.routes.js~TabBottom",
+    "access": "public",
+    "export": false,
+    "importPath": "./src/routes/tabs.routes.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 17,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 87,
+    "kind": "function",
+    "name": "TabNavigator",
+    "memberof": "src/routes/tabs.routes.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/routes/tabs.routes.js~TabNavigator",
+    "access": "public",
+    "export": true,
+    "importPath": "./src/routes/tabs.routes.js",
+    "importStyle": "TabNavigator",
+    "description": null,
+    "lineNumber": 19,
+    "undocument": true,
+    "params": [],
+    "return": null
+  },
+  {
+    "__docId__": 88,
+    "kind": "file",
+    "name": "src/routes/tabsStyle.js",
+    "content": "import { StyleSheet } from 'react-native';\r\n\r\nexport default StyleSheet.create({\r\n    navigator: {\r\n        shadowColor: \"#000\",\r\n        shadowOffset: {\r\n            width: 0,\r\n            height: 1,\r\n        },\r\n        shadowOpacity: 1.50,\r\n        shadowRadius: 4.65,\r\n        elevation: 8,\r\n\r\n        backgroundColor: '#3FB55D',\r\n        borderTopStartRadius: 20,\r\n        borderTopEndRadius: 20,\r\n    },\r\n});\r\n",
+    "static": true,
+    "longname": "C:/Users/shiro/Documents/GitHub/tcc/frontend/src/routes/tabsStyle.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 89,
+    "kind": "file",
+    "name": "src/services/api.js",
+    "content": "import axios from 'axios';\r\n\r\nconst api = axios.create({\r\n    baseURL: 'http://localhost:3000'\r\n});\r\n\r\nexport default api;",
+    "static": true,
+    "longname": "C:/Users/shiro/Documents/GitHub/tcc/frontend/src/services/api.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 90,
+    "kind": "variable",
+    "name": "api",
+    "memberof": "src/services/api.js",
+    "static": true,
+    "longname": "src/services/api.js~api",
+    "access": "public",
+    "export": true,
+    "importPath": "./src/services/api.js",
+    "importStyle": "api",
+    "description": null,
+    "lineNumber": 3,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 91,
+    "kind": "file",
+    "name": "src/services/auth.js",
+    "content": "import React, {useState} from 'react';\r\n\r\nexport const AuthContext = React.createContext({\r\n  isLogged: false,\r\n  userData: {},\r\n  toggleLogged: () => {},\r\n  saveUserData: () => {},\r\n});\r\n\r\nexport const AuthProvider = props => {\r\n  const [isLogged , setIsLogged ] = useState(false);\r\n  const [userData, setUserData] = useState({});\r\n\r\n  const toggleLogged = () => setIsLogged(!isLogged);\r\n  const saveUserData = (user) => setUserData(user);\r\n\r\n  return (\r\n    <AuthContext.Provider value={{isLogged, toggleLogged, userData, saveUserData}}>\r\n      {props.children}\r\n    </AuthContext.Provider>\r\n  );\r\n};",
+    "static": true,
+    "longname": "C:/Users/shiro/Documents/GitHub/tcc/frontend/src/services/auth.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 92,
+    "kind": "variable",
+    "name": "AuthContext",
+    "memberof": "src/services/auth.js",
+    "static": true,
+    "longname": "src/services/auth.js~AuthContext",
+    "access": "public",
+    "export": true,
+    "importPath": "./src/services/auth.js",
+    "importStyle": "{AuthContext}",
+    "description": null,
+    "lineNumber": 3,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 93,
+    "kind": "function",
+    "name": "AuthProvider",
+    "memberof": "src/services/auth.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/services/auth.js~AuthProvider",
+    "access": "public",
+    "export": true,
+    "importPath": "./src/services/auth.js",
+    "importStyle": "{AuthProvider}",
+    "description": null,
+    "lineNumber": 10,
+    "undocument": true,
+    "params": [
+      {
+        "name": "props",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "kind": "index",
+    "content": "# Meu aplicativo React Native \r\n\r\nAplicativo mobile\r\n\r\n![screenshots of example app](../../frontend/assets/ad.png)\r\n\r\n\r\n## Funcionalidades\r\n\r\n- Flat feed\r\n- Notification feed\r\n- Activity detail screen\r\n- Profile screen\r\n- Profile update screen\r\n- Likes & Comments\r\n- Status update with hashtags, mentions, URL enrichment and image upload\r\n\r\n## Requirements\r\n\r\n- NodeJS\r\n- Expo\r\n\r\n",
+    "longname": "C:\\Users\\shiro\\Documents\\GitHub\\tcc\\frontend\\README.md",
+    "name": "./README.md",
+    "static": true,
+    "access": "public"
+  },
+  {
+    "kind": "packageJSON",
+    "content": "{\r\n  \"main\": \"node_modules/expo/AppEntry.js\",\r\n  \"scripts\": {\r\n    \"start\": \"expo start\",\r\n    \"android\": \"expo start --android\",\r\n    \"ios\": \"expo start --ios\",\r\n    \"web\": \"expo start --web\",\r\n    \"eject\": \"expo eject\",\r\n    \"esdoc\": \"node_modules/.bin/esdoc -c .esdoc.json\"\r\n  },\r\n  \"dependencies\": {\r\n    \"@react-native-community/masked-view\": \"0.1.10\",\r\n    \"@react-navigation/bottom-tabs\": \"^5.6.1\",\r\n    \"@react-navigation/drawer\": \"^5.8.4\",\r\n    \"@react-navigation/native\": \"^5.6.1\",\r\n    \"@react-navigation/stack\": \"^5.7.0\",\r\n    \"axios\": \"^0.19.2\",\r\n    \"esdoc-ecmascript-proposal-plugin\": \"^1.0.0\",\r\n    \"esdoc-jsx-plugin\": \"^1.0.0\",\r\n    \"expo\": \"^38.0.8\",\r\n    \"expo-status-bar\": \"^1.0.2\",\r\n    \"linear-gradient\": \"^1.0.6\",\r\n    \"react\": \"~16.11.0\",\r\n    \"react-dom\": \"~16.11.0\",\r\n    \"react-native\": \"https://github.com/expo/react-native/archive/sdk-38.0.1.tar.gz\",\r\n    \"react-native-gesture-handler\": \"~1.6.0\",\r\n    \"react-native-reanimated\": \"~1.9.0\",\r\n    \"react-native-safe-area-context\": \"~3.0.7\",\r\n    \"react-native-screens\": \"~2.9.0\",\r\n    \"react-native-web\": \"~0.11.7\",\r\n    \"react-navigation-transitions\": \"^1.0.12\"\r\n  },\r\n  \"devDependencies\": {\r\n    \"@babel/core\": \"^7.8.6\",\r\n    \"babel-preset-expo\": \"~8.1.0\",\r\n    \"esdoc\": \"^1.1.0\",\r\n    \"esdoc-standard-plugin\": \"^1.0.0\"\r\n  },\r\n  \"private\": true\r\n}\r\n",
+    "longname": "C:\\Users\\shiro\\Documents\\GitHub\\tcc\\frontend\\package.json",
+    "name": "package.json",
+    "static": true,
+    "access": "public"
+  }
+]
