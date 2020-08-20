@@ -10,8 +10,6 @@ export default StyleSheet.create({
         flex: 2,
         flexDirection: "column",
         backgroundColor: 'white',
-        justifyContent: "center",
-        alignItems: "center",
         width: "100%",
         borderTopRightRadius: 50,
         borderTopLeftRadius: 50,
@@ -27,7 +25,16 @@ export default StyleSheet.create({
         alignItems: "center",
         margin: 10,
         backgroundColor: '#3FB55D',
-        borderRadius: 30,
+        borderRadius: 20,
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 1,
+            height: 3,
+        },
+        shadowOpacity: 0.27,
+        shadowRadius: 4.65,
+
+        elevation: 5,
     },
     title: {
         color: 'white',
@@ -38,13 +45,15 @@ export default StyleSheet.create({
     input: {
         flex: 0,
         display: 'flex',
-
+        flexDirection: 'row',
+        
         borderColor: '#969696',
         borderBottomWidth: 1,
         padding: 5,
-        margin: 20,
+        margin: 15,
         width: '70%',
 
     }
+
 
 });
