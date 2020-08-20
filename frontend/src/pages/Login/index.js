@@ -5,7 +5,8 @@ import {
     Text,
     TextInput,
     TouchableOpacity,
-    Image
+    Image,
+    ActivityIndicator
 } from 'react-native';
 import axios from 'axios'
 
@@ -15,36 +16,49 @@ import Style from './style'
 import { AuthContext } from '../../services/auth';
 
 
-export default function Login({navigation}) {
+export default function Login({ navigation }) {
     const goNextPage = () => navigation.navigate('Register');
 
-    const { toggleLogged, saveUserData, isLogged} = React.useContext(AuthContext);
+    const { toggleLogged, saveUserData, isLogged } = React.useContext(AuthContext);
 
-    
+    const [loading, setLoading] = useState(false);
     const [email, setEmail] = useState('testeusuario@gmail.com');
-    const [password, setPasword] = useState('aa112233');
+    const [password, setPassword] = useState('aa112233');
 
     const makeLogin = async (email, password) => {
 
-      await axios.post('http://192.168.0.5:3000/auth', { email, password }).then(result => {
+        try {
+            setLoading(true)
+            await axios.post('http://192.168.0.5:3000/auth', { email, password }).then(result => {
 
-          if (result.data) {
-            toggleLogged() 
-            //alert(isLogged)
-            //saveUserData(ret.data)
-           }
+                if (result.data) {
+                    toggleLogged()
+                    //alert(isLogged)
+                    //saveUserData(ret.data) 
+                }
 
-      }).catch(reason => {
-          alert("Login invalido")
-      })
+            }).catch(reason => {
+                setLoading(false)
+                alert("Login invalido")
+            })
 
-      
+
+        }
+        catch (e) {
+            setLoading(false)
+            alert("Impossivel se conectar")
+        }
+
+
     }
 
     return (
 
-        <SafeAreaView  style={Style.container}>
-            <View  style={Style.formContainer}>
+        <SafeAreaView style={Style.container}>
+            <View style={Style.formContainer}>
+
+                <ActivityIndicator size="large" animating={loading} color={'white'} />
+                <Text> {loading.toString()} </Text>
 
                 <TextInput
                     style={Style.input}
@@ -55,16 +69,16 @@ export default function Login({navigation}) {
                 <TextInput
                     style={Style.input}
                     placeholder="Senha"
-                    onChangeText={(text) => setPasword(text)} value={password}
+                    onChangeText={(text) => setPassword(text)} value={password}
                 />
 
-                <TouchableOpacity style={Style.button} onPress={ () => makeLogin(email, password)}>
+                <TouchableOpacity style={Style.button} onPress={() => makeLogin(email, password)}>
                     <View>
                         <Text style={Style.whiteText}> Entrar </Text>
                     </View>
                 </TouchableOpacity>
 
-                <TouchableOpacity style={Style.createAccount } onPress={goNextPage}>
+                <TouchableOpacity style={Style.createAccount} onPress={goNextPage}>
                     <Text style={Style.whiteText}> Criar conta </Text>
                 </TouchableOpacity>
 
@@ -75,6 +89,7 @@ export default function Login({navigation}) {
                     source={require('../../../assets/logo.png')}
                 />
             </View>
+
 
 
         </SafeAreaView>
