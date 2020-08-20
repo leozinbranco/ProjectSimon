@@ -61,14 +61,9 @@ export default function Register() {
 
 
             <ScrollView style={Style.formContainer} >
-                <View style={{ width: '100%', justifyContent: "center", alignItems: "center", marginTop: 20 }}>
+                <View style={Style.scroll}>
 
-                    <View style={{
-                        width: 110,
-                        height: 110,
-                        backgroundColor: 'grey',
-                        borderRadius: 100,
-                    }}>
+                    <View style={Style.photoView}>
 
                     </View>
 
