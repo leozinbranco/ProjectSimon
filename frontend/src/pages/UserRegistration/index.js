@@ -9,10 +9,11 @@ import {
     TouchableOpacity,
     Modal,
 } from 'react-native';
-
+import ImagePicker from '../../components/ImgPicker';
 import DateTimePicker from '@react-native-community/datetimepicker';
 import { Feather, FontAwesome, AntDesign } from '@expo/vector-icons';
-import Style from './style'
+import Style from './style';
+import axios from 'axios';
 import moment from 'moment';
 moment.locale('pt-br');
 
@@ -29,7 +30,8 @@ function ModalAlert() {
     );
 }
 
-export default function Register() {
+export default function Register({ navigation }) {
+    const goNextPage = () => navigation.navigate('Profile'); // nao tem profile
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -37,7 +39,8 @@ export default function Register() {
     const [cep, setCep] = useState('');
     const [birthdate, setBirthdate] = useState(new Date(1598051730000));
     const [show, setShow] = useState(false);
-
+    const [img, setImg] = useState({});
+    const [pressed, setPressed] = useState(false);
     const [modalVisible, setModalVisible] = useState(false);
 
     const onChangeDate = (event, selectedDate) => {
@@ -51,6 +54,34 @@ export default function Register() {
         setModalVisible(visible);
     });
 
+    const createAccount = async (name, email, password, whatsapp, cep, birthdate) =>{
+        try{
+            await axios.post('http://200.236.192.242:3000/users', {
+                name: name,
+                email: email,
+                password: password,
+                whatsapp: whatsapp,
+                cep: cep,
+                born_date: birthdate,
+                bio: null,
+            })
+            .then((response) =>{
+                console.log(response);
+                goNextPage;
+            })
+            .catch((e) =>{
+                alert("Ocorreu um erro no cadastro!");
+            
+            })
+            
+        }catch(e){
+            alert(e);
+        }
+        
+    }
+
+
+
     return (
 
         <SafeAreaView style={Style.container}>
@@ -62,10 +93,8 @@ export default function Register() {
 
             <ScrollView style={Style.formContainer} >
                 <View style={Style.scroll}>
-
-                    <View style={Style.photoView}>
-
-                    </View>
+                    
+                    <ImagePicker></ImagePicker>
 
                     <View style={Style.input}>
                         <Feather style={{ marginRight: 10 }} name="user" size={24} color="black" />
@@ -122,7 +151,7 @@ export default function Register() {
                     <View style={Style.input}>
                         <FontAwesome style={{ marginRight: 10 }} name="location-arrow" size={24} color="black" />
                         <TextInput
-                            onChangeText={cep => setCep(text)}
+                            onChangeText={cep => setCep(cep)}
                             value={cep}
                             placeholder='CEP'
 
@@ -141,7 +170,7 @@ export default function Register() {
 
 
 
-                    <TouchableOpacity style={Style.button}  >
+                    <TouchableOpacity style={Style.button} onPress={() => {createAccount(name,email,password,whatsapp,cep,birthdate)}} >
                         <Text style={{ color: 'white' }}> Confirmar </Text>
                     </TouchableOpacity>
                 </View>

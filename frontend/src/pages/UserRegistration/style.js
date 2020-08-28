@@ -18,7 +18,8 @@ export default StyleSheet.create({
     button: {
         flex: 0,
         width: '70%',
-        marginTop: 40,
+        marginTop: 20,
+        marginBottom:50,
         padding: 10,
         display: 'flex',
         justifyContent: 'center',
@@ -54,12 +55,7 @@ export default StyleSheet.create({
         width: '70%',
 
     },
-    photoView: {
-        width: 110,
-        height: 110,
-        backgroundColor: 'grey',
-        borderRadius: 100,
-    },
+    
     scroll: {
         width: '100%', 
         justifyContent: "center",

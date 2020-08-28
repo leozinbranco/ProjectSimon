@@ -25,31 +25,29 @@ export default function Login({ navigation }) {
     const [email, setEmail] = useState('testeusuario@gmail.com');
     const [password, setPassword] = useState('aa112233');
 
-    const makeLogin = async (email, password) => {
 
+
+    const makeLogin = async (email, password) => {
         try {
-            setLoading(true)
-            await axios.post('http://192.168.0.5:3000/auth', { email, password }).then(result => {
+            setLoading(true);
+            await axios.post('http://http://192.168.2.1:3000/auth', { email, password }).then(result => {
 
                 if (result.data) {
-                    toggleLogged()
+                    toggleLogged();
+                    setLoading(false);
                     //alert(isLogged)
                     //saveUserData(ret.data) 
                 }
 
             }).catch(reason => {
-                setLoading(false)
-                alert("Login invalido")
+                setLoading(false);
+                alert("Login invalido");
             })
-
-
         }
         catch (e) {
             setLoading(false)
             alert("Impossivel se conectar")
         }
-
-
     }
 
     return (

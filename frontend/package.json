@@ -19,6 +19,7 @@
     "esdoc-ecmascript-proposal-plugin": "^1.0.0",
     "esdoc-jsx-plugin": "^1.0.0",
     "expo": "^38.0.0",
+    "expo-image-picker": "~8.3.0",
     "expo-status-bar": "^1.0.0",
     "linear-gradient": "^1.0.6",
     "moment": "^2.27.0",
