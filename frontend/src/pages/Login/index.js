@@ -30,19 +30,24 @@ export default function Login({ navigation }) {
     const makeLogin = async (email, password) => {
         try {
             setLoading(true);
-            await axios.post('http://http://192.168.2.1:3000/auth', { email, password }).then(result => {
+            await axios.post('http://localhost:3000/auth', { email, password }).then(result => {
 
                 if (result.data) {
                     toggleLogged();
                     setLoading(false);
                     //alert(isLogged)
                     //saveUserData(ret.data) 
+                    alert(response);
+                    goNextPage;
                 }
 
-            }).catch(reason => {
-                setLoading(false);
-                alert("Login invalido");
             })
+            .catch(reason => {
+                setLoading(false);
+                //console.log(reason);
+                alert("Login invalido: " + reason);
+            })
+            
         }
         catch (e) {
             setLoading(false)
@@ -56,7 +61,7 @@ export default function Login({ navigation }) {
             <View style={Style.formContainer}>
 
                 <ActivityIndicator size="large" animating={loading} color={'white'} />
-                <Text> {loading.toString()} </Text>
+                {/*<Text> {loading.toString()} </Text>*/}
 
                 <TextInput
                     style={Style.input}

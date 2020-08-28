@@ -31,7 +31,8 @@ function ModalAlert() {
 }
 
 export default function Register({ navigation }) {
-    const goNextPage = () => navigation.navigate('Profile'); // nao tem profile
+    const goNextPage = () => navigation.navigate('Home'); 
+
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -55,8 +56,9 @@ export default function Register({ navigation }) {
     });
 
     const createAccount = async (name, email, password, whatsapp, cep, birthdate) =>{
+        
         try{
-            await axios.post('http://200.236.192.242:3000/users', {
+            await axios.post('http://200.236.198.78:3000/users', {
                 name: name,
                 email: email,
                 password: password,
@@ -66,11 +68,12 @@ export default function Register({ navigation }) {
                 bio: null,
             })
             .then((response) =>{
-                console.log(response);
+                alert(response);
                 goNextPage;
             })
             .catch((e) =>{
-                alert("Ocorreu um erro no cadastro!");
+                alert("Ocorreu um erro no cadastro!" + e);
+                
             
             })
             
