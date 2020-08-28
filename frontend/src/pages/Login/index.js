@@ -30,7 +30,7 @@ export default function Login({ navigation }) {
     const makeLogin = async (email, password) => {
         try {
             setLoading(true);
-            await axios.post('http://localhost:3000/auth', { email, password }).then(result => {
+            await axios.post('http://200.236.198.78:3000/auth', { email, password }).then(result => {
 
                 if (result.data) {
                     toggleLogged();
