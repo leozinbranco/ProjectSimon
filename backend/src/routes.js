@@ -12,6 +12,7 @@ const ong_bank_data = require('./controllers/ong_bank_data');
 const reports = require('./controllers/reports');
 const authController = require('./controllers/auth')
 const pagSeguroTransfer = require('./controllers/pagSeguroTransfer');
+const middleware = require('./middleware');
 //const incidentController = require('./controllers/IncidentController');
 //const profileController = require('./controllers/ProfileController');
 //const sessionController = require('./controllers/SessionController');
@@ -31,6 +32,8 @@ const pagSeguroTransfer = require('./controllers/pagSeguroTransfer');
 // ongController.create);
 
 /*               */
+routes.use(middleware);
+
 routes.post('/pagseguro/auth', pagSeguroTransfer.authorization);
 
 routes.post('/solicitation', pagSeguroTransfer.solicitationAuthAccount);
