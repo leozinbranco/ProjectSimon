@@ -9,56 +9,52 @@ delete: deletar alguma inf no backend
 */
 
 module.exports = {
-    async index (request, response){
-        const animals = await knex('animals').select('*').limit(100);
-    
+    async index(request, response) {
+
+        const { limit } = request.query // ou const limit = request.query.limit
+
+        const animals = await knex('animals').select('*').limit(limit || 100);
+
         return response.json(animals);  //obj criado da select feita 
     },
 
-    async show (request, response) {
+    async show(request, response) {
         const { id } = request.params
 
         const animal = await knex('animals').select('*').where('id', id).first();
 
         if (!animal)
-            return response.status(400).json({message: 'Animal not found'})
+            return response.status(400).json({ message: 'Animal not found' })
 
         return response.json(animal)
     },
 
-    async create(request, response){
-                //requisição e resposta
-                
-        try{
+    async create(request, response) {
 
+        try {
 
-              
-                const params = {
-                    name, 
-                    born_date, 
-                    email, 
-                    color, 
-                    description,
-                    avaible,
-                    type_id,
-                    ong_id,    
-                    bio,
-                } = request.body;  //dados do corpo 
-                //console.log(data);
-                
-            // const id = crypto.randomBytes(4).toString('HEX');
-                //id random criado
-                params.register_date =  moment().format().toString()
-                //console.log(params);
+            const params = {
+                name,
+                born_date,
+                breed,
+                color,
+                description,
+                available_for_adoption,
+                available_for_patronize,
+                type_id,
+                ong_id,
+            } = request.body;  //dados do animal
+
+            params.register_date = moment().format().toString()
+            console.log(params)
             
-                const ret = await knex('animals')
-                .returning(['id',' name'])
+            const ret = await knex('animals')
+                .returning(['id', ' name'])
                 .insert(params);
-    
-            return response.json(ret);  
 
-        }catch(error)
-        {
+            return response.json(ret);
+
+        } catch (error) {
             console.log(error);
         }
 

@@ -6,7 +6,10 @@ import {
     View,
     Text,
     StatusBar,
+    Image,
 } from 'react-native';
+
+import Style from '../PetProfile/style'
 
 export default function Reportar({ route, navigation }) {
     const { animal } = route.params || {}
@@ -16,6 +19,10 @@ export default function Reportar({ route, navigation }) {
             <Text>
                 Perfil do pet {JSON.stringify(animal)}
             </Text>
+
+            <Image style={Style.image}
+                //source={require('../../../assets/gato.png')}
+            />
 
         </SafeAreaView>
 

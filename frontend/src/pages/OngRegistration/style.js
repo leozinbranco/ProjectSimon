@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native';
+import { Colors } from 'react-native/Libraries/NewAppScreen';
 
 export default StyleSheet.create({
     container: {
@@ -86,7 +87,21 @@ export default StyleSheet.create({
         width: '90%',
         padding: 3,
         justifyContent: 'center',
+    },
+    section: {
+        alignContent: "flex-start",
+        width: '80%',
+        borderBottomColor: "grey",
+        borderBottomWidth: 0.3
+    },
+    textSection: {
+        fontSize: 20,
+        color: "grey",
+        paddingBottom: 5,
     }
+
+
+
 
 
 });

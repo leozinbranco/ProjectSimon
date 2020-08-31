@@ -40,12 +40,12 @@ module.exports = {
                 born_date,     
                 bio,
             } = request.body;  //dados do corpo 
-            //console.log(data);
+
+            if (!name || !email || !password || !whatsapp || !cep || !born_date )
+                return response.status(400).json({status: false, message: "One of the mandatory params are missing"})
             
-        // const id = crypto.randomBytes(4).toString('HEX');
-            //id random criado
+
             params.register_date =  moment().format().toString()
-            //console.log(params);
             
                 const ret = await knex('users')
                 .returning(['id',' name'])
