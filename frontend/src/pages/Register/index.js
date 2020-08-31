@@ -28,7 +28,7 @@ export default function Register({ navigation }) {
                         <Text> Pessoa física </Text>
                 </TouchableOpacity>
 
-                <TouchableOpacity style={Style.button}>
+                <TouchableOpacity style={Style.button} onPress={() => navigation.navigate('OngRegistration')}>
                         <Image
                             source={require('../../../assets/ong.png')}
                         />

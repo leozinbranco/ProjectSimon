@@ -15,7 +15,11 @@ import { Feather, FontAwesome, AntDesign } from '@expo/vector-icons';
 import Style from './style';
 import axios from 'axios';
 import moment from 'moment';
-moment.locale('pt-br');
+
+import { api_token } from '../../constants/token.json'
+
+
+moment.locale('br');
 
 function ModalAlert() {
     return (
@@ -31,7 +35,7 @@ function ModalAlert() {
 }
 
 export default function Register({ navigation }) {
-    const goNextPage = () => navigation.navigate('Home'); 
+    const backToLoginPage = () => navigation.navigate('Login');
 
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
@@ -39,48 +43,50 @@ export default function Register({ navigation }) {
     const [whatsapp, setWhatsapp] = useState('');
     const [cep, setCep] = useState('');
     const [birthdate, setBirthdate] = useState(new Date(1598051730000));
+
+    const [showDatePicker, setShowDatePicker] = useState(false);
+
     const [show, setShow] = useState(false);
     const [img, setImg] = useState({});
     const [pressed, setPressed] = useState(false);
     const [modalVisible, setModalVisible] = useState(false);
 
     const onChangeDate = (event, selectedDate) => {
-        const currentDate = selectedDate || date;
-        setShow(Platform.OS === 'ios');
+        const currentDate = selectedDate || birthdate;
+        setShowDatePicker(!showDatePicker);
         setBirthdate(currentDate);
     };
 
-    useEffect((visible) => {
-        // Atualiza o titulo do documento usando a API do browser
-        setModalVisible(visible);
-    });
 
-    const createAccount = async (name, email, password, whatsapp, cep, birthdate) =>{
-        
-        try{
-            await axios.post('http://200.236.198.78:3000/users', {
-                name: name,
-                email: email,
-                password: password,
-                whatsapp: whatsapp,
-                cep: cep,
+    const createAccount = async () => {
+
+        try {
+            await axios.post('http://192.168.0.5:3000/users', {
+                name,
+                email,
+                password,
+                whatsapp,
+                cep,
                 born_date: birthdate,
                 bio: null,
+            }, 
+            {
+                headers: { Authorization: `Bearer ${api_token}` }
             })
-            .then((response) =>{
-                alert(response);
-                goNextPage;
-            })
-            .catch((e) =>{
-                alert("Ocorreu um erro no cadastro!" + e);
-                
-            
-            })
-            
-        }catch(e){
+                .then((response) => {
+                    alert(JSON.stringify(response.data));
+                    backToLoginPage();
+                })
+                .catch((e) => {
+                    alert("Ocorreu um erro no cadastro!" + e.response.data.message);
+
+
+                })
+
+        } catch (e) {
             alert(e);
         }
-        
+
     }
 
 
@@ -91,105 +97,112 @@ export default function Register({ navigation }) {
 
             <Text style={Style.title}>Sobre você</Text>
 
-
-
-
             <ScrollView style={Style.formContainer} >
                 <View style={Style.scroll}>
-                    
+
                     <ImagePicker></ImagePicker>
 
-                    <View style={Style.input}>
-                        <Feather style={{ marginRight: 10 }} name="user" size={24} color="black" />
+                    <View style={Style.inputContainer}>
+                        <Feather style={{ marginRight: 10 }} name="user" size={24} color="grey" />
                         <TextInput
                             onChangeText={text => setName(text)}
                             value={name}
                             placeholder='Nome'
                             autoCompleteType='name'
+                            style={Style.input}
                         />
                     </View>
 
-                    <View style={Style.input}>
-                        <Feather style={{ marginRight: 10, justifyContent: "center", alignContent: "center", alignItems: "center" }} name="mail" size={20} color="black" />
+                    <View style={Style.inputContainer}>
+                        <Feather style={{ marginRight: 10 }} name="mail" size={20} color="grey" />
                         <TextInput
                             onChangeText={text => setEmail(text)}
                             value={email}
                             placeholder='Email'
-
                             autoCompleteType='email'
                             keyboardType='email-address'
+                            style={Style.input}
                         />
 
                     </View>
 
-                    <View style={Style.input}>
-                        <AntDesign style={{ marginRight: 10 }} name="lock" size={24} color="black" />
+                    <View style={Style.inputContainer}>
+                        <AntDesign style={{ marginRight: 10 }} name="lock" size={24} color="grey" />
                         <TextInput
                             onChangeText={text => setPassword(text)}
                             value={password}
                             placeholder='Senha'
-
                             autoCompleteType='password'
                             keyboardType='default'
                             secureTextEntry={true}
-
+                            style={Style.input}
                         />
                     </View>
 
-                    <View style={Style.input}>
-                        <FontAwesome style={{ marginRight: 10 }} name="whatsapp" size={24} color="black" />
+                    <View style={Style.inputContainer}>
+                        <FontAwesome style={{ marginRight: 10 }} name="whatsapp" size={24} color="grey" />
                         <TextInput
                             onChangeText={text => setWhatsapp(text)}
                             value={whatsapp}
                             placeholder='Whatsapp'
-
                             autoCompleteType='tel'
                             keyboardType='decimal-pad'
+                            maxLength={11}
+                            style={Style.input}
                         />
-
-
 
                     </View>
 
-                    <View style={Style.input}>
-                        <FontAwesome style={{ marginRight: 10 }} name="location-arrow" size={24} color="black" />
+                    <View style={Style.inputContainer}>
+                        <FontAwesome style={{ marginRight: 10 }} name="location-arrow" size={24} color="grey" />
                         <TextInput
                             onChangeText={cep => setCep(cep)}
                             value={cep}
                             placeholder='CEP'
-
                             autoCompleteType="postal-code"
                             keyboardType='decimal-pad'
+                            maxLength={8}
+                            style={Style.input}
                         />
                     </View>
 
-                    <View style={Style.input}>
-                        <FontAwesome style={{ marginRight: 10 }} name="birthday-cake" size={20} color="black" />
-                        <TouchableOpacity onPress={() => { setShow(!show) }}>
-                            <Text style={{ fontSize: 15, justifyContent: 'center' }}>{moment(birthdate).format('L')}</Text>
+                    <View style={Style.inputContainer}>
+                        <FontAwesome style={{ marginRight: 10 }} name="birthday-cake" size={20} color="grey" />
+
+
+                        <TouchableOpacity
+                            onPress={() => {
+                                setShowDatePicker(!showDatePicker)
+                            }}
+                            style={Style.dateInput}
+                        >
+
+                            <Text >
+                                {'  ' + moment(birthdate).format('DD/MM/YYYY')}
+                            </Text>
                         </TouchableOpacity>
 
                     </View>
 
 
 
-                    <TouchableOpacity style={Style.button} onPress={() => {createAccount(name,email,password,whatsapp,cep,birthdate)}} >
+                    <TouchableOpacity style={Style.button} onPress={() => { createAccount() }} >
                         <Text style={{ color: 'white' }}> Confirmar </Text>
                     </TouchableOpacity>
+
                 </View>
 
             </ScrollView>
 
 
-
-
-            {show ? (<DateTimePicker
+            {showDatePicker ? (<DateTimePicker
                 testID="dateTimePicker"
                 value={birthdate}
                 mode={'date'}
                 is24Hour={true}
                 display="spinner"
                 onChange={onChangeDate}
+                style={{ backgroundColor: 'white' }}
             />) : null}
 
         </SafeAreaView>

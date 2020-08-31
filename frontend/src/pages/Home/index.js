@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {
     SafeAreaView,
     StyleSheet,
@@ -8,23 +8,48 @@ import {
     StatusBar,
     Image
 } from 'react-native';
-
 import { FlatList, TouchableOpacity } from 'react-native-gesture-handler';
 
+import axios from 'axios';
+import { api_token } from '../../constants/token.json'
 import Style from './style'
 
-const fake_data = [
-    { id: 1, name: 'Poliano' },
-    { id: 2, name: 'Poliano' },
-]
 
 /**
  * Essa é a Home Page do App.
  * @param {React Navigation} navigation atributo de navegação do app
  * @returns {JSX} Homescreen do Aplicativo
  */
-
 export default function Home({ navigation }) {
+
+    const [animalsData, setAnimalsData] = useState([])
+
+    useEffect(() => {
+        getAnimals();
+        alert("oii")
+    }, [])
+
+    const getAnimals = async () => {
+
+        try {
+            await axios.get('http://192.168.0.5:3000/animals?limit=2', {
+                headers: { Authorization: `Bearer ${api_token}` }
+            })
+                .then((response) => {
+                    alert(JSON.stringify(response.data));
+                    setAnimalsData(response.data)
+                })
+                .catch((e) => {
+                    alert("Ocorreu um erro !" + e.response.data.message);
+
+
+                })
+
+        } catch (e) {
+            alert(e);
+        }
+    }
+
 
     return (
         <SafeAreaView >
@@ -40,7 +65,7 @@ export default function Home({ navigation }) {
                 <FlatList
                     style={{ width: '100%' }}
                     horizontal={true}
-                    data={fake_data}
+                    data={animalsData}
                     renderItem={({ item }) => (
                         <TouchableOpacity onPress={() => navigation.navigate('Apadrinhar', { item })}>
                             <AnimalCard data={item} />
@@ -57,7 +82,7 @@ export default function Home({ navigation }) {
                 <FlatList
                     style={{ width: '100%' }}
                     horizontal={true}
-                    data={fake_data}
+                    data={animalsData}
                     renderItem={({ item }) => (
                         <TouchableOpacity onPress={() => navigation.navigate('Apadrinhar', { item })}>
                             <AnimalCard data={item} />
@@ -73,7 +98,7 @@ export default function Home({ navigation }) {
                 <FlatList
                     style={{ width: '100%' }}
                     horizontal={true}
-                    data={fake_data}
+                    data={animalsData}
                     renderItem={({ item }) => (
                         <OngCard data={item} />
                     )}

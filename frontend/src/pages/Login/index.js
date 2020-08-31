@@ -28,7 +28,9 @@ export default function Login({ navigation }) {
 
 
     const makeLogin = async (email, password) => {
-        try {
+
+        toggleLogged();
+        /* try {
             setLoading(true);
             await axios.post('http://200.236.198.78:3000/auth', { email, password }).then(result => {
 
@@ -52,7 +54,7 @@ export default function Login({ navigation }) {
         catch (e) {
             setLoading(false)
             alert("Impossivel se conectar")
-        }
+        } */
     }
 
     return (

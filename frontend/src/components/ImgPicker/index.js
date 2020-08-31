@@ -74,6 +74,7 @@ const styles = StyleSheet.create({
         borderRadius: 100,
         justifyContent: 'center',
         alignItems: 'center',
+        margin: 20,
     },
 
     photo: {
