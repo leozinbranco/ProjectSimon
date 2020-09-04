@@ -11,7 +11,7 @@ import {
 import { FlatList, TouchableOpacity } from 'react-native-gesture-handler';
 
 import axios from 'axios';
-import { api_token } from '../../constants/token.json'
+import { api_token } from '../../constants/token.json';
 import Style from './style'
 
 
@@ -24,15 +24,17 @@ export default function Home({ navigation }) {
 
     const [animalsData, setAnimalsData] = useState([])
 
+    //console.log(api_token);
+    //alert(api_token);
     useEffect(() => {
         getAnimals();
-        alert("oii")
+        //alert("oii")
     }, [])
 
     const getAnimals = async () => {
 
-        try {
-            await axios.get('http://192.168.0.5:3000/animals?limit=2', {
+        try {           //   https://api-tcc-simon.herokuapp.com/animals?limit=2
+            await axios.get('https://api-tcc-simon.herokuapp.com/animals', {
                 headers: { Authorization: `Bearer ${api_token}` }
             })
                 .then((response) => {

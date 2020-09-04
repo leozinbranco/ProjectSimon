@@ -32,7 +32,7 @@ export default function Login({ navigation }) {
         toggleLogged();
         /* try {
             setLoading(true);
-            await axios.post('http://200.236.198.78:3000/auth', { email, password }).then(result => {
+            await axios.post('https://api-tcc-simon.herokuapp.com/auth', { email, password }).then(result => {
 
                 if (result.data) {
                     toggleLogged();

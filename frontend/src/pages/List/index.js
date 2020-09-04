@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
     SafeAreaView,
     StyleSheet,
@@ -12,24 +12,55 @@ import {
 import { FlatList } from 'react-native-gesture-handler';
 import { Feather } from '@expo/vector-icons';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
-
+import axios from 'axios';
 
 import Style from './style';
 import Card from '../../components/Card';
 import Filter from '../../components/Filter/index';
 
-const fake_data = [
-    { id: 1, name: 'Poliano', ong: 'COTUCA' },
-    { id: 2, name: 'Poliano', ong: 'COTUCA' },
-    { id: 3, name: 'Poliano', ong: 'COTUCA' },
-]
+/*const fake_data = [
+    { id: 1, name: 'Poliano', ong: 'COTUCA', bio:'Esse animal é muito fofo adota ele pf', type:'Gato', color:'Caramelo', disp:true},
+    { id: 2, name: 'Poliano', ong: 'COTUCA', bio:'Esse animal é muito fofo adota ele pf', type:'Gato', color:'Caramelo', disp:false },
+    { id: 3, name: 'Poliano', ong: 'COTUCA', bio:'Esse animal é muito fofo adota ele pf', type:'Gato', color:'Caramelo', disp:false },
+]*/
+
+
+
 
 export default function Lista({ route, navigation }) {
     const [modalVisible, setModalVisible] = useState(false);
+    const [animalsData, setAnimalsData] = useState([]);
 
     function handleClick() {
         setModalVisible(!modalVisible);
     }
+
+    useEffect(() => {
+        getAnimals();
+        //alert("oii")
+    }, []);
+
+    const getAnimals = async (email, password) => {
+        try {
+            axios.get('https://api-tcc-simon.herokuapp.com/animals?limit=2', {
+                headers: { Authorization: `Bearer ${api_token}` }
+            })
+                .then((response) => {
+                    response.map((animal) => {
+                        setAnimalsData(animal);
+                    });
+                })
+                .catch((e) => {
+                    alert("Ocorreu um erro !" + e.response.data.message);
+                })
+        }
+        catch (e) {
+            console.log(e);
+        }
+
+    };
+
+
 
 
     return (
@@ -75,11 +106,15 @@ export default function Lista({ route, navigation }) {
                 </View>
 
                 <View>
+
                     <FlatList
                         style={{ width: '100%' }}
-                        data={fake_data}
+                        data={animalsData}
                         renderItem={({ item }) => (
-                            <Card data={item} onPress={() => navigation.navigate('PetProfile', { animal: item })} />)}
+
+                            <Card data={item} onPress={() => navigation.navigate('PetProfile', { animal: item })} />
+
+                        )}
                         keyExtractor={item => item.id.toString()}
                     />
                 </View>
