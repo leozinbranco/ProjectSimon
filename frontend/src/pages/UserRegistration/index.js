@@ -61,7 +61,7 @@ export default function Register({ navigation }) {
     const createAccount = async () => {
 
         try {
-            await axios.post('http://192.168.0.5:3000/users', {
+            await axios.post('https://api-tcc-simon.herokuapp.com/users', {
                 name,
                 email,
                 password,

@@ -58,7 +58,7 @@ export default function Register({ navigation }) {
     const createAccount = async () => {
 
         try {
-            await axios.post('http://192.168.0.5:3000/ongs', {
+            await axios.post('https://api-tcc-simon.herokuapp.com/ongs', {
                 name,
                 company_name: companyName,
                 email,

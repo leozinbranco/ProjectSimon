@@ -6,7 +6,80 @@ export default StyleSheet.create({
         resizeMode: 'contain', 
         width: '100%',
         height: 250,
-        backgroundColor: 'grey'
+        width: 330,
+        alignSelf:'center',
+        backgroundColor: 'grey',
+        marginBottom: 40,
     },    
+
+    button: {
+        alignSelf:'center',
+        backgroundColor: '#14754C',
+        borderRadius:10,
+        width:330,
+        height:50,
+        marginBottom:30,
+    },  
+    nameAnimal:{
+        width:320,
+        fontSize: 48,
+        alignSelf:'center',
+    },
+
+    bioCont:{
+        
+        color: '#606060',
+        marginLeft:15,
+        alignSelf:'center',
+        fontSize:15,
+    },
+
+    infoPetContainer: {
+        flexDirection: 'column',
+        flexWrap: 'wrap',
+        height:130,
+        width: 320,
+        alignSelf:'center',
+        marginBottom:20,
+    },
+
+    bioPetContainer: {
+        padding:5,
+        borderRadius:4,
+        backgroundColor:'#D1D1D1',
+        flexWrap: 'wrap',
+        height:100,
+        width: 320,
+        alignSelf:'center',
+        marginBottom:20,
+    },
+
+    line:{
+        flexDirection: 'row',
+    },
+
+    logo: {
+        justifyContent: 'center',
+        resizeMode: 'contain', 
+        width: 21,
+        height: 24,
+    },
+
+    textInfo: {
+        color: '#606060',
+        marginLeft: 10,
+        fontSize: 14,
+        marginBottom: 20,
+        marginRight:10,
+    },
+
+    textInfoLong: {
+        color: '#606060',
+        marginLeft: 8,
+        fontSize: 13,
+        marginBottom: 20,
+        marginRight:10,
+    },
+    
     
 });
