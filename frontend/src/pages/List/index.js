@@ -18,6 +18,7 @@ import Style from './style';
 import Card from '../../components/Card';
 import Filter from '../../components/Filter/index';
 
+import { api_token } from '../../constants/token.json';
 /*const fake_data = [
     { id: 1, name: 'Poliano', ong: 'COTUCA', bio:'Esse animal é muito fofo adota ele pf', type:'Gato', color:'Caramelo', disp:true},
     { id: 2, name: 'Poliano', ong: 'COTUCA', bio:'Esse animal é muito fofo adota ele pf', type:'Gato', color:'Caramelo', disp:false },
@@ -40,18 +41,18 @@ export default function Lista({ route, navigation }) {
         //alert("oii")
     }, []);
 
-    const getAnimals = async (email, password) => {
+    const getAnimals = async () => {
         try {
-            axios.get('https://api-tcc-simon.herokuapp.com/animals?limit=2', {
+            axios.get('https://api-tcc-simon.herokuapp.com/animals', {
                 headers: { Authorization: `Bearer ${api_token}` }
             })
                 .then((response) => {
-                    response.map((animal) => {
-                        setAnimalsData(animal);
-                    });
+                    //console.log("Response>>> : " + JSON.stringify(response.data));
+                        setAnimalsData(response.data);
+                        //console.log(animalsData);
                 })
                 .catch((e) => {
-                    alert("Ocorreu um erro !" + e.response.data.message);
+                    alert("Ocorreu um erro !  >> " + e /*e.response.data.message*/);
                 })
         }
         catch (e) {
@@ -112,7 +113,7 @@ export default function Lista({ route, navigation }) {
                         data={animalsData}
                         renderItem={({ item }) => (
 
-                            <Card data={item} onPress={() => navigation.navigate('PetProfile', { animal: item })} />
+                            <Card data={item} onPress={() => navigation.navigate('PetProfile', { animal: item }, { id: item.id})} />
 
                         )}
                         keyExtractor={item => item.id.toString()}

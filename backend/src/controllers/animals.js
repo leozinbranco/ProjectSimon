@@ -13,8 +13,14 @@ module.exports = {
 
         const { limit } = request.query // ou const limit = request.query.limit
 
-        const animals = await knex('animals').select('*').limit(limit || 100);
+        const animals = await knex.select(['animals.*', 'ongs.company_name']).table('animals').innerJoin('ongs', 'ongs.id', 'animals.ong_id');
 
+
+        /*
+        select a.*, o.company_name as ongName from animals as a 
+        inner join ongs as o 
+        on o.id = a.ong_id 
+        */
         return response.json(animals);  //obj criado da select feita 
     },
 
@@ -47,7 +53,7 @@ module.exports = {
 
             params.register_date = moment().format().toString()
             console.log(params)
-            
+
             const ret = await knex('animals')
                 .returning(['id', ' name'])
                 .insert(params);

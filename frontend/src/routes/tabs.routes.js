@@ -50,7 +50,7 @@ const TabNavigator = () => (
 
     />
   </TabBottom.Navigator>
-       
+
 );
 
 
