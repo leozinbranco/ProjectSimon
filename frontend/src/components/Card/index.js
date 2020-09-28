@@ -24,7 +24,7 @@ export default function Card({ data, onPress }) {
             <View style={Style.container}>
                 <Image source={require('../../../assets/ong.png')} style={Style.ongicon}></Image>
                 <Text style={Style.bottomText}>
-                ONG • {data.ong} 
+                ONG • {data.company_name} 
                 </Text >
             </View>
 
