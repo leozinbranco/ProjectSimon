@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import {
     SafeAreaView,
     StyleSheet,
@@ -21,11 +21,15 @@ export default function PetProfile({ route, navigation, id }) {
     const [pet, setPet] = useState({});
 
     const { animal } = route.params;
+
     alert(JSON.stringify(animal));
 
     useEffect(() => {
-        getPet();
+        //getPet();
         //alert("oii")
+        setPet(animal);
+        navigation.setOptions({ title: animal.name })
+
     }, []);
 
     const getPet = async (id) => {
@@ -35,8 +39,8 @@ export default function PetProfile({ route, navigation, id }) {
             })
                 .then((response) => {
                     //console.log("Response>>> : " + JSON.stringify(response.data));
-                        setAnimalsData(response.data);
-                        alert(animalsData);
+                    setAnimalsData(response.data);
+                    alert(animalsData);
                 })
                 .catch((e) => {
                     alert("Ocorreu um erro !  >> " + e /*e.response.data.message*/);
@@ -45,7 +49,7 @@ export default function PetProfile({ route, navigation, id }) {
         catch (e) {
             console.log(e);
         }
-    
+
     };
 
     return (
@@ -64,6 +68,7 @@ export default function PetProfile({ route, navigation, id }) {
 
                 <View>
                     <View style={Style.bioPetContainer}>
+                        <Text style={Style.textInfo}>Biografia</Text>
                         <Text style={Style.bioCont}>{pet.description}</Text>
                     </View>
 
@@ -83,25 +88,60 @@ export default function PetProfile({ route, navigation, id }) {
                         </View>
 
                         <View style={Style.line}>
-                            <FontAwesome name="paw" size={20} color="black" />
+                            <FontAwesome5 name="paw" size={20} color="black" />
+                            <Text style={Style.textInfo}>Raça • {pet.breed}</Text>
+                        </View>
+
+                        <View style={Style.line}>
+                            <FontAwesome5 name="info-circle" size={20} color="black" />
                             <Text style={Style.textInfo}>Cor • {pet.color}</Text>
                         </View>
 
                         <View style={Style.line}>
-                            {pet.disp ? <AntDesign name="check" size={20} color="black" /> : <AntDesign name="close" size={24} color="black" />}
+                            <FontAwesome name="heart-o" size={20} color="black" />
+                            <Text style={Style.textInfo}>Idade • PRECISA SER ADICIONADO NA API</Text>
+                        </View>
+
+                        <View style={Style.line}>
+                            {pet.available_for_adoption == 'S' ? <AntDesign name="check" size={20} color="black" /> : <AntDesign name="close" size={24} color="black" />}
                             <Text style={Style.textInfoLong}>Disponivel para adoção</Text>
                         </View>
 
                         <View style={Style.line}>
-                            <Text style={Style.textInfo}>Idade • Adulto</Text>
+                            {pet.available_for_patronize == 'S' ? <AntDesign name="check" size={20} color="black" /> : <AntDesign name="close" size={24} color="black" />}
+                            <Text style={Style.textInfoLong}>Disponivel para apadrinhamento</Text>
                         </View>
+
+
 
 
                     </View>
 
-                    <TouchableOpacity style={Style.button}>
+                    {pet.available_for_adoption == 'S' ?
+                        <TouchableOpacity style={Style.buttonAdopt}>
+                            <View style={Style.line}>
 
-                    </TouchableOpacity>
+                                <FontAwesome5 name="whatsapp" size={22} color="white" />
+                                <Text style={Style.textInsideButton}> Entrar em contato para adotar </Text>
+
+                            </View>
+                        </TouchableOpacity>
+                        : null
+                    }
+
+                    {pet.available_for_patronize == 'S' ?
+                        <TouchableOpacity
+                            style={Style.buttonPatronize}
+                            onPress={() => navigation.navigate('Patronize', { animal: animal })}
+                        >
+                            <View style={Style.line}>
+
+                                <FontAwesome5 name="hand-holding-heart" size={22} color="white" />
+                                <Text style={Style.textInsideButton}> Apadrinhar </Text>
+                            </View>
+                        </TouchableOpacity>
+                        : null
+                    }
 
                 </View>
 
