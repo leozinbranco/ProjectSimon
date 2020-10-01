@@ -12,14 +12,12 @@ import { FlatList, TouchableOpacity } from 'react-native-gesture-handler';
 
 import axios from 'axios';
 import { api_token } from '../../constants/token.json';
+import { local, heroku } from '../../constants/api_url.json'
 import Style from './style'
 
 
-/**
- * Essa é a Home Page do App.
- * @param {React Navigation} navigation atributo de navegação do app
- * @returns {JSX} Homescreen do Aplicativo
- */
+
+
 export default function Home({ navigation }) {
 
     const [animalsData, setAnimalsData] = useState([])
@@ -32,9 +30,9 @@ export default function Home({ navigation }) {
     }, [])
 
     const getAnimals = async () => {
-
-        try {           //   https://api-tcc-simon.herokuapp.com/animals?limit=2
-            await axios.get('https://api-tcc-simon.herokuapp.com/animals', {
+        alert(`${local}/animals?limit=2`)
+        try {               //trocar pra heroku ou local
+            await axios.get(`${local}/animals?limit=2`, {
                 headers: { Authorization: `Bearer ${api_token}` }
             })
                 .then((response) => {
@@ -42,7 +40,7 @@ export default function Home({ navigation }) {
                     setAnimalsData(response.data)
                 })
                 .catch((e) => {
-                    alert("Ocorreu um erro !" + e.response.data.message);
+                    //alert("Ocorreu um erro !" + e.response.data.message || e.response );
 
 
                 })

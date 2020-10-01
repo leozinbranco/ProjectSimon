@@ -12,13 +12,25 @@ export default StyleSheet.create({
         marginBottom: 40,
     },    
 
-    button: {
+    buttonAdopt: {
         alignSelf:'center',
         backgroundColor: '#14754C',
         borderRadius:10,
         width:330,
         height:50,
         marginBottom:30,
+        alignItems: 'center',
+        justifyContent: 'center'
+    },  
+    buttonPatronize: {
+        alignSelf:'center',
+        backgroundColor: '#ffa500',
+        borderRadius:10,
+        width:330,
+        height:50,
+        marginBottom:30,
+        alignItems: 'center',
+        justifyContent: 'center'
     },  
     nameAnimal:{
         width:320,
@@ -37,10 +49,10 @@ export default StyleSheet.create({
     infoPetContainer: {
         flexDirection: 'column',
         flexWrap: 'wrap',
-        height:130,
-        width: 320,
+        width: '90%',
         alignSelf:'center',
         marginBottom:20,
+
     },
 
     bioPetContainer: {
@@ -80,6 +92,14 @@ export default StyleSheet.create({
         marginBottom: 20,
         marginRight:10,
     },
+
+    textInsideButton: {
+        color: 'white',
+        fontSize: 16,
+        fontWeight: 'bold',
+        margin: 5,
+
+    }
     
     
 });

@@ -5,19 +5,17 @@
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
-    "eject": "expo eject",
-    "esdoc": "node_modules/.bin/esdoc -c .esdoc.json"
+    "eject": "expo eject"
   },
   "dependencies": {
     "@react-native-community/datetimepicker": "2.4.0",
     "@react-native-community/masked-view": "0.1.10",
+    "@react-native-community/picker": "1.6.0",
     "@react-navigation/bottom-tabs": "^5.6.1",
     "@react-navigation/drawer": "^5.8.4",
     "@react-navigation/native": "^5.6.1",
     "@react-navigation/stack": "^5.7.0",
     "axios": "^0.19.2",
-    "esdoc-ecmascript-proposal-plugin": "^1.0.0",
-    "esdoc-jsx-plugin": "^1.0.0",
     "expo": "^38.0.0",
     "expo-image-picker": "~8.3.0",
     "expo-status-bar": "^1.0.0",
@@ -35,9 +33,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.8.6",
-    "babel-preset-expo": "^8.2.3",
-    "esdoc": "^1.1.0",
-    "esdoc-standard-plugin": "^1.0.0"
+    "babel-preset-expo": "^8.2.3"
   },
   "private": true
 }

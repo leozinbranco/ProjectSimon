@@ -19,14 +19,7 @@ import Card from '../../components/Card';
 import Filter from '../../components/Filter/index';
 
 import { api_token } from '../../constants/token.json';
-/*const fake_data = [
-    { id: 1, name: 'Poliano', ong: 'COTUCA', bio:'Esse animal é muito fofo adota ele pf', type:'Gato', color:'Caramelo', disp:true},
-    { id: 2, name: 'Poliano', ong: 'COTUCA', bio:'Esse animal é muito fofo adota ele pf', type:'Gato', color:'Caramelo', disp:false },
-    { id: 3, name: 'Poliano', ong: 'COTUCA', bio:'Esse animal é muito fofo adota ele pf', type:'Gato', color:'Caramelo', disp:false },
-]*/
-
-
-
+import { local, heroku } from '../../constants/api_url.json'
 
 export default function Lista({ route, navigation }) {
     const [modalVisible, setModalVisible] = useState(false);
@@ -43,7 +36,8 @@ export default function Lista({ route, navigation }) {
 
     const getAnimals = async () => {
         try {
-            axios.get('https://api-tcc-simon.herokuapp.com/animals', {
+            
+            axios.get(`${local}/animals`, {
                 headers: { Authorization: `Bearer ${api_token}` }
             })
                 .then((response) => {
