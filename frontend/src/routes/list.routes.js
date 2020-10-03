@@ -12,7 +12,7 @@ export default function ListRoutes({ navigation }) {
         <Stack.Navigator initialRouteName="List">
             <Stack.Screen name="List" component={List} options={{ headerShown: false }}/>
             <Stack.Screen name="PetProfile" component={PetProfile} />
-            <Stack.Screen name="Patronize" component={Patronize} options={{ title: 'Apadrinhar ' }}/>
+            <Stack.Screen name="Patronize" component={Patronize} options={{ headerShown: false }}/>
         </Stack.Navigator>
     );
 }
