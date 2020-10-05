@@ -37,7 +37,7 @@ export default function Lista({ route, navigation }) {
     const getAnimals = async () => {
         try {
             
-            axios.get(`${local}/animals`, {
+            axios.get(`${heroku}/animals`, {
                 headers: { Authorization: `Bearer ${api_token}` }
             })
                 .then((response) => {
@@ -107,7 +107,7 @@ export default function Lista({ route, navigation }) {
                         data={animalsData}
                         renderItem={({ item }) => (
 
-                            <Card data={item} onPress={() => navigation.navigate('PetProfile', { animal: item }, { id: item.id})} />
+                            <Card data={item} onPress={() => navigation.navigate('PetProfile', { animal: item }, { id: item.ong_id})} />
 
                         )}
                         keyExtractor={item => item.id.toString()}
