@@ -9,6 +9,7 @@ import {
     Image,
     TouchableOpacity,
     TextInput,
+    Linking,
 } from 'react-native';
 
 import Style from '../PetProfile/style';
@@ -17,30 +18,23 @@ import { AntDesign } from '@expo/vector-icons';
 
 
 
-export default function PetProfile({ route, navigation, id }) {
+export default function PetProfile({ route, navigation, ongId }) {
     const [pet, setPet] = useState({});
 
+    const [ong, setOng] = useState({});
     const { animal } = route.params;
-
-    alert(JSON.stringify(animal));
-
-    useEffect(() => {
-        //getPet();
-        //alert("oii")
-        setPet(animal);
-        navigation.setOptions({ title: animal.name })
-
-    }, []);
-
-    const getPet = async (id) => {
+    const message = "Teste Whatsapp";
+    
+    const getWhatsapp = async () => {
         try {
-            axios.get('https://api-tcc-simon.herokuapp.com/animals/' + id, {
+            
+            axios.get(`${heroku}/ongs/${ongId}`, {
                 headers: { Authorization: `Bearer ${api_token}` }
             })
                 .then((response) => {
                     //console.log("Response>>> : " + JSON.stringify(response.data));
-                    setAnimalsData(response.data);
-                    alert(animalsData);
+                        setOng(response.data);
+                        //console.log(animalsData);
                 })
                 .catch((e) => {
                     alert("Ocorreu um erro !  >> " + e /*e.response.data.message*/);
@@ -52,6 +46,41 @@ export default function PetProfile({ route, navigation, id }) {
 
     };
 
+    function sendWhatsApp(){
+        Linking.openURL(`whatsapp://send?phone${ong.whatsapp}&text=${message}`);
+    }
+
+    alert(JSON.stringify(animal));
+
+    useEffect(() => {
+        //getPet();
+        //alert("oii")
+        getWhatsapp();
+        setPet(animal);
+        navigation.setOptions({ title: animal.name })
+
+    }, []);
+
+    /*const getPet = async (id) => {
+        try {
+            axios.get('https://api-tcc-simon.herokuapp.com/animals/' + id, {
+                headers: { Authorization: `Bearer ${api_token}` }
+            })
+                .then((response) => {
+                    //console.log("Response>>> : " + JSON.stringify(response.data));
+                    setAnimalsData(response.data);
+                    alert(animalsData);
+                })
+                .catch((e) => {
+                    alert("Ocorreu um erro !  >> " + e /*e.response.data.message);
+                })
+        }
+        catch (e) {
+            console.log(e);
+        }
+
+    }; */
+    
     return (
         <SafeAreaView>
             <ScrollView>
@@ -118,7 +147,7 @@ export default function PetProfile({ route, navigation, id }) {
                     </View>
 
                     {pet.available_for_adoption == 'S' ?
-                        <TouchableOpacity style={Style.buttonAdopt}>
+                        <TouchableOpacity style={Style.buttonAdopt} onPress={sendWhatsApp}>
                             <View style={Style.line}>
 
                                 <FontAwesome5 name="whatsapp" size={22} color="white" />

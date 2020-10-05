@@ -30,9 +30,9 @@ export default function Home({ navigation }) {
     }, [])
 
     const getAnimals = async () => {
-        alert(`${local}/animals?limit=2`)
+        alert(`${heroku}/animals?limit=2`)
         try {               //trocar pra heroku ou local
-            await axios.get(`${local}/animals?limit=2`, {
+            await axios.get(`${heroku}/animals?limit=2`, {
                 headers: { Authorization: `Bearer ${api_token}` }
             })
                 .then((response) => {
@@ -40,13 +40,14 @@ export default function Home({ navigation }) {
                     setAnimalsData(response.data)
                 })
                 .catch((e) => {
-                    //alert("Ocorreu um erro !" + e.response.data.message || e.response );
-
+                    alert("Ocorreu um erro !" + e.response.data.message || e.response );
+                    console.log(e);
 
                 })
 
         } catch (e) {
             alert(e);
+            console.log(e);
         }
     }
 
