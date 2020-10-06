@@ -1,7 +1,6 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import {
     SafeAreaView,
-    StyleSheet,
     ScrollView,
     View,
     Text,
@@ -9,16 +8,17 @@ import {
     Image
 } from 'react-native';
 import { FlatList, TouchableOpacity } from 'react-native-gesture-handler';
+import { Button } from 'react-native-paper'
 
 import axios from 'axios';
 import { api_token } from '../../constants/token.json';
-import { local, heroku } from '../../constants/api_url.json'
-import Style from './style'
-
-
-
+import { local, heroku } from '../../constants/api_url.json';
+import { AuthContext } from '../../services/auth';
+import Style from './style';
 
 export default function Home({ navigation }) {
+
+    const { userData, isLogged, toggleLogged } = React.useContext(AuthContext);
 
     const [animalsData, setAnimalsData] = useState([])
 
@@ -30,9 +30,9 @@ export default function Home({ navigation }) {
     }, [])
 
     const getAnimals = async () => {
-        alert(`${heroku}/animals?limit=2`)
+        //alert(`${local}/animals?limit=2`)
         try {               //trocar pra heroku ou local
-            await axios.get(`${heroku}/animals?limit=2`, {
+            await axios.get(`${local}/animals?limit=2`, {
                 headers: { Authorization: `Bearer ${api_token}` }
             })
                 .then((response) => {
@@ -40,7 +40,7 @@ export default function Home({ navigation }) {
                     setAnimalsData(response.data)
                 })
                 .catch((e) => {
-                    alert("Ocorreu um erro !" + e.response.data.message || e.response );
+                    alert("Ocorreu um erro !" + e.response.data.message || e.response);
                     console.log(e);
 
                 })
@@ -58,6 +58,12 @@ export default function Home({ navigation }) {
                 <Text style={Style.header}>
                     Home
                 </Text>
+
+                <Text>
+                    {JSON.stringify(userData) + '' + isLogged}
+                </Text>
+
+
 
                 <Text style={Style.title}>
                     Animais disponiveis para apadrinhamento
@@ -105,6 +111,14 @@ export default function Home({ navigation }) {
                     )}
                     keyExtractor={item => item.id.toString()}
                 />
+
+                <Button icon=""
+                    color='red'
+                    mode='outlined'
+                    onPress={() => toggleLogged()}
+                >
+                    <Text> Sair </Text>
+                </Button>
 
             </ScrollView>
 

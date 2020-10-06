@@ -37,7 +37,7 @@ export default function Lista({ route, navigation }) {
     const getAnimals = async () => {
         try {
             
-            axios.get(`${heroku}/animals`, {
+            axios.get(`${local}/animals`, {
                 headers: { Authorization: `Bearer ${api_token}` }
             })
                 .then((response) => {
