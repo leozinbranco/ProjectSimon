@@ -13,11 +13,15 @@ module.exports = {
             password,  //Necessario criptografar 
         }).first();
 
-        if (!auth)
+        if (!auth) {
             auth = await knex('ongs').select('*').where({
                 email,
                 password,  //Necessario criptografar 
             }).first();
+
+            auth = {...auth, isOng: true}
+        }
+           
 
         if (!auth)
             return response.status(400).json({ message: 'Invalid login/ not found' })

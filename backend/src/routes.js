@@ -9,6 +9,7 @@ const usersController = require('./controllers/users');
 const animalsController = require('./controllers/animals');
 const animals_typesController = require('./controllers/animals_types');
 const ong_bank_data = require('./controllers/ong_bank_data');
+const user_bank_data = require('./controllers/user_bank_data')
 const reports = require('./controllers/reports');
 const authController = require('./controllers/auth')
 const pagSeguroTransfer = require('./controllers/pagSeguroTransfer');
@@ -95,11 +96,11 @@ routes.post('/auth', authController.authenticate);
 
 /*               */
 
-routes.post('/user_bank_data', ong_bank_data.create);
+routes.post('/user_bank_data', user_bank_data.create);
 
-routes.get('/user_bank_data', ong_bank_data.index);
+routes.get('/user_bank_data', user_bank_data.index);
 
-routes.get('/user_bank_data/:id_user', ong_bank_data.index);
+routes.get('/user_bank_data/:id_user', user_bank_data.index);
 
 
 module.exports = routes;

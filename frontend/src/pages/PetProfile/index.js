@@ -15,8 +15,9 @@ import {
 import Style from '../PetProfile/style';
 import { FontAwesome, FontAwesome5 } from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons';
+import { local, heroku } from '../../constants/api_url.json';
 
-
+import axios from 'axios'
 
 export default function PetProfile({ route, navigation, ongId }) {
     const [pet, setPet] = useState({});
@@ -28,7 +29,7 @@ export default function PetProfile({ route, navigation, ongId }) {
     const getWhatsapp = async () => {
         try {
             
-            axios.get(`${heroku}/ongs/${ongId}`, {
+            axios.get(`${local}/ongs/${ongId}`, {
                 headers: { Authorization: `Bearer ${api_token}` }
             })
                 .then((response) => {

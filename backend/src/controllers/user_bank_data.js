@@ -36,6 +36,8 @@ module.exports = {
                 cep,
                 country,
             } = request.body;
+
+            console.log(params)
     
             const ret = await knex('user_bank_data')
             .returning(['id','id_user'])

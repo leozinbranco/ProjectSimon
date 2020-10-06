@@ -10,8 +10,10 @@ import {
 } from 'react-native';
 import axios from 'axios'
 
-
 import Style from './style'
+
+import { local } from '../../constants/api_url.json'
+import { api_token } from '../../constants/token.json'
 
 import { AuthContext } from '../../services/auth';
 
@@ -22,39 +24,46 @@ export default function Login({ navigation }) {
     const { toggleLogged, saveUserData, isLogged } = React.useContext(AuthContext);
 
     const [loading, setLoading] = useState(false);
-    const [email, setEmail] = useState('testeusuario@gmail.com');
-    const [password, setPassword] = useState('aa112233');
+    const [email, setEmail] = useState('theus-7@hotmail.com');
+    const [password, setPassword] = useState('m147147m');
 
 
 
     const makeLogin = async (email, password) => {
 
-        toggleLogged();
-        /* try {
+        try {
             setLoading(true);
-            await axios.post('https://api-tcc-simon.herokuapp.com/auth', { email, password }).then(result => {
+            await axios.post(`${local}/auth`,
+                {
+                    email,
+                    password
+                },
+                {
+                    headers: { Authorization: `Bearer ${api_token}` }
+                }
+            ).then(result => {
 
                 if (result.data) {
-                    toggleLogged();
+
                     setLoading(false);
-                    //alert(isLogged)
-                    //saveUserData(ret.data) 
-                    alert(response);
-                    goNextPage;
+                    alert(result.data);
+                    saveUserData(result.data);
+
+                    toggleLogged();
                 }
 
             })
-            .catch(reason => {
-                setLoading(false);
-                //console.log(reason);
-                alert("Login invalido: " + reason);
-            })
-            
+                .catch(reason => {
+                    setLoading(false);
+                    //console.log(reason);
+                    alert("Login invalido: " + reason);
+                })
+
         }
         catch (e) {
             setLoading(false)
             alert("Impossivel se conectar")
-        } */
+        }
     }
 
     return (

@@ -21,7 +21,7 @@ import BackArrow from '../../components/BackArrow';
 
 import Style from './style'
 
-export default function PetProfile({ route, navigation }) {
+export default function Patronize({ route, navigation }) {
     const { animal } = route.params;
 
     const [selectedAmount, setSelectedAmount] = useState('');
@@ -117,7 +117,7 @@ export default function PetProfile({ route, navigation }) {
                             }
 
                             <View style={Style.selectContainer}>
-                                <Button icon="credit-card-outline" color='grey' mode='outlined' onPress={() => alert('Oi!!')}>
+                                <Button icon="credit-card-outline" color='grey' mode='outlined' onPress={() => navigation.navigate('UserBankData')}>
                                     <Caption>MasterCard 5454.XXX.XXX.XXX.872</Caption>
                                 </Button>
                             </View>
