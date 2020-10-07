@@ -28,8 +28,8 @@ export default StyleSheet.create({
         paddingTop: 5,
     },
     background: {
-        backgroundColor: '#3FB55D'
-
+        backgroundColor: '#3FB55D',
+        width: '100%',
     },
     title: {
         color: 'white',
