@@ -17,6 +17,7 @@ import {
     Button
 } from 'react-native-paper';
 
+
 import BackArrow from '../../components/BackArrow';
 
 import Style from './style'
@@ -45,10 +46,10 @@ export default function Patronize({ route, navigation }) {
 
             <View style={Style.container}>
 
-                <ScrollView>
+                <ScrollView style={{width: '100%',   }}>
 
                     <View style={{ width: '100%', height: 1000 }}>
-                    <BackArrow navigation={navigation}/>
+                    <BackArrow navigation={navigation} />
                     
                         <View style={Style.avatars}>
                             <View>

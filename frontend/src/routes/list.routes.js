@@ -5,6 +5,7 @@ import List from '../pages/List';
 import PetProfile from '../pages/PetProfile'
 import Patronize from '../pages/Patronize'
 import UserBankData from '../pages/UserBankData'
+import UserBankDataRegister from '../pages/UserBankDataRegister'
 
 const Stack = createStackNavigator();
 
@@ -14,7 +15,8 @@ export default function ListRoutes({ navigation }) {
             <Stack.Screen name="List" component={List} options={{ headerShown: false }}/>
             <Stack.Screen name="PetProfile" component={PetProfile} />
             <Stack.Screen name="Patronize" component={Patronize} options={{ headerShown: false }}/>
-            <Stack.Screen name="UserBankData" component={UserBankData} options={{ headerShown: false }}/>
+            <Stack.Screen name="UserBankData" component={UserBankData} options={{ headerShown: false}}/>
+            <Stack.Screen name="UserBankDataRegister" component={UserBankDataRegister} options={{ headerShown: false}}/>
         </Stack.Navigator>
     );
 }

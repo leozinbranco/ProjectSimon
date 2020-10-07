@@ -74,7 +74,7 @@ export default function UserBankData({ route, navigation }) {
             </Title>
 
             <Caption>
-                Você pode ter até no máximo 3 (três) cartões de credito cadastrados no momento
+                Você pode ter até no  3 (três) cartões de credito cadastrados no momento
             </Caption>
 
 
@@ -104,7 +104,7 @@ export default function UserBankData({ route, navigation }) {
             <Button
                 color='red'
                 mode='outlined'
-                onPress={() => { alert('Oi!!') }}
+                onPress={() => { navigation.navigate('UserBankDataRegister') }}
             >
                 <Text> Cadastrar novo </Text>
             </Button>
