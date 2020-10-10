@@ -31,7 +31,7 @@ export default StyleSheet.create({
     slider: {
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: '#CACACA',
+        //backgroundColor: '#CACACA',
         width: 28,
         height: 28,
         borderRadius: 5,
@@ -48,8 +48,6 @@ export default StyleSheet.create({
         
         
     },  
-
-   
 
 
     
