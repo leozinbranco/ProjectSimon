@@ -1,13 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import {
     SafeAreaView,
-    StyleSheet,
     ScrollView,
     View,
-    Text,
-    StatusBar,
     TouchableOpacity,
 } from 'react-native';
+import {
+    Paragraph,
+    Caption,
+    Text,
+    Title,
+    Chip,
+    Appbar,
+    Button
+} from 'react-native-paper';
 
 import { FlatList } from 'react-native-gesture-handler';
 import { Feather } from '@expo/vector-icons';
@@ -25,6 +31,9 @@ export default function Lista({ route, navigation }) {
     const [modalVisible, setModalVisible] = useState(false);
     const [animalsData, setAnimalsData] = useState([]);
 
+    const [availableForPatronize, setAvailableForPatronize] = useState(true);
+    const [availableForAdoption, setAvailableForAdoption] = useState(true);
+
     function handleClick() {
         setModalVisible(!modalVisible);
     }
@@ -36,17 +45,16 @@ export default function Lista({ route, navigation }) {
 
     const getAnimals = async () => {
         try {
-            
+
             axios.get(`${local}/animals`, {
                 headers: { Authorization: `Bearer ${api_token}` }
             })
                 .then((response) => {
-                    //console.log("Response>>> : " + JSON.stringify(response.data));
-                        setAnimalsData(response.data);
-                        //console.log(animalsData);
+                    setAnimalsData(response.data);
+
                 })
                 .catch((e) => {
-                    alert("Ocorreu um erro !  >> " + e /*e.response.data.message*/);
+                    alert("Ocorreu um erro !  >> " + e);
                 })
         }
         catch (e) {
@@ -60,43 +68,49 @@ export default function Lista({ route, navigation }) {
 
     return (
         <SafeAreaView >
+
             <ScrollView >
-                <Text style={{ fontSize: 48, color: '#5A5A5A', padding: 10 }}>
-                    Animais
-                        </Text>
 
-                <View style={Style.filterContainer}>
-                    <TouchableOpacity style={{ flexDirection: 'row' }} onPress={handleClick}>
-                        <View style={Style.slider}>
-                            <Feather name="sliders" size={24} color="black" />
-                        </View>
+                <Appbar.Header style={{ backgroundColor: '#3FB55D' }}>
+                    <Appbar.Content title="Animais " color="white" />
+                    <View style={Style.filterContainer}>
+                        <TouchableOpacity style={{ flexDirection: 'row' }} onPress={handleClick}>
+                            <View style={Style.slider}>
+                                <Feather name="sliders" size={24} color="white" />
+                            </View>
 
-                        <Text style={Style.filtreTitle}>
-                            Filtros
-                                        </Text>
+                        </TouchableOpacity>
+                    </View>
+                </Appbar.Header>
 
-
-                    </TouchableOpacity>
-                </View>
 
                 <Filter visible={modalVisible} handler={handleClick} />
 
                 <View>
 
+                    <Caption>
+                        Filtros selecionados
+                    </Caption>
 
+                    <Chip
+                        icon="close"
+                        selected={availableForPatronize}
+                        selectedColor="black"
+                        onPress={() => setAvailableForPatronize(!availableForPatronize)}
 
-                    <View>
-                        <TouchableOpacity style={Style.filtreText}>
-                            <View style={{ alignItems: 'center', justifyContent: 'center', flexDirection: 'row' }}>
-                                <MaterialCommunityIcons name="window-close" size={17} color="black" />
-                                <Text style={{ paddingLeft: 5, fontSize: 15 }}>
-                                    Disponíveis para o Apadrinhamento
-                                    </Text>
-                            </View>
-                        </TouchableOpacity>
-                    </View>
+                    >
+                        Disponíveis para Apadrinhamento
+                    </Chip>
 
+                    <Chip
+                        icon="close"
+                        selected={availableForAdoption}
+                        selectedColor="black"
+                        onPress={() => setAvailableForAdoption(!availableForAdoption)}
 
+                    >
+                        Disponíveis para Adoção
+                    </Chip>
 
                 </View>
 
@@ -107,7 +121,7 @@ export default function Lista({ route, navigation }) {
                         data={animalsData}
                         renderItem={({ item }) => (
 
-                            <Card data={item} onPress={() => navigation.navigate('PetProfile', { animal: item }, { id: item.ong_id})} />
+                            <Card data={item} onPress={() => navigation.navigate('PetProfile', { animal: item }, { id: item.ong_id })} />
 
                         )}
                         keyExtractor={item => item.id.toString()}

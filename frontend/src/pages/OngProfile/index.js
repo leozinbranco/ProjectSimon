@@ -4,71 +4,48 @@ import {
     StyleSheet,
     ScrollView,
     View,
-    Text,
     StatusBar,
     Image,
     TouchableOpacity,
     TextInput,
     Linking,
 } from 'react-native';
+import {
+    Paragraph,
+    Caption,
+    Text,
+    Avatar,
+    Button,
+    Title,
+    Card,
+} from 'react-native-paper';
 
-import Style from '../PetProfile/style';
+
+import Style from './style';
 import { FontAwesome, FontAwesome5 } from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons';
 import { local, heroku } from '../../constants/api_url.json';
-
 import { api_token } from '../../constants/token.json';
 
 import axios from 'axios'
+import { set } from 'react-native-reanimated';
 
-export default function PetProfile({ route, navigation }) {
-    const [pet, setPet] = useState({});
-
+export default function OngProfile({ route, navigation, ongId }) {
     const [ong, setOng] = useState({});
-    const { animal } = route.params;
-    const message = "Teste Whatsapp";
+    const [address, setAdress] = useState({});
 
-    const getWhatsapp = async () => {
+    const { ong_id } = route.params;
+
+    const getOng = async () => {
         try {
 
-            axios.get(`${local}/ongs/${animal.ong_id}`, {
+            axios.get(`${local}/ongs/${ong_id}`, {
                 headers: { Authorization: `Bearer ${api_token}` }
             })
                 .then((response) => {
+                    //console.log("Response>>> : " + JSON.stringify(response.data));
                     setOng(response.data);
-                })
-                .catch((e) => {
-                    alert("Ocorreu um erro !  >> " + e /*e.response.data.message*/);
-                })
-        }
-        catch (e) {
-            console.log(e);
-        }
-
-    };
-
-    function sendWhatsApp() {
-        Linking.openURL(`whatsapp://send?phone${ong.whatsapp}&text=${message}`);
-    }
-
-    alert(JSON.stringify(animal));
-
-    useEffect(() => {
-
-        getPet();
-        getWhatsapp();
-
-        navigation.setOptions({ title: animal.name })
-
-    }, [animal]);
-
-    const getPet = async () => {
-        try {
-            axios.get(`${local}/animals/${animal.id}`, {
-                headers: { Authorization: `Bearer ${api_token}` }
-            })
-                .then((response) => {
-                    setPet(response.data)
+                    //console.log(animalsData);
                 })
                 .catch((e) => {
                     alert("Ocorreu um erro !  >> " + e);
@@ -80,11 +57,117 @@ export default function PetProfile({ route, navigation }) {
 
     };
 
+    const getAddress = async () => {
+        try {
+
+            axios.get(`https://api.postmon.com.br/v1/cep/${ong.cep}`)
+                .then((response) => {
+                    //console.log("Response>>> : " + JSON.stringify(response.data));
+                    setAdress(response.data);
+                    //console.log(animalsData);
+                })
+                .catch((e) => {
+                    //alert("Ocorreu um erro !  >> " + e);
+                })
+        }
+        catch (e) {
+            console.log(e);
+        }
+
+    };
+
+    function sendWhatsApp() {
+        const message = "Olá, vim do aplicativo de apadrinhamento e adoção de animais Simon "
+        Linking.openURL(`whatsapp://send?phone${ong.whatsapp}&text=${message}`);
+    }
+
+
+    useEffect(() => {
+
+        getOng();
+
+        
+    }, []);
+
+    useEffect(() => {
+        getAddress();
+
+        navigation.setOptions({ title: ong.company_name })
+
+    }, [ong]);
+
     return (
         <SafeAreaView>
             <ScrollView>
 
                 <View>
+
+                    <Card>
+
+                        <View style={Style.head}>
+                            <Avatar.Image size={130} style={{ alignSelf: 'center', marginBottom: 10 }}
+                                source={require('../../../assets/ong.png')}
+                            />
+
+                            <Title >
+                                {ong.company_name}
+                            </Title>
+                        </View>
+
+                        <Card.Content>
+
+                            <View style={Style.bioPetContainer}>
+                                <Text style={Style.textInfo}>Biografia</Text>
+                                <Text style={Style.bioCont}>{ong.bio}</Text>
+                            </View>
+
+                            <Caption>Endereço</Caption>
+                            <Text>
+                                {`${address.logradouro}, ${address.bairro}, nº: ${ong.number}`}
+                            </Text>
+                            <Paragraph>
+                                {`${address.cidade} -  ${address.estado}`}
+                            </Paragraph>
+
+                            <Paragraph>
+                                {`CEP • ${ong.cep}`}
+                            </Paragraph>
+
+                            <Caption>CNPJ</Caption>
+
+                            <Paragraph >
+                                {`${ong.cnpj}`}
+                            </Paragraph >
+
+                            <Caption>Contato</Caption>
+
+                            <Paragraph>
+                                {`Email • ${ong.email}`}
+                            </Paragraph>
+
+                            <Paragraph>
+                                {`Telefone • ${ong.whatsapp}`}
+                            </Paragraph>
+
+                            <Button
+                                icon="whatsapp"
+                                mode="outlined"
+                                onPress={() => sendWhatsApp()}
+                                color="darkgreen"
+                                style={{ marginTop: 10 }}
+                            >
+                                Entrar em contato
+                            </Button>
+
+
+                        </Card.Content>
+
+                    </Card>
+
+                </View>
+
+
+                {/* <View>
                     <Text style={Style.nameAnimal}>
                         {pet.name}
                     </Text>
@@ -107,19 +190,12 @@ export default function PetProfile({ route, navigation }) {
                                 source={require('../../../assets/ong.png')}
                                 style={Style.logo}
                             />
-
-                            <TouchableOpacity
-                                onPress={() => navigation.navigate('OngProfile', { ong_id: pet.ong_id })}
-
-                            >
-                                <Text style={Style.textInfo}>ONG • {pet.company_name}</Text>
-                            </TouchableOpacity>
-
+                            <Text style={Style.textInfo}>ONG • {pet.company_name}</Text>
                         </View>
 
                         <View style={Style.line}>
                             <FontAwesome5 name="dog" size={20} color="black" />
-                            <Text style={Style.textInfo}>Tipo • {pet.type_name}</Text>
+                            <Text style={Style.textInfo}>Tipo • {pet.type}</Text>
                         </View>
 
                         <View style={Style.line}>
@@ -134,7 +210,7 @@ export default function PetProfile({ route, navigation }) {
 
                         <View style={Style.line}>
                             <FontAwesome name="heart-o" size={20} color="black" />
-                            <Text style={Style.textInfo}>Idade • {pet.age}</Text>
+                            <Text style={Style.textInfo}>Idade • PRECISA SER ADICIONADO NA API</Text>
                         </View>
 
                         <View style={Style.line}>
@@ -179,7 +255,7 @@ export default function PetProfile({ route, navigation }) {
                     }
 
                 </View>
-
+ */}
 
 
 
