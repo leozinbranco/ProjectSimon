@@ -13,7 +13,9 @@ module.exports = {
 
         const { limit } = request.query // ou const limit = request.query.limit
 
-        const animals = await knex.select(['animals.*', 'ongs.company_name']).table('animals').innerJoin('ongs', 'ongs.id', 'animals.ong_id');
+        const animals = await knex.select(['animals.*', 'ongs.company_name', 'animals_types.type_name']).table('animals')
+        .innerJoin('ongs', 'ongs.id', 'animals.ong_id')
+        .innerJoin('animals_types', 'animals_types.id', 'animals.type_id').limit(limit || 100);
 
 
         /*
@@ -27,7 +29,9 @@ module.exports = {
     async show(request, response) {
         const { id } = request.params
 
-        const animal = await knex('animals').select('*').where('id', id).first();
+        const animal = await knex('animals').select(['animals.*', 'ongs.company_name', 'animals_types.type_name']).where('animals.id', id)
+        .innerJoin('ongs', 'ongs.id', 'animals.ong_id')
+        .innerJoin('animals_types', 'animals_types.id', 'animals.type_id').first();
 
         if (!animal)
             return response.status(400).json({ message: 'Animal not found' })
