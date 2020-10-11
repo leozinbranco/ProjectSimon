@@ -13,24 +13,10 @@ const user_bank_data = require('./controllers/user_bank_data')
 const reports = require('./controllers/reports');
 const authController = require('./controllers/auth')
 const pagSeguroTransfer = require('./controllers/pagSeguroTransfer');
-const middleware = require('./middleware');
-//const incidentController = require('./controllers/IncidentController');
-//const profileController = require('./controllers/ProfileController');
-//const sessionController = require('./controllers/SessionController');
-//routes.get('/ongs',ongController.index);
+const patronizeController = require('./controllers/patronize')
 
-// routes.post('/ongs', 
-//     celebrate({
-//     /*QUERY params, body params, route params*/
-//         [Segments.BODY]: Joi.object().keys({
-//             name: Joi.string().required(),
-//             email: Joi.string().required().email(),
-//             whatsapp: Joi.number().required().min(10).max(11),
-//             city: Joi.string().required(),
-//             uf: Joi.string().required().length(2),
-//         })
-//     })
-// ongController.create);
+const middleware = require('./middleware');
+
 
 /*               */
 routes.use(middleware);
@@ -100,7 +86,21 @@ routes.post('/user_bank_data', user_bank_data.create);
 
 routes.get('/user_bank_data', user_bank_data.index);
 
-routes.get('/user_bank_data/:id_user', user_bank_data.index);
+routes.get('/user_bank_data/:id_user', user_bank_data.show);
+
+
+
+/*               */
+
+routes.post('/patronize', patronizeController.create);
+
+routes.get('/patronize', patronizeController.index);
+
+routes.get('/patronize/:id', patronizeController.show);
+
+routes.get('/users/:id_user/patronize', patronizeController.getFromUser);
+
+routes.put('/patronize/:id/deactivate', patronizeController.deactivate);
 
 
 module.exports = routes;
