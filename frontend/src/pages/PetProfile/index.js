@@ -4,13 +4,13 @@ import {
     StyleSheet,
     ScrollView,
     View,
-    Text,
     StatusBar,
     Image,
     TouchableOpacity,
     TextInput,
     Linking,
 } from 'react-native';
+import { Button, Text } from 'react-native-paper';
 
 import Style from '../PetProfile/style';
 import { FontAwesome, FontAwesome5 } from '@expo/vector-icons';
@@ -153,37 +153,40 @@ export default function PetProfile({ route, navigation }) {
                     </View>
 
                     {pet.available_for_adoption == 'S' ?
-                        <TouchableOpacity style={Style.buttonAdopt} onPress={sendWhatsApp}>
-                            <View style={Style.line}>
 
-                                <FontAwesome5 name="whatsapp" size={22} color="white" />
-                                <Text style={Style.textInsideButton}> Entrar em contato para adotar </Text>
+                        <Button
+                            icon="whatsapp"
+                            mode="contained"
+                            onPress={() => sendWhatsApp()}
+                            color="darkgreen"
+                            style={{ marginTop: 10 }}
+                        >
+                            Adotar
+                            </Button>
 
-                            </View>
-                        </TouchableOpacity>
+
                         : null
                     }
 
                     {pet.available_for_patronize == 'S' ?
-                        <TouchableOpacity
-                            style={Style.buttonPatronize}
-                            onPress={() => navigation.navigate('Patronize', { animal: animal })}
-                        >
-                            <View style={Style.line}>
 
-                                <FontAwesome5 name="hand-holding-heart" size={22} color="white" />
-                                <Text style={Style.textInsideButton}> Apadrinhar </Text>
-                            </View>
-                        </TouchableOpacity>
+                        <Button
+                            icon="whatsapp"
+                            mode="contained"
+                            onPress={() => navigation.navigate('Patronize', { animal: animal })}
+                            color="#ffa500"
+                            dark={true}
+                            style={{ marginTop: 20 }}
+                        >
+                            Apadrinhar
+                        </Button>
                         : null
                     }
 
                 </View>
 
-
-
-
             </ScrollView>
+            
         </SafeAreaView>
 
     );

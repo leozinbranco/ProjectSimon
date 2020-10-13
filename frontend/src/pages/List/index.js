@@ -17,7 +17,6 @@ import {
 
 import { FlatList } from 'react-native-gesture-handler';
 import { Feather } from '@expo/vector-icons';
-import { MaterialCommunityIcons } from '@expo/vector-icons';
 import axios from 'axios';
 
 import Style from './style';
@@ -40,7 +39,6 @@ export default function Lista({ route, navigation }) {
 
     useEffect(() => {
         getAnimals();
-        //alert("oii")
     }, []);
 
     const getAnimals = async () => {
@@ -69,67 +67,70 @@ export default function Lista({ route, navigation }) {
     return (
         <SafeAreaView >
 
-            <ScrollView >
+            <Filter visible={modalVisible} handler={handleClick} />
+            <View>
 
-                <Appbar.Header style={{ backgroundColor: '#3FB55D' }}>
-                    <Appbar.Content title="Animais " color="white" />
-                    <View style={Style.filterContainer}>
-                        <TouchableOpacity style={{ flexDirection: 'row' }} onPress={handleClick}>
-                            <View style={Style.slider}>
-                                <Feather name="sliders" size={24} color="white" />
-                            </View>
+                <FlatList
 
-                        </TouchableOpacity>
-                    </View>
-                </Appbar.Header>
+                    ListHeaderComponent={
+
+                        <View>
+
+                            <Appbar.Header style={{ backgroundColor: '#3FB55D' }}>
+                                <Appbar.Content title="Animais " color="white" />
+                                <View style={Style.filterContainer}>
+                                    <TouchableOpacity style={{ flexDirection: 'row' }} onPress={handleClick}>
+                                        <View style={Style.slider}>
+                                            <Feather name="sliders" size={24} color="white" />
+                                        </View>
+
+                                    </TouchableOpacity>
+                                </View>
+                            </Appbar.Header>
 
 
-                <Filter visible={modalVisible} handler={handleClick} />
 
-                <View>
 
-                    <Caption>
-                        Filtros selecionados
-                    </Caption>
+                            <Caption>
+                                Filtros selecionados
+                            </Caption>
 
-                    <Chip
-                        icon="close"
-                        selected={availableForPatronize}
-                        selectedColor="black"
-                        onPress={() => setAvailableForPatronize(!availableForPatronize)}
+                            <Chip
+                                icon="close"
+                                selected={availableForPatronize}
+                                selectedColor="black"
+                                onPress={() => setAvailableForPatronize(!availableForPatronize)}
 
-                    >
-                        Disponíveis para Apadrinhamento
-                    </Chip>
+                            >
+                                Disponíveis para Apadrinhamento
+                            </Chip>
 
-                    <Chip
-                        icon="close"
-                        selected={availableForAdoption}
-                        selectedColor="black"
-                        onPress={() => setAvailableForAdoption(!availableForAdoption)}
+                            <Chip
+                                icon="close"
+                                selected={availableForAdoption}
+                                selectedColor="black"
+                                onPress={() => setAvailableForAdoption(!availableForAdoption)}
 
-                    >
-                        Disponíveis para Adoção
-                    </Chip>
+                            >
+                                Disponíveis para Adoção
+                            </Chip>
 
-                </View>
+                        </View>
 
-                <View>
+                    }
 
-                    <FlatList
-                        style={{ width: '100%' }}
-                        data={animalsData}
-                        renderItem={({ item }) => (
+                    style={{ width: '100%' }}
+                    data={animalsData}
+                    renderItem={({ item }) => (
 
-                            <Card data={item} onPress={() => navigation.navigate('PetProfile', { animal: item }, { id: item.ong_id })} />
+                        <Card data={item} onPress={() => navigation.navigate('PetProfile', { animal: item }, { id: item.ong_id })} />
 
-                        )}
-                        keyExtractor={item => item.id.toString()}
-                    />
-                </View>
+                    )}
+                    keyExtractor={item => item.id.toString()}
+                />
+            </View>
 
-            </ScrollView>
-        </SafeAreaView>
+        </SafeAreaView >
     );
 };
 

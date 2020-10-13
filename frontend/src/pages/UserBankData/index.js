@@ -80,21 +80,27 @@ export default function UserBankData({ route, navigation }) {
 
 
             <FlatList
-                style={{ width: '90%' }}
+                style={{ width: '95%' }}
                 data={userBankData}
                 renderItem={({ item }) => (
 
+                    <TouchableOpacity
+                        onPress={() => {
+                            navigation.navigate('Patronize', { card_title: `••• ••• ••• ${formatCardNumber(item.card_number)}`, selected_card: item });
+                        }}>
 
-                    <Card>
-                        <Card.Title
-                            title={`••• ${formatCardNumber(item.card_number)}`}
-                            subtitle={`${item.cardholder_name}`}
-                            left={(props) => <Avatar.Icon {...props} icon="credit-card-outline" style={{ backgroundColor: 'white' }} />}
-                            right={(props) => <IconButton {...props} icon="close" color="red" onPress={() => { }} />}
-                        />
-                        <Divider />
+                        <Card style={{ borderWidth: 0.5, marginVertical: 10 }}>
+                            <Card.Title
+                                title={`••• ••• ••• ${formatCardNumber(item.card_number)}`}
+                                subtitle={`${item.cardholder_name}`}
+                                left={(props) => <Avatar.Icon {...props} icon="credit-card-outline" style={{ backgroundColor: 'white' }} />}
+                                right={(props) => <IconButton {...props} icon="close" color="red" onPress={() => { }} />}
+                            />
+                            <Divider />
 
-                    </Card>
+                        </Card>
+                    </TouchableOpacity>
+
 
 
                 )}

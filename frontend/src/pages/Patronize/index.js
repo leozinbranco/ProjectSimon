@@ -6,7 +6,6 @@ import {
     TouchableOpacity,
     FlatList,
 } from 'react-native';
-
 import {
     Switch,
     Paragraph,
@@ -16,16 +15,23 @@ import {
     Avatar,
     Button
 } from 'react-native-paper';
-
+import axios from 'axios';
+import { local, heroku } from '../../constants/api_url.json';
+import { api_token } from '../../constants/token.json';
+import { AuthContext } from '../../services/auth';
 
 import BackArrow from '../../components/BackArrow';
-
 import Style from './style'
 
 export default function Patronize({ route, navigation }) {
     const { animal } = route.params;
 
+    const { userData } = React.useContext(AuthContext);
+
     const [selectedAmount, setSelectedAmount] = useState('');
+    const [ong, setOng] = useState({});
+    const [ongBankData, setOngBankData] = useState({});
+
 
     const [monthly, setMonthly] = useState(false);
 
@@ -35,8 +41,69 @@ export default function Patronize({ route, navigation }) {
         { id: 3, label: "R$ 30,00", value: 30 },
     ])
 
+    useEffect(() => { setPaymentCard(route.params.selected_card) }, [route.params.selected_card])
 
-    const [payment_card, setPaymentCard] = useState('');
+    useEffect(() => {
+         getOngBankData();
+    }, [])
+
+    const [payment_card, setPaymentCard] = useState(route.params.selected_card);
+
+    const savePatronize = async () => {
+
+        console.log(ong)
+        console.log(ongBankData)
+
+        const body = {
+            id_user: userData.id,
+            id_user_bank_data: payment_card.id,
+            id_ong: animal.ong_id,
+            id_ong_bank_data: ongBankData.id,
+            value: selectedAmount,
+            monthly: monthly,
+        }
+        alert(JSON.stringify(body))
+
+        /* try {
+            axios.post(`${local}/patronize`,
+                body,
+                {
+                    headers: { Authorization: `Bearer ${api_token}` }
+                })
+                .then((response) => {
+                    setPet(response.data)
+                })
+                .catch((e) => {
+                    alert("Ocorreu um erro !  >> " + e);
+                })
+        }
+        catch (e) {
+            console.log(e);
+        } */
+    }
+
+    const getOngBankData = async () => {
+        try {
+
+            axios.get(`${local}/ong_bank_data/${animal.ong_id}`, {
+                headers: { Authorization: `Bearer ${api_token}` }
+            })
+                .then((response) => {
+                    //console.log("Response>>> : " + JSON.stringify(response.data));
+                    setOngBankData(response.data);
+                    //console.log(animalsData);
+                    console.log(response.data);
+
+                })
+                .catch((e) => {
+                    alert("Ocorreu um erro !  >> " + e);
+                })
+        }
+        catch (e) {
+            console.log(e);
+        }
+
+    };
 
     return (
 
@@ -46,11 +113,11 @@ export default function Patronize({ route, navigation }) {
 
             <View style={Style.container}>
 
-                <ScrollView style={{width: '100%',   }}>
+                <ScrollView style={{ width: '100%', }}>
 
                     <View style={{ width: '100%', height: 1000 }}>
-                    <BackArrow navigation={navigation} />
-                    
+                        <BackArrow navigation={navigation} />
+
                         <View style={Style.avatars}>
                             <View>
                                 <Avatar.Image size={100} style={{ marginRight: 20 }}
@@ -119,7 +186,7 @@ export default function Patronize({ route, navigation }) {
 
                             <View style={Style.selectContainer}>
                                 <Button icon="credit-card-outline" color='grey' mode='outlined' onPress={() => navigation.navigate('UserBankData')}>
-                                    <Caption>MasterCard 5454.XXX.XXX.XXX.872</Caption>
+                                    <Caption>{route.params.card_title || "Selecione um"}</Caption>
                                 </Button>
                             </View>
 
@@ -128,9 +195,15 @@ export default function Patronize({ route, navigation }) {
 
                         <Caption>Por enquanto somente é possivel realizar apadrinhamentos em nossa plataforma usando um cartão de crédito </Caption>
 
-                        <TouchableOpacity style={Style.button} onPress={() => { createAccount() }} >
+                        <Button
+                            mode='contained'
+                            style={{ backgroundColor: '#3FB55D', marginVertical: 10 }}
+                            onPress={() => { savePatronize() }}
+                        >
                             <Text style={{ color: 'white' }}> Confirmar </Text>
-                        </TouchableOpacity>
+                        </Button>
+
+
 
                     </View>
 
