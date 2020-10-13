@@ -73,7 +73,7 @@ routes.post('/ong_bank_data', ong_bank_data.create);
 
 routes.get('/ong_bank_data', ong_bank_data.index);
 
-routes.get('/ong_bank_data/:id_ong', ong_bank_data.index);
+routes.get('/ong_bank_data/:id_ong', ong_bank_data.show);
 
 
 /*               */
