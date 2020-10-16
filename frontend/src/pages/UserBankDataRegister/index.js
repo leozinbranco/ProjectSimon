@@ -12,6 +12,7 @@ import {
     Caption,
     Text,
     TextInput,
+
     Divider,
     Avatar,
     Button,
@@ -33,9 +34,50 @@ export default function UserBankDataRegister({ route, navigation }) {
 
     const { userData } = React.useContext(AuthContext);
 
-    const [text, setText] = React.useState('');
+    const [name, setName] = useState('');
+    const [cvv, setCvv] = useState('');
+    const [cardNumber, setCardNumber] = useState('');
+    const [expirationDate, setExpirationDate] = useState('');
+    const [cpf, setCpf] = useState('');
 
-    const [userBankDataRegister, setUserBankDataRegister] = useState([])
+
+    //const [userBankDataRegister, setUserBankDataRegister] = useState([])
+
+    const registerBankData = async () => {
+        alert(userData.id);
+        try {
+            await axios.post(`${local}/user_bank_data`, {
+                id_user : userData.id,
+                cardholder_name : name,
+                card_number: cardNumber,
+                expires_date : expirationDate,
+                cvv,
+                address_line_1 : "Rua Teste",
+                address_line_2 : null,
+                city : "Campinas",
+                state : "SP",
+                cep : "13076414",
+                country: "Brazil"
+
+                
+            },
+                {
+                    headers: { Authorization: `Bearer ${api_token}` }
+                })
+                .then((response) => {
+                    //alert(JSON.stringify(response.data));
+                    navigation.pop();
+                    alert("Sucesso! Seu cartão foi cadastrado com sucesso.");
+                })
+                .catch((e) => {
+                    alert("Ocorreu um erro no cadastro!" + e);
+
+                })
+
+        } catch (e) {
+            alert(e);
+        }
+    }
 
     /*const getUserBankData = () => {
 
@@ -88,33 +130,35 @@ export default function UserBankDataRegister({ route, navigation }) {
                     <TextInput
                         label="Nome"
                         style={Style.formCard}
-                        value={text}
+                        value={name}
                         mode="outlined"
-                        onChangeText={text => setText(text)}
+                        onChangeText={name => setName(name)}
                     />
 
                     <TextInput
                         label="Número do Cartão"
                         style={Style.formCard}
-                        value={text}
+                        value={cardNumber}
+                        
                         mode="outlined"
-                        onChangeText={text => setText(text)}
+                        onChangeText={cardNumber => setCardNumber(cardNumber)}
                     />
                     <View style={{ flexDirection: 'row' }}>
 
                         <TextInput
                             label="CVV"
                             style={Style.formCardCVV}
-                            value={text}
+                            value={cvv}
                             mode="outlined"
-                            onChangeText={text => setText(text)}
+                            
+                            onChangeText={cvv => setCvv(cvv)}
                         />
                         <TextInput
                             label="Validade"
                             style={Style.formCardExDate}
-                            value={text}
+                            value={expirationDate}
                             mode="outlined"
-                            onChangeText={text => setText(text)}
+                            onChangeText={expirationDate => setExpirationDate(expirationDate)}
                         />
 
 
@@ -123,12 +167,12 @@ export default function UserBankDataRegister({ route, navigation }) {
                     <TextInput
                         label="CPF do Titular"
                         style={Style.formCard}
-                        value={text}
+                        value={cpf}
                         mode="outlined"
-                        onChangeText={text => setText(text)}
+                        onChangeText={cpf => setCpf(cpf)}
                     />
 
-                    <TouchableOpacity style={Style.confirmButton} onPress={() => { createAccount() }} >
+                    <TouchableOpacity style={Style.confirmButton} onPress={() => { registerBankData() }} >
                         <Text style={{ color: 'white' }}> Confirmar </Text>
                     </TouchableOpacity>
 

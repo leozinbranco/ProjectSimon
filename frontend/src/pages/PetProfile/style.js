@@ -37,6 +37,14 @@ export default StyleSheet.create({
         fontSize: 48,
         alignSelf:'center',
     },
+    btnWhats:{
+        marginBottom:15,
+        width:'90%',        
+        alignSelf:'center',
+    },
+    backarr:{
+        margin:20,
+    },
 
     bioCont:{
         

@@ -55,9 +55,32 @@ export default function UserBankData({ route, navigation }) {
 
     }
 
+    const deleteUserBankData = (id) => {
+
+        try {
+
+            axios.delete(`${local}/user_bank_data/${id}`, {
+                headers: { Authorization: `Bearer ${api_token}` }
+            })
+                .then((response) => {
+                    //console.log("Response>>> : " + JSON.stringify(response.data));
+
+                    //console.log(response);
+                    alert("Cartão apagado com sucesso!");
+                })
+                .catch((e) => {
+                    alert("Ocorreu um erro !  >> " + e /*e.response.data.message*/);
+                })
+        }
+        catch (e) {
+            console.log(e);
+        }
+
+    }
+
     useEffect(() => {
         getUserBankData();
-    }, [])
+    })
 
     const formatCardNumber = (cardNumber) => {
         return cardNumber.substring(cardNumber.length - 4, cardNumber.length)
@@ -89,12 +112,12 @@ export default function UserBankData({ route, navigation }) {
                             navigation.navigate('Patronize', { card_title: `••• ••• ••• ${formatCardNumber(item.card_number)}`, selected_card: item });
                         }}>
 
-                        <Card style={{ borderWidth: 0.5, marginVertical: 10 }}>
+                        <Card style={{ borderWidth: 0.5, marginVertical: 10}}>
                             <Card.Title
                                 title={`••• ••• ••• ${formatCardNumber(item.card_number)}`}
                                 subtitle={`${item.cardholder_name}`}
                                 left={(props) => <Avatar.Icon {...props} icon="credit-card-outline" style={{ backgroundColor: 'white' }} />}
-                                right={(props) => <IconButton {...props} icon="close" color="red" onPress={() => { }} />}
+                                right={(props) => <IconButton {...props} icon="close" color="red" onPress={() => { deleteUserBankData(item.id) }} />}
                             />
                             <Divider />
 

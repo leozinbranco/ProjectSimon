@@ -6,10 +6,10 @@ import {
 import { Ionicons } from '@expo/vector-icons';
 
 
-export default function BackArrow({ navigation }) {
+export default function BackArrow({ navigation, style, size }) {
     return (
-        <TouchableOpacity onPress={() => { navigation.pop(); }} style={{margin:5}}>
-            <Ionicons name="ios-arrow-back" size={30} color="grey" />
+        <TouchableOpacity onPress={() => { navigation.pop(); }} style={style}>
+            <Ionicons name="ios-arrow-back" size={size} color="grey" />
         </TouchableOpacity>
     )
 }

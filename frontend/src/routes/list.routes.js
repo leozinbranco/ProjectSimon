@@ -14,7 +14,7 @@ export default function ListRoutes({ navigation }) {
     return (
         <Stack.Navigator initialRouteName="List">
             <Stack.Screen name="List" component={List} options={{ headerShown: false }}/>
-            <Stack.Screen name="PetProfile" component={PetProfile} />
+            <Stack.Screen name="PetProfile" component={PetProfile} options={{ headerShown: false }} />
             <Stack.Screen name="OngProfile" component={OngProfile} />
             <Stack.Screen name="Patronize" component={Patronize} options={{ headerShown: false }}/>
             <Stack.Screen name="UserBankData" component={UserBankData} options={{ headerShown: false}}/>
