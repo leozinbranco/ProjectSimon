@@ -16,7 +16,7 @@ import Style from '../PetProfile/style';
 import { FontAwesome, FontAwesome5 } from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons';
 import { local, heroku } from '../../constants/api_url.json';
-
+import BackArrow from '../../components/BackArrow';
 import { api_token } from '../../constants/token.json';
 
 import axios from 'axios'
@@ -85,9 +85,12 @@ export default function PetProfile({ route, navigation }) {
             <ScrollView>
 
                 <View>
-                    <Text style={Style.nameAnimal}>
-                        {pet.name}
-                    </Text>
+                    <View style={{flexDirection:'row', alignItems:'center'}}>
+                        <BackArrow navigation={navigation} style={Style.backarr} size={40} />
+                        <Text style={Style.nameAnimal}>
+                            {pet.name}
+                        </Text>
+                    </View>
 
                     <Image style={Style.image}
                         source={require('../../../assets/gato.png')}
@@ -152,6 +155,8 @@ export default function PetProfile({ route, navigation }) {
 
                     </View>
 
+
+
                     {pet.available_for_adoption == 'S' ?
 
                         <Button
@@ -159,7 +164,7 @@ export default function PetProfile({ route, navigation }) {
                             mode="contained"
                             onPress={() => sendWhatsApp()}
                             color="darkgreen"
-                            style={{ marginTop: 10 }}
+                            style={Style.btnWhats}
                         >
                             Adotar
                             </Button>
@@ -176,17 +181,18 @@ export default function PetProfile({ route, navigation }) {
                             onPress={() => navigation.navigate('Patronize', { animal: animal })}
                             color="#ffa500"
                             dark={true}
-                            style={{ marginTop: 20 }}
+                            style={Style.btnWhats}
                         >
                             Apadrinhar
                         </Button>
                         : null
                     }
 
+
                 </View>
 
             </ScrollView>
-            
+
         </SafeAreaView>
 
     );

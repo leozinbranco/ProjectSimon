@@ -116,7 +116,7 @@ export default function Patronize({ route, navigation }) {
                 <ScrollView style={{ width: '100%', }}>
 
                     <View style={{ width: '100%', height: 1000 }}>
-                        <BackArrow navigation={navigation} />
+                        <BackArrow navigation={navigation} size={30} />
 
                         <View style={Style.avatars}>
                             <View>
