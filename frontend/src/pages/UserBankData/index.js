@@ -90,20 +90,21 @@ export default function UserBankData({ route, navigation }) {
 
         <SafeAreaView style={{ backgroundColor: 'white', padding: 10 }}>
 
-            <BackArrow navigation={navigation} />
+            <BackArrow navigation={navigation} style={{margin:10}} size={50} />
+            <View style={{margin: 10}}>
+                <Title>
+                    Seus cartões de crédito cadastrados
+                </Title>
 
-            <Title>
-                Seus cartões de crédito cadastrados
-            </Title>
-
-            <Caption>
-                Você pode ter até no  3 (três) cartões de credito cadastrados no momento
-            </Caption>
+                <Caption>
+                    Você pode ter até no  3 (três) cartões de credito cadastrados no momento
+                </Caption>
+            </View>
 
 
 
             <FlatList
-                style={{ width: '95%' }}
+                style={{ width: '95%', margin: 10 }}
                 data={userBankData}
                 renderItem={({ item }) => (
 
