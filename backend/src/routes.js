@@ -88,6 +88,8 @@ routes.get('/user_bank_data', user_bank_data.index);
 
 routes.get('/user_bank_data/:id_user', user_bank_data.show);
 
+routes.delete('/user_bank_data/:id', user_bank_data.delete);
+
 
 
 /*               */

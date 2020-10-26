@@ -18,6 +18,19 @@ module.exports = {
         return response.json(user_bank_data)
     },
 
+    async delete (request, response){
+        const { id } = request.params
+        
+        const user_bank_data_del = await knex('user_bank_data').where('id', id).del();
+        
+        if(user_bank_data_del == 0)
+            return response.status(400).json({ message: 'User bank data not found to delete'});
+
+        return response.json(user_bank_data_del);
+    },
+
+    
+
 
     async create (request, response){
 
