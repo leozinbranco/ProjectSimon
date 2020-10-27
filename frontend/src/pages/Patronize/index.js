@@ -51,27 +51,26 @@ export default function Patronize({ route, navigation }) {
 
     const savePatronize = async () => {
 
-        console.log(ong)
-        console.log(ongBankData)
-
         const body = {
             id_user: userData.id,
-            id_user_bank_data: payment_card.id,
+            user_bank_data: route.params.card_title  + ' ' + route.params.selected_card.cardholder_name ,
             id_ong: animal.ong_id,
-            id_ong_bank_data: ongBankData.id,
+            ong_bank_data: `${ongBankData.company_name} CNPJ: ${ongBankData.cnpj} Agency: ${ongBankData.agency_number} Account number: ${ongBankData.agency_number}`,
             value: selectedAmount,
             monthly: monthly,
+            id_animal: animal.id
         }
-        alert(JSON.stringify(body))
+        console.log(JSON.stringify(body))
 
-        /* try {
+        try {
             axios.post(`${local}/patronize`,
                 body,
                 {
                     headers: { Authorization: `Bearer ${api_token}` }
                 })
                 .then((response) => {
-                    setPet(response.data)
+                    alert('Apadrinhamento feito com sucesso!')
+                    navigation.pop()
                 })
                 .catch((e) => {
                     alert("Ocorreu um erro !  >> " + e);
@@ -79,7 +78,7 @@ export default function Patronize({ route, navigation }) {
         }
         catch (e) {
             console.log(e);
-        } */
+        } 
     }
 
     const getOngBankData = async () => {

@@ -36,7 +36,7 @@ export default function Home({ navigation }) {
                 headers: { Authorization: `Bearer ${api_token}` }
             })
                 .then((response) => {
-                    alert(JSON.stringify(response.data));
+                    console.log(JSON.stringify(response.data));
                     setAnimalsData(response.data)
                 })
                 .catch((e) => {
@@ -49,7 +49,7 @@ export default function Home({ navigation }) {
             alert(e);
             console.log(e);
         }
-    }
+    } 
 
 
     return (
@@ -60,7 +60,7 @@ export default function Home({ navigation }) {
                 </Text>
 
                 <Text>
-                    {JSON.stringify(userData) + '' + isLogged}
+                    {console.log(JSON.stringify(userData) + '' + isLogged)}
                 </Text>
 
 
