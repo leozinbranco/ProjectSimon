@@ -56,6 +56,8 @@ module.exports = {
 
     async create(request, response) {
         try {
+            console.log(request.body)
+
             const params = {
                 id_user,
                 user_bank_data,
@@ -67,7 +69,12 @@ module.exports = {
             } = request.body;
 
             params.creation_date = moment().format().toString();
-            param.status = 'A';
+            params.status = 'A';
+
+            const already_patronize_this_pet = await knex('patronize').select('*').where('id_user', id_user).andWhere('id_animal', id_animal).first()
+
+            if (already_patronize_this_pet)
+                return response.status(409).json({message: 'This user already patronized this animal'})
 
             const ret = await knex('patronize')
                 .returning('*')
@@ -77,7 +84,7 @@ module.exports = {
         }
         catch (err) {
             console.log(err);
-            return response.json(500).json({ message: "Server error has occured", err })
+            return response.status(500).json({ message: "Server error has occured", err })
 
         }
     },

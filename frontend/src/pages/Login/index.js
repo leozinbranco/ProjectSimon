@@ -46,7 +46,7 @@ export default function Login({ navigation }) {
                 if (result.data) {
 
                     setLoading(false);
-                    alert(result.data);
+                    console.log(result.data);
                     saveUserData(result.data);
 
                     toggleLogged();
