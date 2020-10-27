@@ -58,9 +58,9 @@ module.exports = {
         try {
             const params = {
                 id_user,
-                id_user_bank_data,
+                user_bank_data,
                 id_ong,
-                id_ong_bank_data,
+                ong_bank_data,
                 id_animal,
                 value,
                 monthly
