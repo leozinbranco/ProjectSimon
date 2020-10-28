@@ -29,8 +29,8 @@ export default StyleSheet.create({
     },
     header: {
         fontSize: 48,
-        margin: 10,
-        fontWeight: 'bold'
+        fontWeight: 'bold',
+        marginLeft: 10,
     },
     title: {
         fontWeight: 'bold',
@@ -52,4 +52,9 @@ export default StyleSheet.create({
         backgroundColor: 'grey',
         borderRadius: 100,
     },
+    lineHeader: {
+        flexDirection: 'row',
+        margin: 4,
+        alignItems: 'center',
+    }
 });

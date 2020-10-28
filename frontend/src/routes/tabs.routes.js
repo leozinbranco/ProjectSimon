@@ -6,6 +6,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import Home from '../pages/Home';
 import List from '../routes/list.routes';
 import Reportar from '../pages/Reportar';
+import Drawer from '../routes/drawer.routes';
 
 import Style from './tabsStyle';
 
@@ -22,7 +23,7 @@ const TabNavigator = () => (
     style: Style.navigator,
     inactiveTintColor: 'white',
   }}>
-    <TabBottom.Screen name="Home" component={Home}
+    <TabBottom.Screen name="Home" component={Drawer}
       options={{
         tabBarLabel: 'Inicio',
         tabBarIcon: () => (

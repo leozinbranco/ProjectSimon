@@ -5,11 +5,17 @@ import {
     View,
     Text,
     StatusBar,
-    Image
+    Image,
 } from 'react-native';
-import { FlatList, TouchableOpacity } from 'react-native-gesture-handler';
-import { Button } from 'react-native-paper'
-
+import {
+    FlatList,
+    TouchableOpacity
+} from 'react-native-gesture-handler';
+import {
+    Button,
+    IconButton,
+    Colors,
+} from 'react-native-paper'
 import axios from 'axios';
 import { api_token } from '../../constants/token.json';
 import { local, heroku } from '../../constants/api_url.json';
@@ -49,20 +55,25 @@ export default function Home({ navigation }) {
             alert(e);
             console.log(e);
         }
-    } 
+    }
 
 
     return (
         <SafeAreaView >
             <ScrollView >
-                <Text style={Style.header}>
-                    Home
-                </Text>
 
-                <Text>
-                    {console.log(JSON.stringify(userData) + '' + isLogged)}
-                </Text>
+                <View style={Style.lineHeader}>
+                    <IconButton
+                        icon="menu"
+                        color={Colors.grey800}
+                        size={20}
+                        onPress={() => navigation.toggleDrawer()}
+                    />
 
+                    <Text style={Style.header}>
+                        Home
+                     </Text>
+                </View>
 
 
                 <Text style={Style.title}>
