@@ -41,7 +41,9 @@ module.exports = {
         try {
             const { id_user } = request.params
 
-            const patronize = await knex('patronize').select('*').where('id_user', id_user)
+            const patronize = await knex('patronize').select('patronize.*', 'ongs.company_name', 'animals.name as animal_name').where('id_user', id_user)
+            .innerJoin('ongs', 'ongs.id', 'patronize.id_ong')
+            .innerJoin('animals', 'animals.id', 'patronize.id_animal')
 
             if (!patronize[0])
                 return response.status(400).json({ message: 'Not found for this user ' })
