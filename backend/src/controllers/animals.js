@@ -1,6 +1,8 @@
-knex = require('../database/connections');
+const knex = require('../database/connections');
 const moment = require('moment');
+const axios = require('axios');
 moment.locale('br');
+
 /*
 get: buscar alguma inf no backend
 post: criar alguma inf no backend
@@ -14,24 +16,21 @@ module.exports = {
         const { limit } = request.query // ou const limit = request.query.limit
 
         const animals = await knex.select(['animals.*', 'ongs.company_name', 'animals_types.type_name']).table('animals')
-        .innerJoin('ongs', 'ongs.id', 'animals.ong_id')
-        .innerJoin('animals_types', 'animals_types.id', 'animals.type_id').limit(limit || 100);
+            .innerJoin('ongs', 'ongs.id', 'animals.ong_id')
+            .innerJoin('animals_types', 'animals_types.id', 'animals.type_id').limit(limit || 100)
 
 
-        /*
-        select a.*, o.company_name as ongName from animals as a 
-        inner join ongs as o 
-        on o.id = a.ong_id 
-        */
-        return response.json(animals);  //obj criado da select feita 
+        return response.json(animals);
+
+        //obj criado da select feita 
     },
 
     async show(request, response) {
         const { id } = request.params
 
         const animal = await knex('animals').select(['animals.*', 'ongs.company_name', 'animals_types.type_name']).where('animals.id', id)
-        .innerJoin('ongs', 'ongs.id', 'animals.ong_id')
-        .innerJoin('animals_types', 'animals_types.id', 'animals.type_id').first();
+            .innerJoin('ongs', 'ongs.id', 'animals.ong_id')
+            .innerJoin('animals_types', 'animals_types.id', 'animals.type_id').first();
 
         if (!animal)
             return response.status(400).json({ message: 'Animal not found' })
@@ -45,7 +44,7 @@ module.exports = {
 
             const params = {
                 name,
-                born_date,
+                age,
                 breed,
                 color,
                 description,
@@ -58,11 +57,19 @@ module.exports = {
             params.register_date = moment().format().toString()
             console.log(params)
 
-            const ret = await knex('animals')
-                .returning(['id', ' name'])
-                .insert(params);
+            await axios.get('https://dog.ceo/api/breeds/image/random')
+                .then(async (result) => {
+                    params.image_url = result.data.message
 
-            return response.json(ret);
+                    const ret = await knex('animals')
+                        .returning(['id', ' name'])
+                        .insert(params);
+
+                    return response.json(ret);
+                }).catch((err) => {
+                    return response.status(500).json(err)
+                })
+
 
         } catch (error) {
             console.log(error);

@@ -41,7 +41,7 @@ module.exports = {
         try {
             const { id_user } = request.params
 
-            const patronize = await knex('patronize').select('patronize.*', 'ongs.company_name', 'animals.name as animal_name').where('id_user', id_user)
+            const patronize = await knex('patronize').select('patronize.*', 'ongs.company_name', 'animals.name as animal_name', 'animals.image_url').where('id_user', id_user)
             .innerJoin('ongs', 'ongs.id', 'patronize.id_ong')
             .innerJoin('animals', 'animals.id', 'patronize.id_animal')
 

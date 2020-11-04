@@ -85,7 +85,7 @@ export default function PetProfile({ route, navigation }) {
             <ScrollView>
 
                 <View>
-                    <View style={{flexDirection:'row', alignItems:'center'}}>
+                    <View style={{ flexDirection: 'row', alignItems: 'center' }}>
                         <BackArrow navigation={navigation} style={Style.backarr} size={40} />
                         <Text style={Style.nameAnimal}>
                             {pet.name}
@@ -93,7 +93,7 @@ export default function PetProfile({ route, navigation }) {
                     </View>
 
                     <Image style={Style.image}
-                        source={require('../../../assets/gato.png')}
+                        source={{ uri: pet.image_url }}
                     />
                 </View>
 

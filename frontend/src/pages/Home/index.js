@@ -27,11 +27,14 @@ export default function Home({ navigation }) {
     const { userData, isLogged, toggleLogged } = React.useContext(AuthContext);
 
     const [animalsData, setAnimalsData] = useState([])
+    const [ongsData, setOngsData] = useState([])
+
 
     //console.log(api_token);
     //alert(api_token);
     useEffect(() => {
         getAnimals();
+        getOngs();
         //alert("oii")
     }, [])
 
@@ -44,6 +47,28 @@ export default function Home({ navigation }) {
                 .then((response) => {
                     console.log(JSON.stringify(response.data));
                     setAnimalsData(response.data)
+                })
+                .catch((e) => {
+                    alert("Ocorreu um erro !" + e.response.data.message || e.response);
+                    console.log(e);
+
+                })
+
+        } catch (e) {
+            alert(e);
+            console.log(e);
+        }
+    }
+
+    const getOngs = async () => {
+        //alert(`${local}/animals?limit=2`)
+        try {               //trocar pra heroku ou local
+            await axios.get(`${local}/ongs?limit=2`, {
+                headers: { Authorization: `Bearer ${api_token}` }
+            })
+                .then((response) => {
+                    console.log(JSON.stringify(response.data));
+                    setOngsData(response.data)
                 })
                 .catch((e) => {
                     alert("Ocorreu um erro !" + e.response.data.message || e.response);
@@ -116,7 +141,7 @@ export default function Home({ navigation }) {
                 <FlatList
                     style={{ width: '100%' }}
                     horizontal={true}
-                    data={animalsData}
+                    data={ongsData}
                     renderItem={({ item }) => (
                         <OngCard data={item} />
                     )}
@@ -142,7 +167,7 @@ function AnimalCard({ data, onPress }) {
     return (
         <View style={Style.card}>
             <Image style={Style.petImage}
-                source={require('../../../assets/gato.png')}
+                source={{ uri: data.image_url, }}
             />
 
             <Text>
@@ -157,7 +182,7 @@ function OngCard({ data }) {
         <View style={Style.card}>
 
             <Image style={Style.ongImage}
-                source={require('../../../assets/gato.png')}
+                source={require('../../../assets/ong.png')}
             />
 
             <Text>
