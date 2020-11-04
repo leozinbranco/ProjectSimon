@@ -10,7 +10,9 @@ delete: deletar alguma inf no backend
 
 module.exports = {
     async index(request, response) {
-        const ongs = await knex('ongs').select('*');
+        const { limit } = request.query // ou const limit = request.query.limit
+
+        const ongs = await knex('ongs').select('*').limit(limit || 100);
 
         return response.json(ongs);  //obj criado da select feita 
     },

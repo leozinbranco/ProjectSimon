@@ -115,7 +115,7 @@ export default function UserBankData({ route, navigation }) {
                             <Card.Title
                                 title={`${item.animal_name}`}
                                 subtitle={`${item.company_name}`}
-                                left={(props) => <Avatar.Image size={40} source={require('../../../assets/gato.png')} style={{ backgroundColor: 'white' }} />}
+                                left={(props) => <Avatar.Image size={40} source={{uri: item.image_url }} style={{ backgroundColor: 'white' }} />}
                                 right={(props) => <IconButton {...props} icon="close" color="red" onPress={() => { deactivatePatronize(item.id) }} />}
                             />
                             <Divider />

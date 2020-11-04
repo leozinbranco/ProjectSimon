@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import {
     View,
     Text,
@@ -7,9 +7,8 @@ import {
     TouchableOpacity
 } from 'react-native';
 
-
-
 export default function Card({ data, onPress }) {
+
     return (
         <TouchableOpacity style={Style.card} onPress={onPress}>
 
@@ -18,13 +17,13 @@ export default function Card({ data, onPress }) {
             </Text>
 
             <Image style={Style.image}
-                //source={require('../../../assets/gato.png')}
+                source={{ uri: data.image_url }}
             />
 
             <View style={Style.container}>
                 <Image source={require('../../../assets/ong.png')} style={Style.ongicon}></Image>
                 <Text style={Style.bottomText}>
-                ONG • {data.company_name} 
+                    ONG • {data.company_name}
                 </Text >
             </View>
 
@@ -51,22 +50,22 @@ const Style = StyleSheet.create({
     bottomText: {
         color: '#606060',
         opacity: 0.8,
-        textAlign: 'left', 
+        textAlign: 'left',
         textAlignVertical: 'center',
-        padding: 5, 
-        paddingLeft: 10, 
+        padding: 5,
+        paddingLeft: 10,
     },
     ongicon: {
         justifyContent: 'center',
-        resizeMode: 'contain', 
+        resizeMode: 'contain',
         width: 21,
         height: 24,
-        
-        
+
+
     },
     image: {
         justifyContent: 'center',
-        resizeMode: 'contain', 
+        resizeMode: 'contain',
         width: '100%',
         height: 250,
         backgroundColor: 'grey'
@@ -74,6 +73,6 @@ const Style = StyleSheet.create({
     container: {
         flexDirection: 'row',
         marginTop: 5,
-    },  
+    },
 
 });

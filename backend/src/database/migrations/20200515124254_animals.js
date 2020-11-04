@@ -15,6 +15,7 @@ exports.up = function(knex) {
         table.foreign('type_id').references('animals_types.id');
         table.integer('ong_id').unsigned();
         table.foreign('ong_id').references('ongs.id');
+        table.string('image_url').notNullable();
 
     })
 };
