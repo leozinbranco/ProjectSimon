@@ -30,6 +30,7 @@ import Carousel from 'react-native-snap-carousel'
 import * as Permissions from 'expo-permissions';
 import * as Location from 'expo-location';
 import axios from 'axios';
+import { AntDesign } from '@expo/vector-icons';
 
 import { local } from '../../constants/api_url.json'
 import { api_token } from '../../constants/token.json'
@@ -43,6 +44,7 @@ export default function Reportar({ navigation }) {
     const [region, setRegion] = useState({});
     const [loading, setLoading] = useState(true);
     const [reports, setReports] = useState([]);
+    const [visible, setVisible] = useState(false);
 
     const mapRef = useRef(null);
     const markerRef = useRef(null);
@@ -53,10 +55,13 @@ export default function Reportar({ navigation }) {
     //const [locationResult, setLocationResult] = useState({});
     useEffect(() => {
         _getLocationAsync();
-
         //alert(JSON.stringify(latitude));
         //alert(JSON.stringify(longitude));
     }, []);
+
+    /*useEffect(() => {
+        renderCarousel();
+    })*/
 
 
 
@@ -115,28 +120,48 @@ export default function Reportar({ navigation }) {
             longitudeDelta: 0.0421
         })
 
-        reports[index].current.showCallout();
-    }
+        //reports[index].current.showCallout();
+    };
 
     onMarkerPressed = (index) => {
+        setVisible(true);
+
         mapRef.current.animateToRegion({
-            latitude: reports[index].map_lati - 0.01,
+            latitude: reports[index].map_lati - 0.06,
             longitude: reports[index].map_long,
             latitudeDelta: 0.0922,
             longitudeDelta: 0.0421
         });
 
-        carouselRef.current.snapToItem(index);
-    }
+        //carouselRef.current.snapToItem(index);
+    };
 
     const renderCarouselItem = ({ item }) => {
         return (
             <View style={styles.cardContainer} key={`id_report_${item.id}`}>
-                <Title>{item.title}</Title>
+
+                <View style={{ flexDirection: 'row', width: '100%' }}>
+                    
+                        <Title >
+                            {item.title}
+                        </Title>
+
+
+
+                    
+                    <View style={{ left: 110, marginTop: 10 }}>
+                        <TouchableOpacity onPress={() => { setVisible(false) }}  >
+                            <AntDesign name="close" size={20} color="black" />
+                        </TouchableOpacity>
+                    </View>
+
+                </View>
+
                 <Caption>{item.desc}</Caption>
                 <Divider />
-
-                <Image source={require('../../../assets/gato.png')} style={styles.imageCarousel} />
+                <View style={{ margin: 10 }}>
+                    <Image source={require('../../../assets/gato.png')} style={styles.imageCarousel} />
+                </View>
 
                 <Button
                     onPress={() => alert("apertou")}
@@ -146,6 +171,8 @@ export default function Reportar({ navigation }) {
                 >
                     Contatar
                 </Button>
+
+
 
             </View>
         );
@@ -180,7 +207,7 @@ export default function Reportar({ navigation }) {
                                     reports.map((report, index) => {
                                         //alert(JSON.stringify(report));
                                         return (
-                                            <>
+                                            <View key={"id_report_" + report.id}>
                                                 <Circle
                                                     center={{ latitude: Number(report.map_lati), longitude: Number(report.map_long) }}
                                                     radius={500}
@@ -189,12 +216,12 @@ export default function Reportar({ navigation }) {
                                                     strokeWidth={0}
                                                 ></Circle>
                                                 <Marker
-                                                    ref={ref => {reports[index] = ref; } }
+                                                    ref={markerRef}//ref={ref => {reports[index] = ref; } }
                                                     coordinate={{ latitude: Number(report.map_lati), longitude: Number(report.map_long) }}
                                                     image={require('../../../assets/rescue.png')}
                                                     title={report.title}
                                                     onPress={() => onMarkerPressed(index)}
-                                                    
+
                                                 >
                                                     <Callout>
                                                         <Text>An Interesting city</Text>
@@ -202,7 +229,7 @@ export default function Reportar({ navigation }) {
                                                 </Marker>
 
 
-                                            </>
+                                            </View>
 
 
 
@@ -213,16 +240,23 @@ export default function Reportar({ navigation }) {
 
 
                             </MapView>
-                            <Carousel
-                                ref={carouselRef}
-                                data={reports}
-                                renderItem={renderCarouselItem}
-                                sliderWidth={Dimensions.get('window').width}
-                                itemWidth={300}
-                                containerCustomStyle={styles.carousel}
-                                onSnapToItem={(index) => onCarouselItemChange(index)}
-                                removeClippedSubviews={false}
-                            />
+
+                            {
+                                visible ? (
+                                    <Carousel
+                                        ref={carouselRef}
+                                        data={reports}
+                                        renderItem={renderCarouselItem}
+                                        sliderWidth={Dimensions.get('window').width}
+                                        itemWidth={300}
+                                        containerCustomStyle={styles.carousel}
+                                        onSnapToItem={(index) => onCarouselItemChange(index)}
+                                        removeClippedSubviews={false}
+                                    />
+                                )
+                                    : null
+                            }
+
                         </View>
                     )
             }
@@ -263,10 +297,11 @@ const styles = StyleSheet.create({
     },
     cardContainer: {
         backgroundColor: 'white',
-        height: 270,
-        width: 300,
+        height: 250,
+        width: '100%',
         padding: 18,
-        borderRadius: 24
+        borderRadius: 24,
+        paddingTop: 5,
     },
     cardTitle: {
         color: 'white',
