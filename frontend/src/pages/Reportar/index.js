@@ -127,7 +127,7 @@ export default function Reportar({ navigation }) {
         setVisible(true);
 
         mapRef.current.animateToRegion({
-            latitude: reports[index].map_lati - 0.06,
+            latitude: reports[index].map_lati - 0.01,
             longitude: reports[index].map_long,
             latitudeDelta: 0.0922,
             longitudeDelta: 0.0421
@@ -140,17 +140,13 @@ export default function Reportar({ navigation }) {
         return (
             <View style={styles.cardContainer} key={`id_report_${item.id}`}>
 
-                <View style={{ flexDirection: 'row', width: '100%' }}>
-                    
-                        <Title >
-                            {item.title}
-                        </Title>
+                <View style={{ position: 'relative', width: '100%', flexDirection: 'row' }}>
+                    <Title style={{ alignSelf: 'center' }}>
+                        {item.title}
+                    </Title>
 
-
-
-                    
-                    <View style={{ left: 110, marginTop: 10 }}>
-                        <TouchableOpacity onPress={() => { setVisible(false) }}  >
+                    <View style={{ position: 'absolute', width: '100%', flexDirection: 'row', justifyContent: 'flex-end', marginTop: 10 }}>
+                        <TouchableOpacity onPress={() => { setVisible(false) }}   >
                             <AntDesign name="close" size={20} color="black" />
                         </TouchableOpacity>
                     </View>
@@ -199,6 +195,15 @@ export default function Reportar({ navigation }) {
                                 showsMyLocationButton={true}
 
                             >
+                                <View style={styles.iconButton}>
+                                    <IconButton
+                                        icon="menu"
+                                        color={Colors.grey800}
+                                        
+                                        size={40}
+                                        onPress={() => navigation.toggleDrawer()}
+                                    />
+                                </View>
 
 
 
@@ -271,6 +276,9 @@ export default function Reportar({ navigation }) {
 }
 
 const styles = StyleSheet.create({
+    iconButton: {
+        marginLeft:10
+    },
     screen: {
         width: Dimensions.get('window').width,
         height: '100%',
