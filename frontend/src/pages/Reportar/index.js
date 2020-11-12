@@ -277,7 +277,7 @@ export default function Reportar({ navigation }) {
 
 const styles = StyleSheet.create({
     iconButton: {
-        marginLeft:10
+        marginLeft:10,
     },
     screen: {
         width: Dimensions.get('window').width,
