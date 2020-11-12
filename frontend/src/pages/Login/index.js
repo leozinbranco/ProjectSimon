@@ -24,8 +24,8 @@ export default function Login({ navigation }) {
     const { toggleLogged, saveUserData, isLogged } = React.useContext(AuthContext);
 
     const [loading, setLoading] = useState(false);
-    const [email, setEmail] = useState('theus-7@hotmail.com');
-    const [password, setPassword] = useState('m147147m');
+    const [email, setEmail] = useState('cc19367@g.unicamp.br');
+    const [password, setPassword] = useState('batata123');
 
 
 
