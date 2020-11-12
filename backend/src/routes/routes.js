@@ -3,19 +3,21 @@
 const express = require('express');
 //const { celebrate, Segments, Joi} = require('celebrate');
 const routes = express.Router();  //modulo de rotas em uma nova variável, no lugar de app.
-const pagSeguroRecurring = require('./controllers/pagseguroRecurring');
-const ongController = require('./controllers/ongs');
-const usersController = require('./controllers/users');
-const animalsController = require('./controllers/animals');
-const animals_typesController = require('./controllers/animals_types');
-const ong_bank_data = require('./controllers/ong_bank_data');
-const user_bank_data = require('./controllers/user_bank_data')
-const reports = require('./controllers/reports');
-const authController = require('./controllers/auth')
-const pagSeguroTransfer = require('./controllers/pagSeguroTransfer');
-const patronizeController = require('./controllers/patronize')
+const pagSeguroRecurring = require('../controllers/pagseguroRecurring');
+const ongController = require('../controllers/ongs');
+const usersController = require('../controllers/users');
+const animalsController = require('../controllers/animals');
+const animals_typesController = require('../controllers/animals_types');
+const ong_bank_data = require('../controllers/ong_bank_data');
+const user_bank_data = require('../controllers/user_bank_data')
+const reports = require('../controllers/reports');
+const authController = require('../controllers/auth')
+const pagSeguroTransfer = require('../controllers/pagSeguroTransfer');
+const patronizeController = require('../controllers/patronize');
+const paymentController = require('../controllers/paymentController');
 
-const middleware = require('./middleware');
+const middleware = require('../middleware');
+
 
 
 /*               */
@@ -27,7 +29,25 @@ routes.post('/solicitation', pagSeguroTransfer.solicitationAuthAccount);
 
 routes.get('/balance', pagSeguroTransfer.balance);
 
-routes.post('/pagSegRec', pagSeguroRecurring.connect); 
+/* pagamento routes */
+
+routes.get('/payments/checkout/:id/:email/:description/:amount', paymentController.checkout);
+routes.get('/payments/success', () => {
+    return res.render('success_screen')
+});
+routes.get('/payments/pending', () => {
+    return res.render('pending_screen')
+}); //se tiver pendente vem pra ca
+routes.get('/payments/failure', () => {
+    return res.render('failure_screen')
+});
+
+
+//routes.post('/session/:id', pagSeguroTransfer.session);
+
+routes.post('/session', pagSeguroTransfer.session);
+
+routes.post('/pagSegRec', pagSeguroRecurring.connect);
 
 routes.post('/ongs', ongController.create);
 

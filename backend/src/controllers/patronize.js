@@ -1,6 +1,6 @@
 knex = require('../database/connections');
 const moment = require('moment');
-const { param } = require('../routes');
+const { param } = require('../routes/routes');
 moment.locale('br');
 
 module.exports = {
