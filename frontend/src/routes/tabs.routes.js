@@ -1,9 +1,7 @@
 import React from 'react';
 
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { createStackNavigator } from '@react-navigation/stack';
 
-import Home from '../pages/Home';
 import List from '../routes/list.routes';
 import Reportar from '../pages/Reportar';
 import Drawer from '../routes/drawer.routes';
@@ -12,12 +10,11 @@ import Style from './tabsStyle';
 
 import { Feather } from '@expo/vector-icons';
 import { FontAwesome } from '@expo/vector-icons';
-import { SafeAreaView } from 'react-native-safe-area-context';
 
 
 const TabBottom = createBottomTabNavigator(); //menu inferior
 
-const TabNavigator = () => (
+const TabNavigator = ({route, navigation}) => (
 
   <TabBottom.Navigator tabBarOptions={{
     style: Style.navigator,
@@ -31,7 +28,7 @@ const TabNavigator = () => (
         ),
       }}
     />
-    <TabBottom.Screen name="Apadrinhar" component={List}
+    <TabBottom.Screen name="Apadrinhar" component={List} props={{ route, navigation }}
       options={{
         tabBarLabel: 'Apadrinhar',
         tabBarIcon: () => (

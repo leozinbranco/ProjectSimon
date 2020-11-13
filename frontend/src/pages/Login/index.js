@@ -72,7 +72,6 @@ export default function Login({ navigation }) {
             <View style={Style.formContainer}>
 
                 <ActivityIndicator size="large" animating={loading} color={'white'} />
-                {/*<Text> {loading.toString()} </Text>*/}
 
                 <TextInput
                     style={Style.input}
@@ -84,6 +83,7 @@ export default function Login({ navigation }) {
                     style={Style.input}
                     placeholder="Senha"
                     onChangeText={(text) => setPassword(text)} value={password}
+                    secureTextEntry={true}
                 />
 
                 <TouchableOpacity style={Style.button} onPress={() => makeLogin(email, password)}>

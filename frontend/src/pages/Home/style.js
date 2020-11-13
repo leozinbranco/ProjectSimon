@@ -2,11 +2,10 @@ import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
     container: {
-        flex: 1,
-        flexDirection: "column",
         backgroundColor: '#3FB55D',
-        justifyContent: "center",
-        alignItems: "center"
+        height: '100%',
+        flexDirection: 'column',
+        flexGrow: 1
     },
     input: {
         backgroundColor: 'white',
@@ -27,10 +26,12 @@ export default StyleSheet.create({
     whiteText: {
         color: 'white',
     },
-    header: {
-        fontSize: 48,
+    headerText: {
+        fontSize: 40,
         fontWeight: 'bold',
         marginLeft: 10,
+        color: 'white',
+        paddingTop: 10,
     },
     title: {
         fontWeight: 'bold',
@@ -42,9 +43,8 @@ export default StyleSheet.create({
         backgroundColor: 'grey'
     },
     card: {
-        height: 120, 
+        width: 250,
         margin: 10,
-        alignItems: 'center',
     },
     ongImage: {
         width: 110,
@@ -54,7 +54,26 @@ export default StyleSheet.create({
     },
     lineHeader: {
         flexDirection: 'row',
-        margin: 4,
+        margin: 0,
         alignItems: 'center',
+    },
+    headContainer: {
+        backgroundColor: '#3FB55D',
+        paddingBottom: 15,
+        paddingTop: 20,
+    },
+    Headerlogo: {
+        resizeMode: 'contain',
+        height: '100%',
+        marginTop: 20,
+        opacity: 0.1,
+        position: 'absolute',
+        right: 0
+    },
+    seeMoreCard: {
+        alignItems: 'center',
+        alignSelf: 'center',
+        justifyContent: 'center',
+        backgroundColor: 'red'
     }
 });

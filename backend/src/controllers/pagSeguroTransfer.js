@@ -11,7 +11,7 @@ module.exports = {
                 {
                     params: {
                         email: "cc19377@g.unicamp.br",
-                        token: "A23C1C87C36648118B73AC99B90D57CB",
+                        token: "NAO",
                     },
                     headers: {
                         'Content-Type': 'application/vnd.pagseguro.com.br.v1+json',
@@ -43,7 +43,7 @@ module.exports = {
             const get = await axios.post(`https://ws.pagseguro.uol.com.br/transfer/requests`, request.body, {
                 params: {
                     email: "cc19377@g.unicamp.br",
-                    token: "A23C1C87C36648118B73AC99B90D57CB",
+                    token: "NAO",
                 },
                 headers: {
                     'Content-Type': 'application/vnd.pagseguro.com.br.v1+json',
@@ -79,7 +79,7 @@ module.exports = {
             const get = await axios.post(`https://ws.sandbox.pagseguro.uol.com.br/transfer/authorize`, request.body, {
                 params: {
                     email: "cc19377@g.unicamp.br",
-                    token: "A23C1C87C36648118B73AC99B90D57CB",
+                    token: "NAO",
                 },
                 headers: {
                     'Content-Type': 'application/vnd.pagseguro.com.br.v1+json',
@@ -119,7 +119,7 @@ module.exports = {
             const get = await axios.post(`https://ws.sandbox.pagseguro.uol.com.br/v2/sessions`, {
                 params: {
                     email: "cc19377@g.unicamp.br", //email: ong.emailPagSeg,
-                    token: "A23C1C87C36648118B73AC99B90D57CB",//token: ong.token,
+                    token: "NAO",//token: ong.token,
                 },
                 headers: {
                     'Content-Type': 'application/vnd.pagseguro.com.br.v1+json',
