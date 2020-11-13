@@ -2,14 +2,13 @@ import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
     image: {
-        justifyContent: 'center',
-        resizeMode: 'contain', 
+        justifyContent: 'flex-end',
+        resizeMode: 'cover', 
         width: '100%',
-        height: 250,
-        width: 330,
+        height: 250, 
         alignSelf:'center',
         backgroundColor: 'grey',
-        marginBottom: 40,
+        flexDirection: 'column'
     },    
 
     buttonAdopt: {
@@ -33,9 +32,13 @@ export default StyleSheet.create({
         justifyContent: 'center'
     },  
     nameAnimal:{
-        width:320,
-        fontSize: 48,
-        alignSelf:'center',
+        width: '100%',
+        fontSize: 38,
+        height: 39,
+        paddingTop: 10,
+        alignContent: 'center',
+        flexDirection: 'row',
+        color: 'white'
     },
     btnWhats:{
         marginBottom:15,

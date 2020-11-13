@@ -9,8 +9,9 @@ import {
     TouchableOpacity,
     TextInput,
     Linking,
+    ImageBackground
 } from 'react-native';
-import { Button, Text } from 'react-native-paper';
+import { Button, Text, Divider, Title, Caption, Paragraph, Card, IconButton, Chip } from 'react-native-paper';
 
 import Style from '../PetProfile/style';
 import { FontAwesome, FontAwesome5 } from '@expo/vector-icons';
@@ -51,8 +52,6 @@ export default function PetProfile({ route, navigation }) {
         Linking.openURL(`whatsapp://send?phone${ong.whatsapp}&text=${message}`);
     }
 
-    alert(JSON.stringify(animal));
-
     useEffect(() => {
 
         getPet();
@@ -84,116 +83,117 @@ export default function PetProfile({ route, navigation }) {
         <SafeAreaView>
             <ScrollView>
 
-                <View>
-                    <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-                        <BackArrow navigation={navigation} style={Style.backarr} size={40} />
-                        <Text style={Style.nameAnimal}>
-                            {pet.name}
-                        </Text>
-                    </View>
-
-                    <Image style={Style.image}
-                        source={{ uri: pet.image_url }}
-                    />
-                </View>
+                <ImageBackground style={Style.image} source={{ uri: pet.image_url }}>
+                </ImageBackground>
 
                 <View>
-                    <View style={Style.bioPetContainer}>
-                        <Text style={Style.textInfo}>Biografia</Text>
-                        <Text style={Style.bioCont}>{pet.description}</Text>
+                    <Card>
+                        <Card.Title title={pet.name} />
+                        <Card.Content>
+                            <ScrollView horizontal={true} >
+                                <View style={Style.line}>
+                                    {pet.available_for_adoption == 'S' ?
+                                        <Chip mode='outlined' icon="check" style={{ borderColor: 'green', borderWidth: 1, marginRight: 5 }} textStyle={{ fontSize: 12, }}>Disponivel para adoção</Chip> : null}
+
+                                    {pet.available_for_patronize == 'S' ?
+                                        <Chip mode='outlined' icon="check" style={{ borderColor: 'orange', borderWidth: 1 }} textStyle={{ fontSize: 12, }}>Disponivel para apadrinhar</Chip> : null}
+                                </View>
+
+                            </ScrollView>
+                        </Card.Content>
+                    </Card>
+
+                    <Card>
+                        <Card.Content>
+                            <Caption> Sobre </Caption>
+                            <Text >{pet.description}</Text>
+                        </Card.Content>
+                    </Card>
+
+                    <View>
+                        <Card>
+                            <Card.Content style={Style.line}>
+                                <Image
+                                    source={require('../../../assets/ong.png')}
+                                    style={Style.logo}
+                                />
+                                <Caption> ONG • {pet.company_name}</Caption>
+                            </Card.Content>
+                            <Card.Actions>
+                                <Button onPress={() => navigation.navigate('OngProfile', { ong_id: pet.ong_id })}>Ver perfil da ong</Button>
+                            </Card.Actions>
+                        </Card>
+
+                        <Card>
+
+                            <Card.Content style={Style.line}>
+                                <FontAwesome5 name="dog" size={20} color="black" />
+                                <Caption style={Style.textInfo}>Tipo • {pet.type_name}</Caption>
+                            </Card.Content>
+
+                            <Card.Content style={Style.line}>
+                                <FontAwesome5 name="paw" size={20} color="black" />
+                                <Text style={Style.textInfo}>Raça • {pet.breed}</Text>
+                            </Card.Content>
+
+                            <Card.Content style={Style.line}>
+                                <FontAwesome5 name="info-circle" size={20} color="black" />
+                                <Text style={Style.textInfo}>Cor • {pet.color}</Text>
+                            </Card.Content>
+
+
+                            <Card.Content style={Style.line}>
+                                <FontAwesome name="heart-o" size={20} color="black" />
+                                <Text style={Style.textInfo}>Idade • {pet.age}</Text>
+                            </Card.Content>
+
+
+                            <Card.Actions>
+
+                                {pet.available_for_patronize == 'S' ?
+
+                                    <Button
+                                        icon="whatsapp"
+                                        mode="contained"
+                                        onPress={() => navigation.navigate('Patronize', { animal: animal })}
+                                        color="#ffa500"
+                                        dark={true}
+                                    >
+                                        Apadrinhar 
+                                    </Button>
+                                    : null
+                                }
+
+                                {pet.available_for_adoption == 'S' ?
+
+                                    <Button
+                                        icon="whatsapp"
+                                        mode="outlined"
+                                        onPress={() => sendWhatsApp()}
+                                        color="darkgreen"
+                                    >
+                                        Adotar
+                                    </Button>
+
+
+                                    : null
+                                }
+
+
+                            </Card.Actions>
+
+                        </Card>
+
+
                     </View>
 
-                    <View style={Style.infoPetContainer}>
-
-                        <View style={Style.line}>
-                            <Image
-                                source={require('../../../assets/ong.png')}
-                                style={Style.logo}
-                            />
-
-                            <TouchableOpacity
-                                onPress={() => navigation.navigate('OngProfile', { ong_id: pet.ong_id })}
-
-                            >
-                                <Text style={Style.textInfo}>ONG • {pet.company_name}</Text>
-                            </TouchableOpacity>
-
-                        </View>
-
-                        <View style={Style.line}>
-                            <FontAwesome5 name="dog" size={20} color="black" />
-                            <Text style={Style.textInfo}>Tipo • {pet.type_name}</Text>
-                        </View>
-
-                        <View style={Style.line}>
-                            <FontAwesome5 name="paw" size={20} color="black" />
-                            <Text style={Style.textInfo}>Raça • {pet.breed}</Text>
-                        </View>
-
-                        <View style={Style.line}>
-                            <FontAwesome5 name="info-circle" size={20} color="black" />
-                            <Text style={Style.textInfo}>Cor • {pet.color}</Text>
-                        </View>
-
-                        <View style={Style.line}>
-                            <FontAwesome name="heart-o" size={20} color="black" />
-                            <Text style={Style.textInfo}>Idade • {pet.age}</Text>
-                        </View>
-
-                        <View style={Style.line}>
-                            {pet.available_for_adoption == 'S' ? <AntDesign name="check" size={20} color="black" /> : <AntDesign name="close" size={24} color="black" />}
-                            <Text style={Style.textInfoLong}>Disponivel para adoção</Text>
-                        </View>
-
-                        <View style={Style.line}>
-                            {pet.available_for_patronize == 'S' ? <AntDesign name="check" size={20} color="black" /> : <AntDesign name="close" size={24} color="black" />}
-                            <Text style={Style.textInfoLong}>Disponivel para apadrinhamento</Text>
-                        </View>
-
-
-
-
-                    </View>
-
-
-
-                    {pet.available_for_adoption == 'S' ?
-
-                        <Button
-                            icon="whatsapp"
-                            mode="contained"
-                            onPress={() => sendWhatsApp()}
-                            color="darkgreen"
-                            style={Style.btnWhats}
-                        >
-                            Adotar
-                            </Button>
-
-
-                        : null
-                    }
-
-                    {pet.available_for_patronize == 'S' ?
-
-                        <Button
-                            icon="whatsapp"
-                            mode="contained"
-                            onPress={() => navigation.navigate('Patronize', { animal: animal })}
-                            color="#ffa500"
-                            dark={true}
-                            style={Style.btnWhats}
-                        >
-                            Apadrinhar
-                        </Button>
-                        : null
-                    }
 
 
                 </View>
 
             </ScrollView>
 
-        </SafeAreaView>
+        </SafeAreaView >
 
     );
 }

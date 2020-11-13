@@ -39,6 +39,8 @@ export default function Lista({ route, navigation }) {
 
     useEffect(() => {
         getAnimals();
+        console.log(navigation)
+        console.log(route)
     }, []);
 
     const getAnimals = async () => {
@@ -66,14 +68,12 @@ export default function Lista({ route, navigation }) {
 
     return (
         <SafeAreaView >
-
             <Filter visible={modalVisible} handler={handleClick} />
+
             <View>
 
                 <FlatList
-
                     ListHeaderComponent={
-
                         <View>
 
                             <Appbar.Header style={{ backgroundColor: '#3FB55D' }}>
@@ -88,21 +88,17 @@ export default function Lista({ route, navigation }) {
                                 </View>
                             </Appbar.Header>
 
-
-
-
                             <Caption>
                                 Filtros selecionados
                             </Caption>
 
-                            <Chip
-                                icon="close"
+                            <Chip mode='flat'
+                                icon={availableForPatronize ? 'check' : 'cancel'}
                                 selected={availableForPatronize}
-                                selectedColor="black"
+                                style={{ borderColor: 'orange', borderWidth: 1, backgroundColor: (availableForPatronize ? 'orange' : null) }}
                                 onPress={() => setAvailableForPatronize(!availableForPatronize)}
-
-                            >
-                                Disponíveis para Apadrinhamento
+                                textStyle={{ fontSize: 12, }}>
+                                Disponivel para apadrinhar
                             </Chip>
 
                             <Chip

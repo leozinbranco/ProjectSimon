@@ -6,9 +6,6 @@ const js2xmlparser = require("js2xmlparser");
 
 module.exports = {
 
-    //be0a09ac-3bc0-438c-99e8-5bb1377943ac6a58173145ddb5e0ef80a892d643bee5117d-f3ae-4eaf-a941-23434d0a9dff  <- token
-
-    
 
     async connect(request, response) {
         try {
@@ -52,7 +49,7 @@ module.exports = {
             const post = await axios.post(`https://ws.sandbox.pagseguro.uol.com.br/pre-approvals/request/`, request.body, {
                 params: {
                     email: "cc19377@g.unicamp.br",
-                    token: "A23C1C87C36648118B73AC99B90D57CB",
+                    token: "NAO",
                 },
                 headers: {
                     'Content-Type': 'application/json;charset=ISO-8859-1',
