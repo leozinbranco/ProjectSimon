@@ -5,7 +5,7 @@ import {
     View,
     TouchableOpacity,
     FlatList,
-    ActivityIndicator,
+    
 } from 'react-native';
 import axios from 'axios';
 import {
@@ -17,7 +17,6 @@ import {
     Button,
     Card,
     IconButton,
-    Title
 } from 'react-native-paper';
 
 import BackArrow from '../../components/BackArrow';
@@ -26,30 +25,15 @@ import { AuthContext } from '../../services/auth';
 
 import { local, heroku } from '../../constants/api_url.json';
 import { api_token } from '../../constants/token.json';
-import { WebView } from 'react-native-webview';
+
 
 export default function UserBankData({ route, navigation }) {
 
     const { userData } = React.useContext(AuthContext);
-    const [showCheckout, setShowCheckout] = useState(false);
+    
     const [userBankData, setUserBankData] = useState([]);
 
-    const stateChange = (state) => {
-        switch (state.title) {
-            case 'success':
-                setShowCheckout(false)
-                Alert.alert("Pagamento aprovado!", `Recebemos seu pagamento de `)
-                break;
-            case 'pending':
-                setShowCheckout(false)
-                Alert.alert("Pagamento pendente!", `Seu pagamento de está pendente de processamento, assim que for processado seguiremos com o pedido!`)
-                break;
-            case 'failure':
-                setShowCheckout(false)
-                Alert.alert("Pagamento não aprovado!", 'Verifique os dados e tente novamente')
-                break;
-        }
-    }
+    
 
     const getUserBankData = () => {
 
@@ -105,9 +89,8 @@ export default function UserBankData({ route, navigation }) {
         return cardNumber.substring(cardNumber.length - 4, cardNumber.length)
     }
 
-    if (!showCheckout) {
-        return (
-
+    return(
+    
             <SafeAreaView style={{ backgroundColor: 'white', padding: 10 }}>
 
                 <BackArrow navigation={navigation} style={{ margin: 10 }} size={50} />
@@ -162,24 +145,6 @@ export default function UserBankData({ route, navigation }) {
 
             </SafeAreaView>
         )
-    } else {
-
-        return (
-            <View style={{ flex: 1, justifyContent: 'center' }}>
-                <TouchableOpacity onPress={() => setShowCheckout(false)}><Text style={{ fontSize: 20, color: 'white' }}>{"<<"}</Text></TouchableOpacity>
-                <Title>Pagamento do pedido</Title>
-
-                <WebView
-                    source={{ uri: `${local}/payments/checkout/1/cc19377@g.unicamp.br/cocacola/150.00`,
-                    headers: { "Authorization": `Bearer ${api_token}` } }}
-                    onNavigationStateChange={state => stateChange(state)}
-                    startInLoadingState={true}
-                    renderLoading={() => <ActivityIndicator style={{height:'100%'}}></ActivityIndicator>}
-                />
-
-            </View>
-        )
-
-    }
+    
 
 }

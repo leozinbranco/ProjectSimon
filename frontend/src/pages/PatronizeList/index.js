@@ -27,11 +27,12 @@ import { AuthContext } from '../../services/auth';
 import { local, heroku } from '../../constants/api_url.json';
 import { api_token } from '../../constants/token.json';
 
-export default function UserBankData({ route, navigation }) {
+export default function PatronizeList({ route, navigation }) {
 
     const { userData } = React.useContext(AuthContext);
 
-    const [userBankData, setUserBankData] = useState([])
+    const [pratonizeList, setPratonizeList] = useState([])
+    const [isNull, setIsNull] = useState(true);
 
     const getUserPatronizeList = () => {
 
@@ -43,10 +44,12 @@ export default function UserBankData({ route, navigation }) {
                     //console.log("Response>>> : " + JSON.stringify(response.data));
 
                     //console.log(response);
-                    setUserBankData(response.data)
+                    setPratonizeList(response.data)
+                    setIsNull(false);
                 })
                 .catch((e) => {
-                    alert("Ocorreu um erro !  >> " + e /*e.response.data.message*/);
+                    setIsNull(true);
+                    //alert("Ocorreu um erro !  >> " + e /*e.response.data.message*/);
                 })
         }
         catch (e) {
@@ -104,42 +107,60 @@ export default function UserBankData({ route, navigation }) {
                     Você pode desativar apadrinhamentos
                 </Caption>
             </View>
-
-            <FlatList
-                style={{ width: '97%', margin: 5, marginBottom: 110 }}
-                data={userBankData}
-                renderItem={({ item }) => (
-                    <View>
-
-                        <Card style={{ borderWidth: 0.5, marginVertical: 10, paddingHorizontal: 10 }}>
+            {
+                isNull ? (
+                    <View style={{justifyContent: 'center', height: '75%', margin:0}}>
+                        <Card style={{width: '100%'}}>
                             <Card.Title
-                                title={`${item.animal_name}`}
-                                subtitle={`${item.company_name}`}
-                                left={(props) => <Avatar.Image size={40} source={{uri: item.image_url }} style={{ backgroundColor: 'white' }} />}
-                                right={(props) => <IconButton {...props} icon="close" color="red" onPress={() => { deactivatePatronize(item.id) }} />}
+                                title={"Você não tem apadrinhamentos :("}
+                                
                             />
-                            <Divider />
-                            <Caption>Status: {item.status} </Caption>
-                            <Caption>Valor: R${item.value},00 </Caption>
-                            <Caption>Renovação mensal: {Boolean(Number(item.monthly)) ? 'Sim' : 'Não'} </Caption>
-                            <Caption>Data de realização: {item.creation_date} </Caption>
-                            <Divider />
-                            <Text>Dados do pagamento </Text>
-                            <Caption>{item.user_bank_data} </Caption>
-                            <Caption>ONG {item.ong_bank_data} </Caption>
                         </Card>
 
 
 
                     </View>
+                ) :
+                    (
+                        <FlatList
+                            style={{ width: '97%', margin: 5, marginBottom: 110 }}
+                            data={pratonizeList}
+                            renderItem={({ item }) => (
+                                <View>
+
+                                    <Card style={{ borderWidth: 0.5, marginVertical: 10, paddingHorizontal: 10 }}>
+                                        <Card.Title
+                                            title={`${item.animal_name}`}
+                                            subtitle={`${item.company_name}`}
+                                            left={(props) => <Avatar.Image size={40} source={{ uri: item.image_url }} style={{ backgroundColor: 'white' }} />}
+                                            right={(props) => <IconButton {...props} icon="close" color="red" onPress={() => { deactivatePatronize(item.id) }} />}
+                                        />
+                                        <Divider />
+                                        <Caption>Status: {item.status} </Caption>
+                                        <Caption>Valor: R${item.value},00 </Caption>
+                                        <Caption>Renovação mensal: {Boolean(Number(item.monthly)) ? 'Sim' : 'Não'} </Caption>
+                                        <Caption>Data de realização: {item.creation_date} </Caption>
+                                        <Divider />
+                                        <Text>Dados do pagamento </Text>
+                                        <Caption>{item.user_bank_data} </Caption>
+                                        <Caption>ONG {item.ong_bank_data} </Caption>
+                                    </Card>
+
+
+
+                                </View>
 
 
 
 
 
-                )}
-                keyExtractor={item => item.id.toString()}
-            />
+                            )}
+                            keyExtractor={item => item.id.toString()}
+                        />
+
+                    )
+            }
+
 
         </SafeAreaView>
     )

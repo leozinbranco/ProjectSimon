@@ -112,7 +112,7 @@ export default function Reportar({ navigation }) {
     };
 
     onCarouselItemChange = (index) => {
-
+        setVisible(true);
         mapRef.current.animateToRegion({
             latitude: reports[index].map_lati - 0.01,
             longitude: reports[index].map_long,
@@ -133,6 +133,8 @@ export default function Reportar({ navigation }) {
             longitudeDelta: 0.0421
         });
 
+        
+  
         //carouselRef.current.snapToItem(index);
     };
 
@@ -195,16 +197,7 @@ export default function Reportar({ navigation }) {
                                 showsMyLocationButton={true}
 
                             >
-                                <View style={styles.iconButton}>
-                                    <IconButton
-                                        icon="menu"
-                                        color={Colors.grey800}
-                                        
-                                        size={40}
-                                        onPress={() => navigation.toggleDrawer()}
-                                    />
-                                </View>
-
+                                
 
 
 

@@ -1,4 +1,4 @@
 {
-    "local" : "http://192.168.0.5:3000",
+    "local" : "http://192.168.1.13:3000",
     "heroku": "http://api-tcc-simon.herokuapp.com"
 }
