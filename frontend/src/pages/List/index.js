@@ -76,7 +76,7 @@ export default function Lista({ route, navigation }) {
                     ListHeaderComponent={
                         <View>
 
-                            <Appbar.Header style={{ backgroundColor: '#3FB55D' }}>
+                            <Appbar style={{ backgroundColor: '#3FB55D' }}>
                                 <Appbar.Content title="Animais " color="white" />
                                 <View style={Style.filterContainer}>
                                     <TouchableOpacity style={{ flexDirection: 'row' }} onPress={handleClick}>
@@ -86,8 +86,8 @@ export default function Lista({ route, navigation }) {
 
                                     </TouchableOpacity>
                                 </View>
-                            </Appbar.Header>
-
+                            </Appbar>
+                            {/*
                             <Caption>
                                 Filtros selecionados
                             </Caption>
@@ -109,7 +109,7 @@ export default function Lista({ route, navigation }) {
 
                             >
                                 Disponíveis para Adoção
-                            </Chip>
+                            </Chip> */}
 
                         </View>
 
