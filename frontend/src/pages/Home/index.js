@@ -32,13 +32,9 @@ export default function Home({ navigation }) {
     const [animalsData, setAnimalsData] = useState([])
     const [ongsData, setOngsData] = useState([])
 
-
-    //console.log(api_token);
-    //alert(api_token);
     useEffect(() => {
         getAnimals();
         getOngs();
-        //alert("oii")
     }, [])
 
     const getAnimals = async () => {

@@ -18,9 +18,11 @@ module.exports = {
                 email,
                 password,  //Necessario criptografar 
             }).first();
-
-            auth = {...auth, isOng: true}
+            
+            if (auth)
+                auth.isOng = true;
         }
+            
            
 
         if (!auth)
