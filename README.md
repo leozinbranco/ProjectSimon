@@ -1,7 +1,7 @@
 # 🐱 Projeto SIMON
 Aplicativo, que tem a possibilidade de  apadrinhamento, denúncia e avisos sobre animais abandonados ou em situações de perigo.
 
-##🐕 Porque?
+## 🐕 Porque?
 
 Animais resgatados por ongs necessitam de atenção  especial,  como castração, vacinas, alimentação, vermífugo tratamentos médicos e até cirúrgicos.
 
