@@ -6,6 +6,7 @@ const getFullUrl = (req) => {
     return url;
 }
 
+
 module.exports = {
     async checkout(req, res) {
 
@@ -44,11 +45,44 @@ module.exports = {
         //Generate init_point to checkout
         try {
             const preference = await MercadoPago.preferences.create(purchaseOrder);
+            console.log(preference.body)
             return res.redirect(`${preference.body.init_point}`);
         } catch (err) {
             return res.send(err.message);
         }
-    }
+    },
+    async preApproval(req, res) {
+        MercadoPago.configure({
+            sandbox: process.env.SANDBOX == 'true' ? true : false,
+            access_token: process.env.MP_ACCESS_TOKEN
+        });
+        
+        var preapprovalPayment = {
+            payer_email: 'test_user_3931694@testuser.com',
+            back_url: 'http://www.google.com',
+            reason: 'Monthly subscription to premium package',
+            external_reference: 'OP-1234',
+            auto_recurring: {
+              frequency: 1,
+              frequency_type: 'months',
+              transaction_amount: 60,
+              currency_id: 'BRL',
+              start_date: MercadoPago.utils.date.now().add(1).toString(),
+              end_date: MercadoPago.utils.date.now().add(3).toString()
+            }
+          };
+        
 
+          MercadoPago.preapproval.create(preapprovalPayment).then((data) => {
+              console.log(data)
+              res.json(data)
+           
+          }).catch(function (error) {
+            console.log(error)
+
+          });
+
+    },
     
+
 }

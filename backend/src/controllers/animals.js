@@ -1,14 +1,21 @@
 const knex = require('../database/connections');
 const moment = require('moment');
-const axios = require('axios');
+const Joi = require('joi');
 moment.locale('br');
 
-/*
-get: buscar alguma inf no backend
-post: criar alguma inf no backend
-put: alterar alguma inf no backend
-delete: deletar alguma inf no backend
-*/
+const animalSchema = Joi.object({
+    name: Joi.string().required(),
+    age: Joi.number().integer().required(),
+    breed: Joi.string().max(30).required(),
+    color: Joi.string().max(30).required(),
+    description: Joi.string().max(200).required(),
+    available_for_adoption: Joi.string().max(1).required(),
+    available_for_patronize: Joi.string().max(1).required(),
+    gender: Joi.string().max(1).required(),
+    type_id: Joi.number().integer().min(1).required(),
+    ong_id: Joi.number().integer().min(1).required(),
+    image_url: Joi.string().required()
+})
 
 module.exports = {
     async index(request, response) {
@@ -52,27 +59,32 @@ module.exports = {
                 available_for_patronize,
                 type_id,
                 ong_id,
+                image_url
             } = request.body;  //dados do animal
+
+
+            try {
+                const value = await animalSchema.validateAsync(params);
+                console.log(value)
+            }
+            catch (err) { 
+                console.log(err.details[0])
+                return response.status(500).json({message: `Erro no campo ${err.details[0].context.key}`, validation_messagge: err.details[0].message});
+
+            }
 
             params.register_date = moment().format().toString()
             console.log(params)
 
-            await axios.get('https://dog.ceo/api/breeds/image/random')
-                .then(async (result) => {
-                    params.image_url = result.data.message
+            const ret = await knex('animals')
+            .returning(['id', ' name'])
+            .insert(params);
 
-                    const ret = await knex('animals')
-                        .returning(['id', ' name'])
-                        .insert(params);
-
-                    return response.json(ret);
-                }).catch((err) => {
-                    return response.status(500).json(err)
-                })
-
+            return response.json({success: true, ret})
 
         } catch (error) {
             console.log(error);
+            return response.status(500).json(error)
         }
 
     }

@@ -38,9 +38,9 @@ export default function Patronize({ route, navigation }) {
     const [monthly, setMonthly] = useState(false);
 
     const [amounts, setAmounts] = useState([
-        { id: 1, label: "R$ 10,00", value: 10 },
-        { id: 2, label: "R$ 20,00", value: 20 },
-        { id: 3, label: "R$ 30,00", value: 30 },
+        { id: 1, label: "R$ 10,00", value: 10, plan_id: '2c93808475dd2f560175dd84d4f001fb'},
+        { id: 2, label: "R$ 20,00", value: 20, plan_id: '2c93808475c2a6d10175dde505d641cd'},
+        { id: 3, label: "R$ 30,00", value: 30, plan_id: '2c93808475c2a6d10175dde66a4741ce'},
     ])
 
     useEffect(() => { setPaymentCard(route.params.selected_card) }, [route.params.selected_card])
@@ -52,7 +52,7 @@ export default function Patronize({ route, navigation }) {
     const [payment_card, setPaymentCard] = useState(route.params.selected_card);
 
     const savePatronize = async () => {
-        
+
 
         const body = {
             id_user: userData.id,
@@ -85,6 +85,7 @@ export default function Patronize({ route, navigation }) {
     }
 
     const stateChange = (state) => {
+        console.log(state);
         switch (state.title) {
             case 'success':
                 setShowCheckout(false)
@@ -144,14 +145,7 @@ export default function Patronize({ route, navigation }) {
                             <View style={Style.avatars}>
                                 <View>
                                     <Avatar.Image size={100} style={{ marginRight: 20 }}
-                                        source={require('../../../assets/gato.png')}
-                                    />
-                                </View>
-
-                                <View >
-                                    <Avatar.Image size={100}
-                                        source={require('../../../assets/ong.png')}
-
+                                        source={{ uri: animal.image_url }}
                                     />
                                 </View>
                             </View>
@@ -178,8 +172,8 @@ export default function Patronize({ route, navigation }) {
                                             <Button icon=""
                                                 color='grey'
                                                 mode='outlined'
-                                                onPress={() => setSelectedAmount(item.value)}
-                                                style={item.value == selectedAmount ? Style.cardSelected : Style.card}
+                                                onPress={() => setSelectedAmount(item)}
+                                                style={item.value == selectedAmount.value ? Style.cardSelected : Style.card}
                                             >
                                                 <Text style={{ alignItems: 'center', justifyContent: 'center', alignSelf: 'center' }}> {item.label} </Text>
                                             </Button>
@@ -200,7 +194,7 @@ export default function Patronize({ route, navigation }) {
                             <Caption>Continuar a apadrinhar esse animal todo mês a partir de hoje</Caption>
 
 
-                            <View style={Style.section}>
+                            {/*  <View style={Style.section}>
                                 <Paragraph>Escolha um cartão de crédito</Paragraph>
 
 
@@ -211,27 +205,31 @@ export default function Patronize({ route, navigation }) {
                                     <Button icon="credit-card-outline" color='grey' mode='outlined' onPress={() => navigation.navigate('UserBankData')}>
                                         <Caption>{route.params.card_title || "Selecione um"}</Caption>
                                     </Button>
-                                </View>
-
+                                </View> 
 
                             </View>
+                        */}
 
-                            <Caption>Por enquanto somente é possivel realizar apadrinhamentos em nossa plataforma usando um cartão de crédito </Caption>
+                            <Caption>Por enquanto somente é possivel realizar apadrinhamentos em nossa plataforma via mercado pago </Caption>
+
 
                             <Button
                                 mode='contained'
                                 style={{ backgroundColor: '#3FB55D', marginVertical: 10 }}
                                 onPress={() => {
-                                    if(selectedAmount === '')
-                                    alert("Você não escolheu a quantidade!")
+                                    if (selectedAmount === '')
+                                        alert("Você não escolheu a quantidade!")
                                     else
-                                    setShowCheckout(true);
+                                        setShowCheckout(true);
                                 }}
                             >
                                 <Text style={{ color: 'white' }}> Confirmar </Text>
                             </Button>
 
 
+                            <Paragraph> Como funciona a assinatura?</Paragraph>
+
+                            <Caption>Será descontado mensalmente o valor selecionado e o valor será repassado para a ONG </Caption>
 
                         </View>
 
@@ -243,14 +241,19 @@ export default function Patronize({ route, navigation }) {
 
     } else {
 
+        const url = monthly ? 
+        `https://www.mercadopago.com/mlb/debits/new?preapproval_plan_id=${selectedAmount.plan_id}` :
+        `${local}/payments/checkout/${animal.name}/${userData.email}/${animal.name}/${selectedAmount.value}`
+
         return (
             <View style={{ flex: 1, justifyContent: 'center' }}>
                 <TouchableOpacity onPress={() => setShowCheckout(false)}><Text style={{ fontSize: 20, color: 'white' }}>{"<<"}</Text></TouchableOpacity>
-                <Title style={{ textAlign: 'center'}}>Pagamento do pedido</Title>
+                <Title style={{ textAlign: 'center' }}>Pagamento do pedido</Title>
 
                 <WebView
                     source={{
-                        uri: `${local}/payments/checkout/${animal.name}/${userData.email}/${animal.name}/${selectedAmount}`,
+                        //uri: `${local}/payments/checkout/${animal.name}/${userData.email}/${animal.name}/${selectedAmount}`,
+                        uri: url,
                         headers: { "Authorization": `Bearer ${api_token}` }
                     }}
                     onNavigationStateChange={state => stateChange(state)}
