@@ -1,7 +1,7 @@
 # 🐱 Projeto SIMON
 Aplicativo, que tem a possibilidade de  apadrinhamento, denúncia e avisos sobre animais abandonados ou em situações de perigo.
 
-![](https://github.com/leozinbranco/tcc/blob/master/backend/src/assets/showcase.jpg?raw=true)
+![](https://raw.githubusercontent.com/leozinbranco/tcc/master/backend/src/assets/showcase.jpg?token=AHEGMDSSZ76WNY4DPXMX5T27ZPSPE)
 
 ## 🐕 Porque?
 
