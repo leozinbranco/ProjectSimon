@@ -41,6 +41,7 @@ routes.get('/payments/pending', () => {
 routes.get('/payments/failure', () => {
     return res.render('failure_screen')
 });
+routes.get('/assinatura', paymentController.preApproval);
 
 
 //routes.post('/session/:id', pagSeguroTransfer.session);

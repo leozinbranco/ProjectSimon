@@ -110,6 +110,9 @@ export default StyleSheet.create({
         fontWeight: 'bold',
         margin: 5,
 
+    },
+    button: {
+        marginRight: 10
     }
     
     

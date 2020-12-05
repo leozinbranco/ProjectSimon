@@ -144,7 +144,7 @@ export default function PetProfile({ route, navigation }) {
 
                             <Card.Content style={Style.line}>
                                 <FontAwesome name="heart-o" size={20} color="black" />
-                                <Text style={Style.textInfo}>Idade • {pet.age}</Text>
+                                <Text style={Style.textInfo}>Idade • {pet.age == 0 ? 'Desconhecida' : pet.age}</Text>
                             </Card.Content>
 
 
@@ -153,11 +153,13 @@ export default function PetProfile({ route, navigation }) {
                                 {pet.available_for_patronize == 'S' ?
 
                                     <Button
-                                        icon="whatsapp"
+                                        icon="crown"
                                         mode="contained"
                                         onPress={() => navigation.navigate('Patronize', { animal: animal })}
                                         color="#ffa500"
                                         dark={true}
+                                        style={Style.button}
+
                                     >
                                         Apadrinhar 
                                     </Button>
@@ -171,6 +173,7 @@ export default function PetProfile({ route, navigation }) {
                                         mode="outlined"
                                         onPress={() => sendWhatsApp()}
                                         color="darkgreen"
+                                        style={Style.button}
                                     >
                                         Adotar
                                     </Button>
