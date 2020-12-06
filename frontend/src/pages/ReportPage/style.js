@@ -2,18 +2,16 @@ import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
     image: {
-        justifyContent: 'flex-end',
+        justifyContent: 'center',
         resizeMode: 'cover', 
         width: '100%',
         height: 250, 
         alignSelf:'center',
         backgroundColor: 'grey',
-        flexDirection: 'column'
-    },
-    buttonContainer: {
-        width: '100%',
-        alignItems: 'center'
-    }, 
+        flexDirection: 'column',
+        alignItems: 'center',
+    },    
+
     buttonAdopt: {
         alignSelf:'center',
         backgroundColor: '#14754C',
@@ -82,6 +80,9 @@ export default StyleSheet.create({
 
     line:{
         flexDirection: 'row',
+        alignItems: 'center',
+        textAlign: 'center',
+        marginVertical: 10,
     },
 
     logo: {
@@ -91,14 +92,6 @@ export default StyleSheet.create({
         height: 24,
     },
 
-    textInfo: {
-        color: '#606060',
-        marginLeft: 10,
-        fontSize: 14,
-        marginBottom: 10,
-        marginRight:10,
-    },
-
     textInfoLong: {
         color: '#606060',
         marginLeft: 8,
@@ -106,18 +99,15 @@ export default StyleSheet.create({
         marginBottom: 20,
         marginRight:10,
     },
-
-    textInsideButton: {
-        color: 'white',
-        fontSize: 16,
-        fontWeight: 'bold',
-        margin: 5,
+    input: {
+        width: '90%',
 
     },
-    button: {
-        width: '50%',
-        marginBottom: 10,
-    }
-    
-    
+    fab: {
+        position: 'absolute',
+        margin: 16,
+        right: 0,
+        bottom: 0,
+        backgroundColor: '#14754C'
+      },
 });
