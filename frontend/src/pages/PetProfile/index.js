@@ -152,32 +152,36 @@ export default function PetProfile({ route, navigation }) {
                             <Card.Actions>
 
                                 {pet.available_for_patronize == 'S' ?
+                                    <View style={Style.buttonContainer}>
+                                        <Button
+                                            icon="crown"
+                                            mode="contained"
+                                            onPress={() => navigation.navigate('Patronize', { animal: animal })}
+                                            color="#ffa500"
+                                            dark={true}
+                                            style={Style.button}
 
-                                    <Button
-                                        icon="crown"
-                                        mode="contained"
-                                        onPress={() => navigation.navigate('Patronize', { animal: animal })}
-                                        color="#ffa500"
-                                        dark={true}
-                                        style={Style.button}
-
-                                    >
-                                        Apadrinhar 
+                                        >
+                                            Apadrinhar
                                     </Button>
+                                    </View>
                                     : null
                                 }
 
                                 {pet.available_for_adoption == 'S' ?
 
-                                    <Button
-                                        icon="whatsapp"
-                                        mode="outlined"
-                                        onPress={() => sendWhatsApp()}
-                                        color="darkgreen"
-                                        style={Style.button}
-                                    >
-                                        Adotar
+                                    <View style={Style.buttonContainer}>
+                                        <Button
+                                            icon="whatsapp"
+                                            mode="outlined"
+                                            onPress={() => sendWhatsApp()}
+                                            color="darkgreen"
+                                            style={Style.button}
+                                        >
+                                            Adotar
                                     </Button>
+
+                                    </View>
 
 
                                     : null

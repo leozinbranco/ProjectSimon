@@ -22,7 +22,6 @@ import {
     Title,
     Colors,
     Switch,
-    FAB
 } from 'react-native-paper';
 import Style from './style'
 import MapView, { PROVIDER_GOOGLE, Marker, Callout, Circle } from 'react-native-maps';
@@ -113,7 +112,7 @@ export default function Reportar({ navigation }) {
     };
 
     onCarouselItemChange = (index) => {
-        setVisible(true);
+        
         mapRef.current.animateToRegion({
             latitude: reports[index].map_lati - 0.01,
             longitude: reports[index].map_long,
@@ -134,8 +133,8 @@ export default function Reportar({ navigation }) {
             longitudeDelta: 0.0421
         });
 
-
-
+        
+  
         //carouselRef.current.snapToItem(index);
     };
 
@@ -178,81 +177,90 @@ export default function Reportar({ navigation }) {
     }
 
     return (
-        <SafeAreaView>
-            <View style={styles.screen}>
-
-                {
-                    loading ? (<ActivityIndicator size="large" animating={loading} color={'gray'} />)
-                        :
-                        (
-                            <View style={styles.container}>
-                                <MapView
-                                    style={styles.mapStyle}
-                                    provider={PROVIDER_GOOGLE}
-                                    region={region}
-                                    ref={mapRef}
-                                    initialRegion={{
-                                        latitude: 37.78825,
-                                        longitude: -122.4324,
-                                        latitudeDelta: 0.0922,
-                                        longitudeDelta: 0.0421,
-                                    }}
-                                    showsUserLocation={true}
-                                    showsMyLocationButton={true}
-                                >
-                                    {
-                                        reports.map((report, index) => {
-                                            //alert(JSON.stringify(report));
-                                            return (
-                                                <View key={"id_report_" + report.id}>
-                                                    <Circle
-                                                        center={{ latitude: Number(report.map_lati), longitude: Number(report.map_long) }}
-                                                        radius={500}
-                                                        fillColor="rgba(193,66,66,0.5)"
-                                                        key={"id_report_" + report.id}
-                                                        strokeWidth={0}
-                                                    ></Circle>
-                                                    <Marker
-                                                        ref={markerRef}//ref={ref => {reports[index] = ref; } }
-                                                        coordinate={{ latitude: Number(report.map_lati), longitude: Number(report.map_long) }}
-                                                        image={require('../../../assets/rescue.png')}
-                                                        title={report.title}
-                                                        onPress={() => onMarkerPressed(index)}
-
-                                                    >
-                                                        <Callout>
-                                                            <Text>An Interesting city</Text>
-                                                        </Callout>
-                                                    </Marker>
-
-                                                </View>
-
-                                            );
-                                        })
-                                    }
+        <SafeAreaView style={styles.screen}>
 
 
-                                </MapView>
+            {
+                loading ? (<ActivityIndicator size="large" animating={loading} color={'gray'} />)
+                    :
+                    (
+                        <View style={styles.container}>
+                            <MapView style={styles.mapStyle} provider={PROVIDER_GOOGLE} region={region}
+                                ref={mapRef}
+                                initialRegion={{
+                                    latitude: 37.78825,
+                                    longitude: -122.4324,
+                                    latitudeDelta: 0.0922,
+                                    longitudeDelta: 0.0421,
+                                }}
+                                showsUserLocation={true}
+                                showsMyLocationButton={true}
+
+                            >
+                                
+
+
+
                                 {
-                                    visible ? (
-                                        <Carousel
-                                            ref={carouselRef}
-                                            data={reports}
-                                            renderItem={renderCarouselItem}
-                                            sliderWidth={Dimensions.get('window').width}
-                                            itemWidth={300}
-                                            containerCustomStyle={styles.carousel}
-                                            onSnapToItem={(index) => onCarouselItemChange(index)}
-                                            removeClippedSubviews={false}
-                                        />
-                                    )
-                                        : null
+                                    reports.map((report, index) => {
+                                        //alert(JSON.stringify(report));
+                                        return (
+                                            <View key={"id_report_" + report.id}>
+                                                <Circle
+                                                    center={{ latitude: Number(report.map_lati), longitude: Number(report.map_long) }}
+                                                    radius={500}
+                                                    fillColor="rgba(193,66,66,0.5)"
+                                                    key={"id_report_" + report.id}
+                                                    strokeWidth={0}
+                                                ></Circle>
+                                                <Marker
+                                                    ref={markerRef}//ref={ref => {reports[index] = ref; } }
+                                                    coordinate={{ latitude: Number(report.map_lati), longitude: Number(report.map_long) }}
+                                                    image={require('../../../assets/rescue.png')}
+                                                    title={report.title}
+                                                    onPress={() => onMarkerPressed(index)}
+
+                                                >
+                                                    <Callout>
+                                                        <Text>An Interesting city</Text>
+                                                    </Callout>
+                                                </Marker>
+
+
+                                            </View>
+
+
+
+                                        );
+                                    })
                                 }
 
-                            </View>
-                        )
-                }
-            </View>
+
+
+                            </MapView>
+
+                            {
+                                visible ? (
+                                    <Carousel
+                                        ref={carouselRef}
+                                        data={reports}
+                                        renderItem={renderCarouselItem}
+                                        sliderWidth={Dimensions.get('window').width}
+                                        itemWidth={300}
+                                        containerCustomStyle={styles.carousel}
+                                        onSnapToItem={(index) => onCarouselItemChange(index)}
+                                        removeClippedSubviews={false}
+                                    />
+                                )
+                                    : null
+                            }
+
+                        </View>
+                    )
+            }
+
+
+
         </SafeAreaView>
     );
 
@@ -262,15 +270,14 @@ export default function Reportar({ navigation }) {
 
 const styles = StyleSheet.create({
     iconButton: {
-        marginLeft: 10,
+        marginLeft:10,
     },
     screen: {
         width: Dimensions.get('window').width,
         height: '100%',
-        //justifyContent: 'center',
-        //alignItems: 'center',
-        //alignSelf: 'center',
-
+        justifyContent: 'center',
+        alignItems: 'center',
+        alignSelf: 'center',
     },
 
     mapStyle: {
@@ -319,15 +326,6 @@ const styles = StyleSheet.create({
         height: 100,
         width: '50%',
     },
-    FAB: {
-        position: 'relative',
-        margin: 400,
-        right: 0,
-        bottom: 0,
-        alignSelf: 'flex-start',
-        backgroundColor: 'red',
-        height: '10%',
-        width: '10%',
-    }
+
 });
 
