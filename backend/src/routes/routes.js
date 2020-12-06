@@ -15,9 +15,22 @@ const authController = require('../controllers/auth')
 const pagSeguroTransfer = require('../controllers/pagSeguroTransfer');
 const patronizeController = require('../controllers/patronize');
 const paymentController = require('../controllers/paymentController');
-
 const middleware = require('../middleware');
+const path  = require('path');
 
+
+
+/*   */
+
+routes.get('/payments/success', (req,res) => {
+    return  res.sendFile(path.join(__dirname, '../views/payment_success.html'));
+});
+routes.get('/payments/pending', (req,res) => {
+    return  res.sendFile(path.join(__dirname, '../views/payment_pending.html'));
+}); 
+routes.get('/payments/failure', (req,res) => {
+    return  res.sendFile(path.join(__dirname, '../views/payment_failure.html'));
+});
 
 
 /*               */
@@ -32,15 +45,8 @@ routes.get('/balance', pagSeguroTransfer.balance);
 /* pagamento routes */
 
 routes.get('/payments/checkout/:id/:email/:description/:amount', paymentController.checkout);
-routes.get('/payments/success', () => {
-    return res.render('success_screen')
-});
-routes.get('/payments/pending', () => {
-    return res.render('pending_screen')
-}); //se tiver pendente vem pra ca
-routes.get('/payments/failure', () => {
-    return res.render('failure_screen')
-});
+
+
 routes.get('/assinatura', paymentController.preApproval);
 
 

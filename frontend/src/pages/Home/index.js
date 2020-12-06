@@ -21,7 +21,7 @@ import {
 } from 'react-native-paper'
 import axios from 'axios';
 import { api_token } from '../../constants/token.json';
-import { local, heroku } from '../../constants/api_url.json';
+import { local, heroku, azure } from '../../constants/api_url.json';
 import { AuthContext } from '../../services/auth';
 import Style from './style';
 
@@ -40,7 +40,7 @@ export default function Home({ navigation }) {
     const getAnimals = async () => {
         //alert(`${local}/animals?limit=2`)
         try {               //trocar pra heroku ou local
-            await axios.get(`${local}/animals?limit=2`, {
+            await axios.get(`${azure}/animals?limit=2`, {
                 headers: { Authorization: `Bearer ${api_token}` }
             })
                 .then((response) => {
@@ -61,7 +61,7 @@ export default function Home({ navigation }) {
     const getOngs = async () => {
         //alert(`${local}/animals?limit=2`)
         try {               //trocar pra heroku ou local
-            await axios.get(`${local}/ongs?limit=2`, {
+            await axios.get(`${azure}/ongs?limit=2`, {
                 headers: { Authorization: `Bearer ${api_token}` }
             })
                 .then((response) => {
@@ -115,23 +115,23 @@ export default function Home({ navigation }) {
                 <View style={{ backgroundColor: 'white', height: 500 }}>
 
                     <Caption style={Style.title}>
-                        Alguns animais que você pode ajudar 
+                        Alguns animais que você pode ajudar
                 </Caption>
                     <FlatList
                         horizontal={true}
                         data={animalsData}
                         renderItem={({ item }) => (
-                            <TouchableOpacity onPress={() => navigation.navigate("Apadrinhar", { screen: 'PetProfile', params: {animal: item} } )} >
+                            <TouchableOpacity onPress={() => navigation.navigate("Apadrinhar", { screen: 'PetProfile', params: { animal: item } })} >
                                 <AnimalCard data={item} />
                             </TouchableOpacity>
                         )}
                         keyExtractor={item => item.id.toString()}
-                        ListFooterComponent={<ButtomCard onPress={() => navigation.navigate('Apadrinhar', { screen: 'List'} )} />}
+                        ListFooterComponent={<ButtomCard onPress={() => navigation.navigate('Apadrinhar', { screen: 'List' })} />}
                     />
 
 
                     <Caption style={Style.title}>
-                        Algumas das ONGs cadastradas 
+                        Algumas das ONGs cadastradas
                 </Caption>
 
 
@@ -140,7 +140,10 @@ export default function Home({ navigation }) {
                         horizontal={true}
                         data={ongsData}
                         renderItem={({ item }) => (
-                            <OngCard data={item} />
+                            <TouchableOpacity onPress={() => navigation.navigate("Apadrinhar", { screen: 'OngProfile', params: { ong_id: item.id } })} >
+                                <OngCard data={item} />
+                            </TouchableOpacity>
+
                         )}
                         keyExtractor={item => item.id.toString()}
                     />
@@ -177,7 +180,7 @@ function OngCard({ data }) {
 
 
         <Card style={Style.card} elevation={4}>
-            <Card.Cover style={{ height: '50%' }} source={{ uri: data.image_url }} />
+            <Card.Cover style={{ height: '50%' }} source={require('../../../assets/ong_example.png')} />
             <Card.Content style={{ paddingTop: 10 }}>
                 <Title>{data.name} </Title>
                 <Caption>{data.company_name}</Caption>

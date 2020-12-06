@@ -14,11 +14,15 @@ import { FontAwesome } from '@expo/vector-icons';
 
 const TabBottom = createBottomTabNavigator(); //menu inferior
 
-const TabNavigator = ({route, navigation}) => (
+const TabNavigator = ({ route, navigation }) => (
 
   <TabBottom.Navigator tabBarOptions={{
     style: Style.navigator,
     inactiveTintColor: 'white',
+    safeAreaInsets: {
+      bottom: 0,
+      top: 0
+    },
   }}>
     <TabBottom.Screen name="Home" component={Drawer}
       options={{

@@ -16,7 +16,7 @@ import { Button, Text, Divider, Title, Caption, Paragraph, Card, IconButton, Chi
 import Style from '../PetProfile/style';
 import { FontAwesome, FontAwesome5 } from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons';
-import { local, heroku } from '../../constants/api_url.json';
+import { local, heroku, azure } from '../../constants/api_url.json';
 import BackArrow from '../../components/BackArrow';
 import { api_token } from '../../constants/token.json';
 
@@ -32,7 +32,7 @@ export default function PetProfile({ route, navigation }) {
     const getWhatsapp = async () => {
         try {
 
-            axios.get(`${local}/ongs/${animal.ong_id}`, {
+            axios.get(`${azure}/ongs/${animal.ong_id}`, {
                 headers: { Authorization: `Bearer ${api_token}` }
             })
                 .then((response) => {
@@ -63,7 +63,7 @@ export default function PetProfile({ route, navigation }) {
 
     const getPet = async () => {
         try {
-            axios.get(`${local}/animals/${animal.id}`, {
+            axios.get(`${azure}/animals/${animal.id}`, {
                 headers: { Authorization: `Bearer ${api_token}` }
             })
                 .then((response) => {
@@ -80,7 +80,8 @@ export default function PetProfile({ route, navigation }) {
     };
 
     return (
-        <SafeAreaView>
+        <SafeAreaView style={{backgroundColor: "white"}}>
+            <StatusBar hidden={true}/>
             <ScrollView>
 
                 <ImageBackground style={Style.image} source={{ uri: pet.image_url }}>

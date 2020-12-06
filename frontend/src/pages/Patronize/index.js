@@ -15,10 +15,12 @@ import {
     Divider,
     Avatar,
     Button,
-    Title
+    Title,
+    Appbar,
+    Card
 } from 'react-native-paper';
 import axios from 'axios';
-import { local, heroku } from '../../constants/api_url.json';
+import { local, heroku, azure } from '../../constants/api_url.json';
 import { api_token } from '../../constants/token.json';
 import { AuthContext } from '../../services/auth';
 import { WebView } from 'react-native-webview';
@@ -38,9 +40,9 @@ export default function Patronize({ route, navigation }) {
     const [monthly, setMonthly] = useState(false);
 
     const [amounts, setAmounts] = useState([
-        { id: 1, label: "R$ 10,00", value: 10, plan_id: '2c93808475dd2f560175dd84d4f001fb'},
-        { id: 2, label: "R$ 20,00", value: 20, plan_id: '2c93808475c2a6d10175dde505d641cd'},
-        { id: 3, label: "R$ 30,00", value: 30, plan_id: '2c93808475c2a6d10175dde66a4741ce'},
+        { id: 1, label: "R$ 10,00", value: 10, plan_id: '2c93808475dd2f560175dd84d4f001fb' },
+        { id: 2, label: "R$ 20,00", value: 20, plan_id: '2c93808475c2a6d10175dde505d641cd' },
+        { id: 3, label: "R$ 30,00", value: 30, plan_id: '2c93808475c2a6d10175dde66a4741ce' },
     ])
 
     useEffect(() => { setPaymentCard(route.params.selected_card) }, [route.params.selected_card])
@@ -56,17 +58,18 @@ export default function Patronize({ route, navigation }) {
 
         const body = {
             id_user: userData.id,
-            user_bank_data: route.params.card_title + ' ' + route.params.selected_card.cardholder_name,
+            user_bank_data: "",
             id_ong: animal.ong_id,
             ong_bank_data: `${ongBankData.company_name} CNPJ: ${ongBankData.cnpj} Agency: ${ongBankData.agency_number} Account number: ${ongBankData.agency_number}`,
-            value: selectedAmount,
+            value: selectedAmount.value,
             monthly: monthly,
             id_animal: animal.id
         }
         console.log(JSON.stringify(body))
+        console.log("Mandando para a api")
 
         try {
-            axios.post(`${local}/patronize`,
+            axios.post(`${azure}/patronize`,
                 body,
                 {
                     headers: { Authorization: `Bearer ${api_token}` }
@@ -76,6 +79,7 @@ export default function Patronize({ route, navigation }) {
                     navigation.pop()
                 })
                 .catch((e) => {
+                    console.log(e)
                     alert("Ocorreu um erro !  >> " + e);
                 })
         }
@@ -87,16 +91,16 @@ export default function Patronize({ route, navigation }) {
     const stateChange = (state) => {
         console.log(state);
         switch (state.title) {
-            case 'success':
+            case 'Success':
                 setShowCheckout(false)
                 savePatronize()
-                Alert.alert("Pagamento aprovado!", `Recebemos seu pagamento de ${selectedAmount} `)
+                //alert.alert("Pagamento aprovado!", `Recebemos seu pagamento de ${selectedAmount} `)
                 break;
-            case 'pending':
+            case 'Pending':
                 setShowCheckout(false)
                 Alert.alert("Pagamento pendente!", `Seu pagamento de ${selectedAmount} está pendente de processamento, assim que for processado seguiremos com o pedido!`)
                 break;
-            case 'failure':
+            case 'Failure':
                 setShowCheckout(false)
                 Alert.alert("Pagamento não aprovado!", 'Verifique os dados e tente novamente')
                 break;
@@ -106,7 +110,7 @@ export default function Patronize({ route, navigation }) {
     const getOngBankData = async () => {
         try {
 
-            axios.get(`${local}/ong_bank_data/${animal.ong_id}`, {
+            axios.get(`${azure}/ong_bank_data/${animal.ong_id}`, {
                 headers: { Authorization: `Bearer ${api_token}` }
             })
                 .then((response) => {
@@ -210,7 +214,6 @@ export default function Patronize({ route, navigation }) {
                             </View>
                         */}
 
-                            <Caption>Por enquanto somente é possivel realizar apadrinhamentos em nossa plataforma via mercado pago </Caption>
 
 
                             <Button
@@ -227,7 +230,17 @@ export default function Patronize({ route, navigation }) {
                             </Button>
 
 
-                            <Paragraph> Como funciona a assinatura?</Paragraph>
+                            <Caption>Por enquanto somente é possivel realizar apadrinhamentos em nossa plataforma via mercado pago </Caption>
+
+
+                            <Card style={{ borderWidth: 0, marginVertical: 10}}>
+                                <Card.Title
+                                    title="Dúvidas?"
+                                    left={(props) => <Avatar.Icon size={42} icon="help-circle" style={{ backgroundColor: 'purple' }} />}
+                                />
+                            </Card>
+
+                            <Paragraph>Como funciona a assinatura</Paragraph>
 
                             <Caption>Será descontado mensalmente o valor selecionado e o valor será repassado para a ONG </Caption>
 
@@ -241,15 +254,16 @@ export default function Patronize({ route, navigation }) {
 
     } else {
 
-        const url = monthly ? 
-        `https://www.mercadopago.com/mlb/debits/new?preapproval_plan_id=${selectedAmount.plan_id}` :
-        `${local}/payments/checkout/${animal.name}/${userData.email}/${animal.name}/${selectedAmount.value}`
+        const url = monthly ?
+            `https://www.mercadopago.com/mlb/debits/new?preapproval_plan_id=${selectedAmount.plan_id}` :
+            `${azure}/payments/checkout/${animal.name}/${userData.email}/${animal.name}/${selectedAmount.value}`
 
         return (
             <View style={{ flex: 1, justifyContent: 'center' }}>
-                <TouchableOpacity onPress={() => setShowCheckout(false)}><Text style={{ fontSize: 20, color: 'white' }}>{"<<"}</Text></TouchableOpacity>
-                <Title style={{ textAlign: 'center' }}>Pagamento do pedido</Title>
-
+                <Appbar.Header style={{ backgroundColor: "#3FB55D" }} dark={true} >
+                    <Appbar.BackAction onPress={() => setShowCheckout(false)} />
+                    <Appbar.Content title={`Apadrinhando ${animal.name}`} />
+                </Appbar.Header>
                 <WebView
                     source={{
                         //uri: `${local}/payments/checkout/${animal.name}/${userData.email}/${animal.name}/${selectedAmount}`,
