@@ -24,7 +24,7 @@ import {
 
 import BackArrow from '../../components/BackArrow';
 import { AuthContext } from '../../services/auth';
-import { local, heroku } from '../../constants/api_url.json';
+import { local, heroku, azure } from '../../constants/api_url.json';
 import { api_token } from '../../constants/token.json';
 
 export default function PatronizeList({ route, navigation }) {
@@ -35,9 +35,9 @@ export default function PatronizeList({ route, navigation }) {
     const [isNull, setIsNull] = useState(true);
 
     const getUserPatronizeList = () => {
-
+        console.log(`${azure}/users/${userData.id}/patronize`)
         try {
-            axios.get(`${local}/users/${userData.id}/patronize`, {
+            axios.get(`${azure}/users/${userData.id}/patronize`, {
                 headers: { Authorization: `Bearer ${api_token}` }
             })
                 .then((response) => {
@@ -84,7 +84,7 @@ export default function PatronizeList({ route, navigation }) {
 
     useEffect(() => {
         getUserPatronizeList();
-    })
+    }, [])
 
     return (
 
@@ -104,7 +104,7 @@ export default function PatronizeList({ route, navigation }) {
                 </Title>
 
                 <Caption>
-                    Você pode desativar apadrinhamentos
+                    Você pode desativar apadrinhamentos que são mensais
                 </Caption>
             </View>
             {
@@ -133,7 +133,7 @@ export default function PatronizeList({ route, navigation }) {
                                             title={`${item.animal_name}`}
                                             subtitle={`${item.company_name}`}
                                             left={(props) => <Avatar.Image size={40} source={{ uri: item.image_url }} style={{ backgroundColor: 'white' }} />}
-                                            right={(props) => <IconButton {...props} icon="close" color="red" onPress={() => { deactivatePatronize(item.id) }} />}
+                                            right={(props) => Boolean(Number(item.monthly)) ? <IconButton {...props} icon="close" color="red" onPress={() => { deactivatePatronize(item.id) }} /> : null}
                                         />
                                         <Divider />
                                         <Caption>Status: {item.status} </Caption>

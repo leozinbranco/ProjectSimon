@@ -7,9 +7,10 @@ export default StyleSheet.create({
     },
 
     bioCont:{
-        color: '#606060',
+        color: 'black',
         alignSelf:'center',
-        fontSize:15,
+        fontSize:13,
+        marginVertical: 10,
     },
 
     bioPetContainer: {
@@ -28,8 +29,8 @@ export default StyleSheet.create({
     textInfo: {
         color: '#606060',
         
-        fontSize: 14,
-        marginBottom: 10,
+        fontSize: 16,
+        marginVertical: 10,
         marginRight:10,
     },
 

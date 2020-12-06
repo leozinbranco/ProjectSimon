@@ -24,7 +24,7 @@ import Card from '../../components/Card';
 import Filter from '../../components/Filter/index';
 
 import { api_token } from '../../constants/token.json';
-import { local, heroku } from '../../constants/api_url.json'
+import { local, heroku, azure } from '../../constants/api_url.json'
 
 export default function Lista({ route, navigation }) {
     const [modalVisible, setModalVisible] = useState(false);
@@ -46,7 +46,7 @@ export default function Lista({ route, navigation }) {
     const getAnimals = async () => {
         try {
 
-            axios.get(`${local}/animals`, {
+            axios.get(`${azure}/animals`, {
                 headers: { Authorization: `Bearer ${api_token}` }
             })
                 .then((response) => {

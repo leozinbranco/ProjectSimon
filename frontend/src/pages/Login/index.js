@@ -12,7 +12,7 @@ import axios from 'axios'
 
 import Style from './style'
 
-import { local } from '../../constants/api_url.json'
+import { local, azure } from '../../constants/api_url.json'
 import { api_token } from '../../constants/token.json'
 
 import { AuthContext } from '../../services/auth';
@@ -33,7 +33,7 @@ export default function Login({ navigation }) {
 
         try {
             setLoading(true);
-            await axios.post(`${local}/auth`,
+            await axios.post(`${azure}/auth`,
                 {
                     email,
                     password

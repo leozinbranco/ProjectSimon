@@ -9,7 +9,7 @@ export default StyleSheet.create({
         },
         shadowOpacity: 1.50,
         shadowRadius: 4.65,
-        elevation: 8,
+        elevation: 0,
 
         backgroundColor: '#3FB55D',
         borderTopStartRadius: 20,

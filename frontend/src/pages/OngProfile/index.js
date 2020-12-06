@@ -18,13 +18,14 @@ import {
     Button,
     Title,
     Card,
+    Divider
 } from 'react-native-paper';
 
 
 import Style from './style';
 import { FontAwesome, FontAwesome5 } from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons';
-import { local, heroku } from '../../constants/api_url.json';
+import { local, heroku, azure } from '../../constants/api_url.json';
 import { api_token } from '../../constants/token.json';
 
 import axios from 'axios'
@@ -39,7 +40,7 @@ export default function OngProfile({ route, navigation, ongId }) {
     const getOng = async () => {
         try {
 
-            axios.get(`${local}/ongs/${ong_id}`, {
+            axios.get(`${azure}/ongs/${ong_id}`, {
                 headers: { Authorization: `Bearer ${api_token}` }
             })
                 .then((response) => {
@@ -86,7 +87,7 @@ export default function OngProfile({ route, navigation, ongId }) {
 
         getOng();
 
-        
+
     }, []);
 
     useEffect(() => {
@@ -105,8 +106,8 @@ export default function OngProfile({ route, navigation, ongId }) {
                     <Card>
 
                         <View style={Style.head}>
-                            <Avatar.Image size={130} style={{ alignSelf: 'center', marginBottom: 10 }}
-                                source={require('../../../assets/ong.png')}
+                            <Avatar.Image size={130} style={{ alignSelf: 'center', marginBottom: 10, backgroundColor: 'lightgrey' }}
+                                source={require('../../../assets/ong_example.png')}
                             />
 
                             <Title >
@@ -116,38 +117,27 @@ export default function OngProfile({ route, navigation, ongId }) {
 
                         <Card.Content>
 
-                            <View style={Style.bioPetContainer}>
-                                <Text style={Style.textInfo}>Biografia</Text>
-                                <Text style={Style.bioCont}>{ong.bio}</Text>
-                            </View>
 
-                            <Caption>Endereço</Caption>
+                            <Caption style={Style.textInfo}>Biografia</Caption>
+                            <Paragraph style={Style.bioCont}>{ong.bio}</Paragraph>
+
+                            <Divider />
+
+                            <Caption style={Style.textInfo}>Informações de contato</Caption>
+
+                            <Caption>
+                                Email 
+                            </Caption>
                             <Text>
-                                {`${address.logradouro}, ${address.bairro}, nº: ${ong.number}`}
+                                {ong.email}
                             </Text>
-                            <Paragraph>
-                                {`${address.cidade} -  ${address.estado}`}
-                            </Paragraph>
 
-                            <Paragraph>
-                                {`CEP • ${ong.cep}`}
-                            </Paragraph>
-
-                            <Caption>CNPJ</Caption>
-
-                            <Paragraph >
-                                {`${ong.cnpj}`}
-                            </Paragraph >
-
-                            <Caption>Contato</Caption>
-
-                            <Paragraph>
-                                {`Email • ${ong.email}`}
-                            </Paragraph>
-
-                            <Paragraph>
-                                {`Telefone • ${ong.whatsapp}`}
-                            </Paragraph>
+                            <Caption>
+                                Whatsapp ou telefone
+                            </Caption>
+                            <Text>
+                                {ong.whatsapp}
+                            </Text>
 
                             <Button
                                 icon="whatsapp"
@@ -158,6 +148,25 @@ export default function OngProfile({ route, navigation, ongId }) {
                             >
                                 Entrar em contato
                             </Button>
+
+                            <Caption style={Style.textInfo}>Endereço</Caption>
+                            <Paragraph >
+                                {`${address.logradouro}, ${address.bairro}, nº ${ong.number}`}
+                            </Paragraph>
+                            <Paragraph>
+                                {`${address.cidade} -  ${address.estado}`}
+                            </Paragraph>
+
+                            <Caption>
+                                {`CEP • ${ong.cep}`}
+                            </Caption>
+
+                            <Caption style={Style.textInfo}>CNPJ</Caption>
+
+                            <Caption >
+                                {`${ong.cnpj}`}
+                            </Caption >
+
 
 
                         </Card.Content>
