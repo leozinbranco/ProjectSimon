@@ -24,6 +24,7 @@ import { local, heroku, azure } from '../../constants/api_url.json';
 import { api_token } from '../../constants/token.json';
 import { AuthContext } from '../../services/auth';
 import { WebView } from 'react-native-webview';
+import SuccessModal from '../../components/SuccessModal';
 
 import BackArrow from '../../components/BackArrow';
 import Style from './style'
@@ -38,6 +39,8 @@ export default function Patronize({ route, navigation }) {
     const [ongBankData, setOngBankData] = useState({});
     const [showCheckout, setShowCheckout] = useState(false);
     const [monthly, setMonthly] = useState(false);
+    const [successModalVisibility, setSuccessModalVisibility] = useState(false);
+    const [payment_card, setPaymentCard] = useState(route.params.selected_card);
 
     const [amounts, setAmounts] = useState([
         { id: 1, label: "R$ 10,00", value: 10, plan_id: '2c93808475dd2f560175dd84d4f001fb' },
@@ -51,10 +54,12 @@ export default function Patronize({ route, navigation }) {
         getOngBankData();
     }, [])
 
-    const [payment_card, setPaymentCard] = useState(route.params.selected_card);
+    const closeSuccessModal = () => {
+        setSuccessModalVisibility(false)
+        navigation.pop()
+    }
 
     const savePatronize = async () => {
-
 
         const body = {
             id_user: userData.id,
@@ -65,8 +70,6 @@ export default function Patronize({ route, navigation }) {
             monthly: monthly,
             id_animal: animal.id
         }
-        console.log(JSON.stringify(body))
-        console.log("Mandando para a api")
 
         try {
             axios.post(`${azure}/patronize`,
@@ -75,8 +78,8 @@ export default function Patronize({ route, navigation }) {
                     headers: { Authorization: `Bearer ${api_token}` }
                 })
                 .then((response) => {
-                    alert('Apadrinhamento feito com sucesso!')
-                    navigation.pop()
+                    //alert('Apadrinhamento feito com sucesso!')
+                    setSuccessModalVisibility(true)
                 })
                 .catch((e) => {
                     console.log(e)
@@ -114,11 +117,7 @@ export default function Patronize({ route, navigation }) {
                 headers: { Authorization: `Bearer ${api_token}` }
             })
                 .then((response) => {
-                    //console.log("Response>>> : " + JSON.stringify(response.data));
                     setOngBankData(response.data);
-                    //console.log(animalsData);
-                    console.log(response.data);
-
                 })
                 .catch((e) => {
                     alert("Ocorreu um erro !  >> " + e);
@@ -235,8 +234,8 @@ export default function Patronize({ route, navigation }) {
 
                             <Card style={{ borderWidth: 0, marginVertical: 10}}>
                                 <Card.Title
-                                    title="Dúvidas?"
-                                    left={(props) => <Avatar.Icon size={42} icon="help-circle" style={{ backgroundColor: 'purple' }} />}
+                                    subtitle="Dúvidas?"
+                                    left={(props) => <Avatar.Icon size={42} icon="help-circle" style={{ backgroundColor: 'white' }} />}
                                 />
                             </Card>
 
@@ -249,6 +248,8 @@ export default function Patronize({ route, navigation }) {
                     </ScrollView>
 
                 </View>
+
+                <SuccessModal visible={successModalVisibility} closeModal={closeSuccessModal}/>
 
             </SafeAreaView>)
 
