@@ -22,12 +22,12 @@ export default function SuccessModal({ visible, closeModal }) {
             <View style={{ backgroundColor: 'white', width: '100%', height: '40%', paddingTop: 20 }}>
 
 
-                <Caption style={{ fontWeight: 'bold', textAlign: 'center' }}>Obrigado pelo seu apoio!
+                <Caption style={{ fontWeight: 'bold', textAlign: 'center', color:"darkgrey" }}>Obrigado pelo seu apoio!
                 Você acaba de garantir não só ao bixinho apadrinhado mas à todos os animais resgatados pela ONG,
                 alimento, medicamentos, vacinas e materias de limpeza para que os eles fiquem feliz e saudaveis
                  </Caption>
 
-                 <Button  mode="outlined" onPress={() => closeModal()} color="green" style={{margin: 10}}>
+                 <Button  mode="outlined" onPress={() => closeModal()} color="green" style={{margin: 10, borderColor: "darkgrey"}}>
                     UHUU! 
                  </Button>
 
