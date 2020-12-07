@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/leozinbranco/tcc/master/frontend/assets/logo.png?token=AHEGMDQAIX24DFFFT4ZBFXS7ZPS5A" alt="logo" style="background-color:  #3FB55D;"/>
+  <img src="https://raw.githubusercontent.com/leozinbranco/tcc/master/backend/src/assets/header.jpg" alt="logo" style="background-color:  #3FB55D;"/>
 </p>
 
 # 🐱 Projeto SIMON
