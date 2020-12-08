@@ -43,9 +43,9 @@ export default function Patronize({ route, navigation }) {
     const [payment_card, setPaymentCard] = useState(route.params.selected_card);
 
     const [amounts, setAmounts] = useState([
-        { id: 1, label: "R$ 10,00", value: 10, plan_id: '2c93808475dd2f560175dd84d4f001fb' },
-        { id: 2, label: "R$ 20,00", value: 20, plan_id: '2c93808475c2a6d10175dde505d641cd' },
-        { id: 3, label: "R$ 30,00", value: 30, plan_id: '2c93808475c2a6d10175dde66a4741ce' },
+        { id: 1, label: "R$ 10,00", value: 10, plan_id: '2c93808476401a1301764338e8ef01c3' },
+        { id: 2, label: "R$ 20,00", value: 20, plan_id: '2c93808476401a130176433993f301c5' },
+        { id: 3, label: "R$ 30,00", value: 30, plan_id: '2c938084762e304401764339b0070fb7' },
     ])
 
     useEffect(() => { setPaymentCard(route.params.selected_card) }, [route.params.selected_card])
@@ -63,13 +63,15 @@ export default function Patronize({ route, navigation }) {
 
         const body = {
             id_user: userData.id,
-            user_bank_data: "",
+            user_bank_data: "Pago via Mercado Pago - Plano" + selectedAmount.plan_id,
             id_ong: animal.ong_id,
-            ong_bank_data: `${ongBankData.company_name} CNPJ: ${ongBankData.cnpj} Agency: ${ongBankData.agency_number} Account number: ${ongBankData.agency_number}`,
+            ong_bank_data: `${ongBankData.company_name} CNPJ: ${ongBankData.cnpj} `,
             value: selectedAmount.value,
             monthly: monthly,
             id_animal: animal.id
         }
+
+        console.log(body)
 
         try {
             axios.post(`${azure}/patronize`,
@@ -81,9 +83,9 @@ export default function Patronize({ route, navigation }) {
                     //alert('Apadrinhamento feito com sucesso!')
                     setSuccessModalVisibility(true)
                 })
-                .catch((e) => {
-                    console.log(e)
-                    alert("Ocorreu um erro !  >> " + e);
+                .catch((error) => {
+                    console.log(error.response.data)
+                    alert("Ocorreu um erro !" + error.response.data);
                 })
         }
         catch (e) {
@@ -99,6 +101,10 @@ export default function Patronize({ route, navigation }) {
                 savePatronize()
                 //alert.alert("Pagamento aprovado!", `Recebemos seu pagamento de ${selectedAmount} `)
                 break;
+            case 'Pronto! Você já assinou':
+                setShowCheckout(false)
+                savePatronize();
+                break;
             case 'Pending':
                 setShowCheckout(false)
                 Alert.alert("Pagamento pendente!", `Seu pagamento de ${selectedAmount} está pendente de processamento, assim que for processado seguiremos com o pedido!`)
@@ -108,6 +114,8 @@ export default function Patronize({ route, navigation }) {
                 Alert.alert("Pagamento não aprovado!", 'Verifique os dados e tente novamente')
                 break;
         }
+
+
     }
 
     const getOngBankData = async () => {
@@ -155,7 +163,7 @@ export default function Patronize({ route, navigation }) {
 
 
                             <View style={Style.section}>
-                                <Caption >{`Apadrinhando ${animal.name}, alem de estar ajudando-o, você estará ajudando a ONG`}
+                                <Caption >{`Apadrinhando ${animal.name}, alem de estar ajudando-o, você estará ajudando a ONG `}
                                     {`${animal.company_name} `} a manter seus outros bixinhos felizes e saudaveis!
                             </Caption>
                             </View>
@@ -261,13 +269,14 @@ export default function Patronize({ route, navigation }) {
 
         return (
             <View style={{ flex: 1, justifyContent: 'center' }}>
+
                 <Appbar.Header style={{ backgroundColor: "#3FB55D" }} dark={true} >
                     <Appbar.BackAction onPress={() => setShowCheckout(false)} />
                     <Appbar.Content title={`Apadrinhando ${animal.name}`} />
                 </Appbar.Header>
+
                 <WebView
                     source={{
-                        //uri: `${local}/payments/checkout/${animal.name}/${userData.email}/${animal.name}/${selectedAmount}`,
                         uri: url,
                         headers: { "Authorization": `Bearer ${api_token}` }
                     }}

@@ -82,6 +82,7 @@ export default function Home({ navigation }) {
 
     return (
         <SafeAreaView style={Style.container}>
+
             <ScrollView >
 
                 <View style={Style.headContainer}>

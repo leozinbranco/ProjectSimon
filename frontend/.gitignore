@@ -12,4 +12,4 @@ src/constants/token.json
 # macOS
 .DS_Store
 src/constants/api_url.json
-backend/.env
+

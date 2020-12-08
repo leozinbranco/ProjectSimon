@@ -80,8 +80,8 @@ export default function PetProfile({ route, navigation }) {
     };
 
     return (
-        <SafeAreaView style={{backgroundColor: "white"}}>
-            <StatusBar hidden={true}/>
+        <SafeAreaView style={{ backgroundColor: "white" }}>
+            <StatusBar hidden={true} />
             <ScrollView>
 
                 <ImageBackground style={Style.image} source={{ uri: pet.image_url }}>
@@ -152,7 +152,6 @@ export default function PetProfile({ route, navigation }) {
                             <Card.Actions>
 
                                 {pet.available_for_patronize == 'S' ?
-                                    <View style={Style.buttonContainer}>
                                         <Button
                                             icon="crown"
                                             mode="contained"
@@ -164,24 +163,24 @@ export default function PetProfile({ route, navigation }) {
                                         >
                                             Apadrinhar
                                     </Button>
-                                    </View>
+    
                                     : null
                                 }
 
                                 {pet.available_for_adoption == 'S' ?
 
-                                    <View style={Style.buttonContainer}>
-                                        <Button
-                                            icon="whatsapp"
-                                            mode="outlined"
-                                            onPress={() => sendWhatsApp()}
-                                            color="darkgreen"
-                                            style={Style.button}
-                                        >
-                                            Adotar
+
+                                    <Button
+                                        icon="whatsapp"
+                                        mode="outlined"
+                                        onPress={() => sendWhatsApp()}
+                                        color="darkgreen"
+                                        style={Style.button}
+                                    >
+                                        Adotar
                                     </Button>
 
-                                    </View>
+
 
 
                                     : null

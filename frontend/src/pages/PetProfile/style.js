@@ -115,8 +115,9 @@ export default StyleSheet.create({
 
     },
     button: {
-        width: '50%',
+        width: '40%',
         marginBottom: 10,
+        marginHorizontal: 10
     }
     
     

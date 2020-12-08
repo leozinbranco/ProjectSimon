@@ -33,6 +33,8 @@ export default function PatronizeList({ route, navigation }) {
 
     const [pratonizeList, setPratonizeList] = useState([])
     const [isNull, setIsNull] = useState(true);
+    const [isRefreshing, setIsRefreshing] = useState(false);
+
 
     const getUserPatronizeList = () => {
         console.log(`${azure}/users/${userData.id}/patronize`)
@@ -125,6 +127,8 @@ export default function PatronizeList({ route, navigation }) {
                         <FlatList
                             style={{ width: '97%', margin: 5, marginBottom: 110 }}
                             data={pratonizeList}
+                            refreshing={isRefreshing}
+                            onRefresh={() => getUserPatronizeList()}
                             renderItem={({ item }) => (
                                 <View>
 
