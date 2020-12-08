@@ -38,7 +38,8 @@
     "react-native-snap-carousel": "^3.9.1",
     "react-native-web": "~0.13.7",
     "react-native-webview": "10.7.0",
-    "react-navigation-transitions": "^1.0.12"
+    "react-navigation-transitions": "^1.0.12",
+    "reanimated-bottom-sheet": "^1.0.0-alpha.22"
   },
   "devDependencies": {
     "@babel/core": "^7.8.6",

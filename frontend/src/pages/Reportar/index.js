@@ -10,6 +10,8 @@ import {
     ActivityIndicator,
     TouchableOpacity,
     Image,
+    ImageBackground,
+    Linking,
 } from 'react-native';
 import {
     Paragraph,
@@ -22,6 +24,7 @@ import {
     Title,
     Colors,
     Switch,
+    FAB,
 } from 'react-native-paper';
 import Style from './style'
 import MapView, { PROVIDER_GOOGLE, Marker, Callout, Circle } from 'react-native-maps';
@@ -33,42 +36,48 @@ import axios from 'axios';
 import { AntDesign } from '@expo/vector-icons';
 
 import { local } from '../../constants/api_url.json'
+import { azure } from '../../constants/api_url.json'
 import { api_token } from '../../constants/token.json'
 import { AuthContext } from '../../services/auth';
+import Animated from 'react-native-reanimated';
+import BottomSheet from 'reanimated-bottom-sheet';
 
 export default function Reportar({ navigation }) {
 
-    //const [mapRegion, setMapRegion] = useState({});
-    //const [latitude, setLatitude] = useState({});
-    //const [longitude, setLongitude] = useState({});
+
     const [region, setRegion] = useState({});
     const [loading, setLoading] = useState(true);
     const [reports, setReports] = useState([]);
     const [visible, setVisible] = useState(false);
+    const [user, setUser] = useState({});
+    const [selectedReport, setSelectedReport] = useState({});
 
     const mapRef = useRef(null);
     const markerRef = useRef(null);
-    const carouselRef = useRef(null);
+    const sheetRef = useRef(null);
 
-    //const [coords, setCoords] = useState({});
-    //const [hasLocationPermissions, setHasLocationPermissions] = useState(false);
-    //const [locationResult, setLocationResult] = useState({});
+    const getWhatsapp = async () => {
+        try {
+            axios.get(`${local}/users/${selectedReport.id_user}`, {
+                headers: { Authorization: `Bearer ${api_token}` }
+            })
+                .then((response) => {
+                    setUser(response.data);
+                })
+                .catch((e) => {
+                    alert("Ocorreu um erro !  >> " + e /*e.response.data.message*/);
+                })
+        }
+        catch (e) {
+            console.log(e);
+        }
+
+    };
+
     useEffect(() => {
         _getLocationAsync();
-        //alert(JSON.stringify(latitude));
-        //alert(JSON.stringify(longitude));
+        sheetRef.current.snapTo(2)
     }, []);
-
-    /*useEffect(() => {
-        renderCarousel();
-    })*/
-
-
-
-    /*_handleMapRegionChange = mapRegion => {
-        console.log(mapRegion);
-        setMapRegion({ mapRegion });
-    };*/
 
     const _getReportsLocation = async () => {
         try {
@@ -87,6 +96,11 @@ export default function Reportar({ navigation }) {
         }
     }
 
+    function sendWhatsApp() {
+        var message = "Escreva aqui sua mensagem!"
+        
+        Linking.openURL(`whatsapp://send?phone${user.whatsapp}&text=${message}`);
+    }
 
     const _getLocationAsync = async () => {
         _getReportsLocation();
@@ -111,70 +125,56 @@ export default function Reportar({ navigation }) {
 
     };
 
-    onCarouselItemChange = (index) => {
-        
-        mapRef.current.animateToRegion({
-            latitude: reports[index].map_lati - 0.01,
-            longitude: reports[index].map_long,
-            latitudeDelta: 0.0922,
-            longitudeDelta: 0.0421
-        })
 
-        //reports[index].current.showCallout();
-    };
-
-    onMarkerPressed = (index) => {
+    const onMarkerPressed = (report) => {
         setVisible(true);
-
-        mapRef.current.animateToRegion({
-            latitude: reports[index].map_lati - 0.01,
-            longitude: reports[index].map_long,
-            latitudeDelta: 0.0922,
-            longitudeDelta: 0.0421
-        });
-
-        
-  
-        //carouselRef.current.snapToItem(index);
+        setSelectedReport(report)
+        getWhatsapp();
+        sheetRef.current.snapTo(0)
     };
 
-    const renderCarouselItem = ({ item }) => {
-        return (
-            <View style={styles.cardContainer} key={`id_report_${item.id}`}>
+    const renderContent = () => (
+        <View
+            style={{
+                backgroundColor: 'white',
+                height: 500,
+                padding: 10,
+                borderRadius: 20,
+            }}
+        >
+            <View style={{ alignItems: 'center' }}>
+                <AntDesign name="minus" size={24} color="black" />
+            </View>
 
-                <View style={{ position: 'relative', width: '100%', flexDirection: 'row' }}>
-                    <Title style={{ alignSelf: 'center' }}>
-                        {item.title}
-                    </Title>
-
-                    <View style={{ position: 'absolute', width: '100%', flexDirection: 'row', justifyContent: 'flex-end', marginTop: 10 }}>
-                        <TouchableOpacity onPress={() => { setVisible(false) }}   >
-                            <AntDesign name="close" size={20} color="black" />
-                        </TouchableOpacity>
-                    </View>
-
-                </View>
-
-                <Caption>{item.desc}</Caption>
-                <Divider />
-                <View style={{ margin: 10 }}>
-                    <Image source={require('../../../assets/gato.png')} style={styles.imageCarousel} />
-                </View>
-
-                <Button
-                    onPress={() => alert("apertou")}
-                    mode="contained"
-                    style={styles.buttonCarousel}
-
-                >
-                    Contatar
-                </Button>
-
+            <View style={{ position: 'relative', width: '100%', flexDirection: 'row', borderRadius: 20 }}>
+                <ImageBackground style={styles.image} source={require('../../../assets/gato.png')}>
+                </ImageBackground>
 
 
             </View>
-        );
-    }
+
+            <Title style={{ alignSelf: 'flex-start', margin: 10 }}>
+                {selectedReport.title}
+            </Title>
+            <Divider />
+            <Caption style={{ margin: 10, width: '100%' }}> {selectedReport.desc}</Caption>
+
+            <View style={{ height: 120, justifyContent: 'center' }}>
+                <Button
+                    icon="whatsapp"
+                    mode="outlined"
+                    onPress={() => sendWhatsApp()}
+                    color="red"
+                    style={styles.buttonCarousel}
+                >
+                    Entrar em contato
+                                    </Button>
+            </View>
+        </View>
+    );
+
+
+
 
     return (
         <SafeAreaView style={styles.screen}>
@@ -197,19 +197,19 @@ export default function Reportar({ navigation }) {
                                 showsMyLocationButton={true}
 
                             >
-                                
+
 
 
 
                                 {
-                                    reports.map((report, index) => {
+                                    reports.map((report) => {
                                         //alert(JSON.stringify(report));
                                         return (
                                             <View key={"id_report_" + report.id}>
                                                 <Circle
                                                     center={{ latitude: Number(report.map_lati), longitude: Number(report.map_long) }}
                                                     radius={500}
-                                                    fillColor="rgba(193,66,66,0.5)"
+                                                    fillColor="rgba(193,66,60,0.5)"
                                                     key={"id_report_" + report.id}
                                                     strokeWidth={0}
                                                 ></Circle>
@@ -218,11 +218,11 @@ export default function Reportar({ navigation }) {
                                                     coordinate={{ latitude: Number(report.map_lati), longitude: Number(report.map_long) }}
                                                     image={require('../../../assets/rescue.png')}
                                                     title={report.title}
-                                                    onPress={() => onMarkerPressed(index)}
+                                                    onPress={() => onMarkerPressed(report)}
 
                                                 >
                                                     <Callout>
-                                                        <Text>An Interesting city</Text>
+                                                        <Text>{report.title}</Text>
                                                     </Callout>
                                                 </Marker>
 
@@ -239,25 +239,36 @@ export default function Reportar({ navigation }) {
 
                             </MapView>
 
-                            {
-                                visible ? (
-                                    <Carousel
-                                        ref={carouselRef}
-                                        data={reports}
-                                        renderItem={renderCarouselItem}
-                                        sliderWidth={Dimensions.get('window').width}
-                                        itemWidth={300}
-                                        containerCustomStyle={styles.carousel}
-                                        onSnapToItem={(index) => onCarouselItemChange(index)}
-                                        removeClippedSubviews={false}
-                                    />
-                                )
-                                    : null
-                            }
+                            <View style={styles.containerFab}>
+                                <FAB
+                                    color={'white'}
+                                    label={'reportar'}
+                                    style={styles.fab}
+                                    small
+                                    icon="alert-circle-outline"
+                                    onPress={() => navigation.navigate('Reportar um animal')}
+                                />
+                            </View>
+
+
+
+
+
+
+
+
 
                         </View>
                     )
             }
+            <BottomSheet
+                ref={sheetRef}
+                snapPoints={[400, 350, 0, 0]}
+                borderRadius={10}
+                renderContent={renderContent}
+                enabledInnerScrolling={false}
+                enabledBottomInitialAnimation={true}
+            />
 
 
 
@@ -269,8 +280,30 @@ export default function Reportar({ navigation }) {
 }
 
 const styles = StyleSheet.create({
+    image: {
+        justifyContent: 'flex-end',
+        resizeMode: 'contain',
+        width: '100%',
+        height: 200,
+        alignSelf: 'center',
+        backgroundColor: 'grey',
+        flexDirection: 'column',
+        borderRadius: 20,
+
+    },
+    containerFab: {
+
+        position: 'absolute',
+        alignItems: 'center',
+        right: 15,
+        top: 30
+    },
+    fab: {
+        backgroundColor: 'red',
+
+    },
     iconButton: {
-        marginLeft:10,
+        marginLeft: 10,
     },
     screen: {
         width: Dimensions.get('window').width,
@@ -310,9 +343,7 @@ const styles = StyleSheet.create({
         alignSelf: 'center'
     },
     buttonCarousel: {
-        position: 'absolute',
-        bottom: 15,
-        backgroundColor: 'red',
+        bottom: 0,
         height: 30,
         width: 250,
         alignSelf: 'center',
