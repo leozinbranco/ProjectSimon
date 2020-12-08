@@ -6,7 +6,6 @@ import ImagePicker from '../../components/ImgPicker';
 import getRandomAnimalImage from '../../utils/RandomAnimalImage'
 import SelectAnimalTypes from '../../components/AnimalTypes'
 import { local } from '../../constants/api_url.json'
-import { azure } from '../../constants/api_url.json'
 import { api_token } from '../../constants/token.json'
 
 import axios from 'axios';
@@ -62,7 +61,7 @@ export default function PetRegister({ navigation }) {
     }
 
     const getAnimalTypes = () => {
-        axios.get(`${azure}/animals_types`, { headers: { Authorization: `Bearer ${api_token}` } }
+        axios.get(`${local}/animals_types`, { headers: { Authorization: `Bearer ${api_token}` } }
         ).then(result => {
             setAnimalTypes(result.data)
         }).catch(err => console.log(err.message));

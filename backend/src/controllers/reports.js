@@ -21,7 +21,6 @@ module.exports = {
     },
 
     async create (request, response){
-        console.log("entrouApi")
         try{
             const params = {
                 title,

@@ -7,7 +7,6 @@ import getRandomAnimalImage from '../../utils/RandomAnimalImage'
 import SelectAnimalTypes from '../../components/AnimalTypes'
 import * as Location from 'expo-location';
 import { local } from '../../constants/api_url.json'
-import { azure } from '../../constants/api_url.json'
 import { api_token } from '../../constants/token.json'
 import Geocoder from 'react-native-geocoding';
 import { API_GOOGLE_KEY } from '../../constants/token.json'
@@ -20,12 +19,8 @@ import Style from './style'
 export default function ReportPage({ navigation }) {
 
     const { userData } = React.useContext(AuthContext);
-    
-    const [animalTypesModal, setAnimalTypesModal] = useState(false)
-    const [animalTypes, setAnimalTypes] = useState('')
-    const [animalType, setAnimalType] = useState('')
-    const [animalTypeId, setAnimalTypeId] = useState(0)
-    const [image, setImage] = useState(' ')
+
+    const [image, setImage] = useState('')
     const [title, setTitle] = useState('')
     const [description, setDescription] = useState('')
     const [priority, setPriority] = useState('')
@@ -43,11 +38,12 @@ export default function ReportPage({ navigation }) {
 
         return {
             title,
-            desc: description,
-            id_animal_type: animalTypeId,
+            description,
+            register_date: new Date().getDate(),
+            description,
             status: 'A',
-            map_long: long,
-            map_lati: lat,
+            long,
+            lat,
             priority
         }
 
@@ -62,30 +58,13 @@ export default function ReportPage({ navigation }) {
                 setAddress(json.results[0].formatted_address);
                 setVisible(true);
             })
-                .catch(error => { 
-                    //alert(JSON.stringify(error))
-                    alert("Ocorreu um erro ao verificar o endereço! Tente algo mais específico.");
+                .catch(error => { //console.warn(error)
+                    alert(JSON.stringify(error))
+                    //alert("Ocorreu um erro ao verificar o endereço! Tente algo mais específico.");
                 }
             )
 
     };
-
-    const getAnimalTypes = () => {
-        axios.get(`${azure}/animals_types`, { headers: { Authorization: `Bearer ${api_token}` } }
-        ).then(result => {
-            setAnimalTypes(result.data)
-        }).catch(err => console.log(err.message));
-    }
-
-    const toggleSelectAnimalTypeModal = () => {
-        setAnimalTypesModal(!animalTypesModal)
-    }
-
-    const setAnimalTypeHandler = (selected_type) => {
-        setAnimalType(selected_type.type_name)
-        setAnimalTypeId(selected_type.id)
-        toggleSelectAnimalTypeModal()
-    }
 
     const _getLocationAsync = async () => {
         let gpsServiceStatus = await Location.hasServicesEnabledAsync();
@@ -103,18 +82,14 @@ export default function ReportPage({ navigation }) {
 
     };
 
-    const registerReport = async () => {
-        console.log("chamou")
-        try{
-            await axios.post(`${local}/reports`, parseBody(), { headers: { Authorization: `Bearer ${api_token}` } })
-                .then(result => {
-                    console.log(result.data)
-                    alert("Sucesso! Reporte cadastrado com sucesso!");
-                })
-                .catch(err => console.log(err));
-        }catch(e){
-            console.log(e);
-        }
+    const regsisterReport = async () => {
+        hideDialog()
+        await axios.post(`${local}/reports`, parseBody(), { headers: { Authorization: `Bearer ${api_token}` } })
+            .then(result => {
+                alert(result)
+                alert("Sucesso! Reporte cadastrado com sucesso!");
+            })
+            .catch(err => alert(err));
     }
 
     const renderDialog = () => {
@@ -131,7 +106,7 @@ export default function ReportPage({ navigation }) {
                     </Dialog.Content>
                     <Dialog.Actions>
                         <Button onPress={() => { setAddress(''); hideDialog() }}>Cancel</Button>
-                        <Button onPress={() => { registerReport(); hideDialog() }}>Ok</Button>
+                        <Button onPress={() => regsisterReport()}>Ok</Button>
                     </Dialog.Actions>
                 </Dialog>
             </Portal>
@@ -142,7 +117,6 @@ export default function ReportPage({ navigation }) {
 
     const fetchData = async () => {
         setImage(await getRandomAnimalImage())
-        getAnimalTypes()
     }
 
     useEffect(() => {
@@ -154,7 +128,6 @@ export default function ReportPage({ navigation }) {
         <SafeAreaView>
             <ScrollView>
 
-            <SelectAnimalTypes visible={animalTypesModal} selectedTypeHandler={setAnimalTypeHandler} data={animalTypes} closeModal={toggleSelectAnimalTypeModal} />
 
                 <ImageBackground style={Style.image} source={{ uri: image }}>
                     <ImagePicker style={{ opacity: 0 }} />
@@ -189,19 +162,7 @@ export default function ReportPage({ navigation }) {
                     </Card.Content>
                 </Card>
                 <Card>
-                <Divider />
-                    <Card.Content>
-                        <Caption style={{marginTop:10}}>Tipo do animal</Caption>
-                        <Button
-                            style={{marginBottom:20, marginTop:10}}
-                            mode="outlined"
-                            onPress={() => toggleSelectAnimalTypeModal()}
-                        >
-                            {animalType || 'Selecione um tipo'}
-                        </Button>
-                    </Card.Content> 
-                    
-                    <Divider />
+
                     <Card.Content>
                         <Caption>Prioridade</Caption>
                         <RadioButton.Group onValueChange={newValue => setPriority(newValue)} value={priority}>
