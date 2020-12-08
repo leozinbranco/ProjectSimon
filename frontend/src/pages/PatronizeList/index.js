@@ -146,12 +146,7 @@ export default function PatronizeList({ route, navigation }) {
                                         <Caption>ONG {item.ong_bank_data} </Caption>
                                     </Card>
 
-
-
-                                </View>
-
-
-
+                                    </View>
 
 
                             )}

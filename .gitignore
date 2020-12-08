@@ -1,2 +1,4 @@
 node_modules/
 .expo
+backend/knexfile.js
+backend/.env

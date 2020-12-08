@@ -1,4 +1,5 @@
 // Update with your config settings.
+const env = require('dotenv').config()
 
 module.exports = {
   
@@ -6,10 +7,10 @@ module.exports = {
   development: {
     client: 'mssql',
     connection: {
-      host : 'zwicky18.database.windows.net',
-      user : 'adm',
-      password : 'Cotuca@Senha',
-      database : 'andromeda'
+      host : process.env.DB_HOST,
+      user : process.env.DB_USER,
+      password : process.env.DB_PASS,
+      database : process.env.DB_DB
     },
     pool: {
       min: 2,
@@ -20,60 +21,5 @@ module.exports = {
     },
     useNullAsDefault: true,
     
-  },
-  /*
-  staging: {
-    client: 'mssql',
-    connection: {
-      host : 'zwicky18.database.windows.net',
-      user : 'adm',
-      password : 'Cotuca@Senha',
-      database : 'andromeda'
-    },
-    pool: {
-      min: 2,
-      max: 10
-    },
-    migrations: {
-      tableName: 'knex_migrations'
-    },
-    useNullAsDefault: true
-  },
-  
-
-  staging: {
-    client: 'postgresql',
-    connection: {
-      database: 'my_db',
-      user:     'username',
-      password: 'password'
-    },
-    pool: {
-      min: 2,
-      max: 10
-    },
-    migrations: {
-      tableName: 'knex_migrations'
-    }
-  },
-
-
- 
-  
-  production: {
-    client: 'postgresql',
-    connection: {
-      database: 'my_db',
-      user:     'username',
-      password: 'password'
-    },
-    pool: {
-      min: 2,
-      max: 10
-    },
-    migrations: {
-      tableName: 'knex_migrations'
-    }
   }
-  */
-};
+}
