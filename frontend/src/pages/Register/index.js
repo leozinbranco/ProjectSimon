@@ -9,6 +9,7 @@ import {
     TouchableOpacity,
     Image
 } from 'react-native';
+import { Caption } from 'react-native-paper'
 
 import Style from './style'
 
@@ -25,14 +26,14 @@ export default function Register({ navigation }) {
                         <Image
                             source={require('../../../assets/person.png')}
                         />
-                        <Text> Pessoa física </Text>
+                        <Caption> Pessoa física </Caption>
                 </TouchableOpacity>
 
                 <TouchableOpacity style={Style.button} onPress={() => navigation.navigate('OngRegistration')}>
                         <Image
                             source={require('../../../assets/ong.png')}
                         />
-                        <Text> ONG </Text>
+                        <Caption> ONG </Caption>
                 </TouchableOpacity>
 
             </View>

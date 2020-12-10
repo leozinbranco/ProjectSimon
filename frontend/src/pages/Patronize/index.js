@@ -205,7 +205,7 @@ export default function Patronize({ route, navigation }) {
                             <Caption>Continuar a apadrinhar esse animal todo mês a partir de hoje</Caption>
 
 
-                            {/*  <View style={Style.section}>
+                              <View style={Style.section}>
                                 <Paragraph>Escolha um cartão de crédito</Paragraph>
 
 
@@ -219,7 +219,7 @@ export default function Patronize({ route, navigation }) {
                                 </View> 
 
                             </View>
-                        */}
+                        
 
 
 

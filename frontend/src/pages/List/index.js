@@ -39,8 +39,6 @@ export default function Lista({ route, navigation }) {
 
     useEffect(() => {
         getAnimals();
-        console.log(navigation)
-        console.log(route)
     }, []);
 
     const getAnimals = async () => {

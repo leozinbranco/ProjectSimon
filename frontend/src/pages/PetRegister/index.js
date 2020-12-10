@@ -53,7 +53,7 @@ export default function PetRegister({ navigation }) {
     }
 
     const registerPet = async () => {
-        await axios.post(`${local}/animals`, parseBody(), { headers: { Authorization: `Bearer ${api_token}` }})
+        await axios.post(`${azure}/animals`, parseBody(), { headers: { Authorization: `Bearer ${api_token}` }})
         .then(result => {
             navigation.pop();
             alert("Sucesso! Animal cadastrado com sucesso!");

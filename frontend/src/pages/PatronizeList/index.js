@@ -64,7 +64,7 @@ export default function PatronizeList({ route, navigation }) {
 
         try {
 
-            axios.delete(`${local}/patronize/${id}/deactivate`, {
+            axios.delete(`${azure}/patronize/${id}/deactivate`, {
                 headers: { Authorization: `Bearer ${api_token}` }
             })
                 .then((response) => {

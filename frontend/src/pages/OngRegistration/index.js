@@ -13,7 +13,7 @@ import axios from 'axios';
 import ImagePicker from '../../components/ImgPicker';
 import DateTimePicker from '@react-native-community/datetimepicker';
 import { Feather, FontAwesome, AntDesign } from '@expo/vector-icons';
-
+import { azure } from '../../constants/api_url.json'
 import Style from './style';
 import { api_token } from '../../constants/token.json'
 
@@ -45,6 +45,7 @@ export default function Register({ navigation }) {
     const [number, setNumber] = useState('');
     const [cnpj, setCNPJ] = useState('');
     const [birthdate, setBirthdate] = useState(new Date(1598051730000));
+    
 
     const [showDatePicker, setShowDatePicker] = useState(false);
 
@@ -58,7 +59,7 @@ export default function Register({ navigation }) {
     const createAccount = async () => {
 
         try {
-            await axios.post('https://api-tcc-simon.herokuapp.com/ongs', {
+            await axios.post(`${azure}/ongs`, {
                 name,
                 company_name: companyName,
                 email,

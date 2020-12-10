@@ -58,7 +58,7 @@ export default function Reportar({ navigation }) {
 
     const getWhatsapp = async () => {
         try {
-            axios.get(`${local}/users/${selectedReport.id_user}`, {
+            axios.get(`${azure}/users/${selectedReport.id_user}`, {
                 headers: { Authorization: `Bearer ${api_token}` }
             })
                 .then((response) => {
@@ -81,7 +81,7 @@ export default function Reportar({ navigation }) {
 
     const _getReportsLocation = async () => {
         try {
-            await axios.get(`${local}/reports`,
+            await axios.get(`${azure}/reports`,
                 {
                     headers: { Authorization: `Bearer ${api_token}` }
                 }).then((response) => {

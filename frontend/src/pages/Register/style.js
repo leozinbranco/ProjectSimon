@@ -18,15 +18,15 @@ export default StyleSheet.create({
 
     },
     button: {
-        shadowColor: "#000",
+        shadowColor: "black",
         shadowOffset: {
-            width: 0,
-            height: 4,
+            width: 1,
+            height: 1,
         },
         shadowOpacity: 0.30,
-        shadowRadius: 4.65,
+        shadowRadius: 1,
 
-        elevation: 8,
+        elevation: 4,
         borderWidth: 1,
         borderRadius: 20,
         borderColor: 'transparent',
@@ -37,6 +37,7 @@ export default StyleSheet.create({
         justifyContent: 'center',
         alignItems: "center",
         margin: 10,
+        marginBottom: 20,
         backgroundColor: '#DEDEDE'
     },
     title: {

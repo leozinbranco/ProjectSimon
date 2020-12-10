@@ -17,6 +17,7 @@ import {
     Button,
     Card,
     IconButton,
+    Title
 } from 'react-native-paper';
 
 import BackArrow from '../../components/BackArrow';
